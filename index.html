@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finca BIO MASSA - Agriculture Durable</title>
+    <title>Finca BIO MASSA - Enregistrement des Agriculteurs</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -311,6 +311,44 @@
             text-decoration: underline;
         }
         
+        .farmers-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .farmers-table th, .farmers-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #D7CCC8;
+        }
+        
+        .farmers-table th {
+            background: #8D6E63;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .farmers-table tr:nth-child(even) {
+            background: #F5F5F5;
+        }
+        
+        .farmers-table tr:hover {
+            background: #EFEBE9;
+        }
+        
+        .table-container {
+            margin-top: 40px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
         @media (max-width: 768px) {
             .benefits-container {
                 grid-template-columns: 1fr;
@@ -343,6 +381,11 @@
                 text-align: center;
                 gap: 8px;
             }
+            
+            .farmers-table {
+                display: block;
+                overflow-x: auto;
+            }
         }
         
         .cacao-decoration {
@@ -356,6 +399,24 @@
             margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 20px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            opacity: 1;
         }
     </style>
 </head>
@@ -438,6 +499,25 @@
                     
                     <button type="submit" class="submit-btn" data-i18n="submit">Soumettre l'inscription</button>
                 </form>
+
+                <div class="table-container">
+                    <h2 class="section-title" data-i18n="registered_farmers">Agriculteurs Enregistrés</h2>
+                    <div class="farmers-list">
+                        <table class="farmers-table">
+                            <thead>
+                                <tr>
+                                    <th data-i18n="name_header">Nom</th>
+                                    <th data-i18n="farm_header">Ferme</th>
+                                    <th data-i18n="location_header">Emplacement</th>
+                                    <th data-i18n="products_header">Produits</th>
+                                </tr>
+                            </thead>
+                            <tbody id="farmers-table-body">
+                                <!-- Les données des agriculteurs seront chargées ici -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
             
             <div class="info-section">
@@ -629,6 +709,8 @@
         </footer>
     </div>
 
+    <div class="notification" id="notification"></div>
+
     <script>
         // Multilingual support
         const translations = {
@@ -667,7 +749,14 @@
                 "coordination-desc": "(Pour la coordination de projet)",
                 "family-contact": "Contact Famille Massa",
                 "strategy-desc": "(Pour les partenariats stratégiques)",
-                rights: "Tous droits réservés"
+                rights: "Tous droits réservés",
+                registered_farmers: "Agriculteurs Enregistrés",
+                name_header: "Nom",
+                farm_header: "Ferme",
+                location_header: "Emplacement",
+                products_header: "Produits",
+                registration_success: "Inscription réussie!",
+                registration_error: "Erreur lors de l'enregistrement."
             },
             es: {
                 title: "Finca BIO MASSA",
@@ -704,7 +793,14 @@
                 "coordination-desc": "(Para coordinación de proyectos)",
                 "family-contact": "Contacto Familia Massa",
                 "strategy-desc": "(Para asociaciones estratégicas)",
-                rights: "Todos los derechos reservados"
+                rights: "Todos los derechos reservados",
+                registered_farmers: "Agricultores Registrados",
+                name_header: "Nombre",
+                farm_header: "Finca",
+                location_header: "Ubicación",
+                products_header: "Productos",
+                registration_success: "¡Registro exitoso!",
+                registration_error: "Error en el registro."
             },
             de: {
                 title: "Finca BIO MASSA",
@@ -741,7 +837,14 @@
                 "coordination-desc": "(Für Projektkoordination)",
                 "family-contact": "Ansprechpartner Familie Massa",
                 "strategy-desc": "(Für strategische Partnerschaften)",
-                rights: "Alle Rechte vorbehalten"
+                rights: "Alle Rechte vorbehalten",
+                registered_farmers: "Registrierte Landwirte",
+                name_header: "Name",
+                farm_header: "Hof",
+                location_header: "Standort",
+                products_header: "Produkte",
+                registration_success: "Registrierung erfolgreich!",
+                registration_error: "Fehler bei der Registrierung."
             }
         };
 
@@ -766,6 +869,9 @@
                     btn.classList.add('active');
                 }
             });
+            
+            // Reload farmers data to update language
+            loadFarmers();
         }
 
         // Event listeners for language buttons
@@ -776,25 +882,86 @@
             });
         });
 
+        // Farmers data storage
+        function saveFarmer(farmerData) {
+            let farmers = JSON.parse(localStorage.getItem('fincaBioMassaFarmers')) || [];
+            farmerData.id = Date.now(); // Add unique ID
+            farmers.push(farmerData);
+            localStorage.setItem('fincaBioMassaFarmers', JSON.stringify(farmers));
+            return true;
+        }
+
+        function loadFarmers() {
+            const farmers = JSON.parse(localStorage.getItem('fincaBioMassaFarmers')) || [];
+            const tableBody = document.getElementById('farmers-table-body');
+            tableBody.innerHTML = '';
+            
+            const lang = document.documentElement.lang;
+            
+            farmers.forEach(farmer => {
+                const row = document.createElement('tr');
+                
+                // Format products based on language
+                let productsText = '';
+                if (Array.isArray(farmer.products)) {
+                    productsText = farmer.products.map(product => {
+                        return translations[lang][product] || product;
+                    }).join(', ');
+                }
+                
+                row.innerHTML = `
+                    <td>${farmer.name}</td>
+                    <td>${farmer.farmName}</td>
+                    <td>${farmer.location}</td>
+                    <td>${productsText}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Notification function
+        function showNotification(message, isSuccess = true) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.style.background = isSuccess ? '#4CAF50' : '#F44336';
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
         // Form submission
         document.getElementById('farmer-registration').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            let message;
-            if (document.documentElement.lang === 'fr') {
-                message = 'Merci pour votre inscription! Nous vous contacterons sous peu.';
-            } else if (document.documentElement.lang === 'es') {
-                message = '¡Gracias por registrarse! Nos pondremos en contacto con usted shortly.';
-            } else {
-                message = 'Vielen Dank für Ihre Registrierung! Wir werden uns in Kürze bei Ihnen melden.';
-            }
+            const formData = new FormData(this);
+            const farmerData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                farmName: document.getElementById('finca-name').value,
+                location: document.getElementById('location').value,
+                products: Array.from(document.getElementById('products').selectedOptions).map(option => option.value),
+                message: document.getElementById('message').value,
+                registrationDate: new Date().toISOString()
+            };
             
-            alert(message);
-            this.reset();
+            if (saveFarmer(farmerData)) {
+                const lang = document.documentElement.lang;
+                showNotification(translations[lang]['registration_success'], true);
+                this.reset();
+                loadFarmers();
+            } else {
+                const lang = document.documentElement.lang;
+                showNotification(translations[lang]['registration_error'], false);
+            }
         });
 
-        // Initialize with French
+        // Initialize with French and load farmers
         setLanguage('fr');
+        loadFarmers();
     </script>
 </body>
 </html>
