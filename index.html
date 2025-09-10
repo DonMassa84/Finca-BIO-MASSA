@@ -418,6 +418,20 @@
         .notification.show {
             opacity: 1;
         }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
@@ -497,7 +511,10 @@
                         <textarea id="message" rows="4" placeholder="Avez-vous des questions ou des demandes particulières?"></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn" data-i18n="submit">Soumettre l'inscription</button>
+                    <button type="submit" class="submit-btn" data-i18n="submit" id="submit-btn">
+                        <span id="submit-text">Soumettre l'inscription</span>
+                        <span id="submit-loading" class="loading" style="display: none;"></span>
+                    </button>
                 </form>
 
                 <div class="table-container">
@@ -756,7 +773,8 @@
                 location_header: "Emplacement",
                 products_header: "Produits",
                 registration_success: "Inscription réussie!",
-                registration_error: "Erreur lors de l'enregistrement."
+                registration_error: "Erreur lors de l'enregistrement.",
+                loading: "Chargement..."
             },
             es: {
                 title: "Finca BIO MASSA",
@@ -800,7 +818,8 @@
                 location_header: "Ubicación",
                 products_header: "Productos",
                 registration_success: "¡Registro exitoso!",
-                registration_error: "Error en el registro."
+                registration_error: "Error en el registro.",
+                loading: "Cargando..."
             },
             de: {
                 title: "Finca BIO MASSA",
@@ -844,7 +863,8 @@
                 location_header: "Standort",
                 products_header: "Produkte",
                 registration_success: "Registrierung erfolgreich!",
-                registration_error: "Fehler bei der Registrierung."
+                registration_error: "Fehler bei der Registrierung.",
+                loading: "Laden..."
             }
         };
 
@@ -882,42 +902,68 @@
             });
         });
 
-        // Farmers data storage
-        function saveFarmer(farmerData) {
-            let farmers = JSON.parse(localStorage.getItem('fincaBioMassaFarmers')) || [];
-            farmerData.id = Date.now(); // Add unique ID
-            farmers.push(farmerData);
-            localStorage.setItem('fincaBioMassaFarmers', JSON.stringify(farmers));
-            return true;
-        }
+        // API URL - Ersetzen Sie dies mit Ihrer Railway-API-URL
+        const API_URL = 'https://your-railway-app.railway.app';
 
-        function loadFarmers() {
-            const farmers = JSON.parse(localStorage.getItem('fincaBioMassaFarmers')) || [];
-            const tableBody = document.getElementById('farmers-table-body');
-            tableBody.innerHTML = '';
-            
-            const lang = document.documentElement.lang;
-            
-            farmers.forEach(farmer => {
-                const row = document.createElement('tr');
+        // Farmers data storage in MongoDB
+        async function saveFarmer(farmerData) {
+            try {
+                const response = await fetch(`${API_URL}/api/farmers`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(farmerData)
+                });
                 
-                // Format products based on language
-                let productsText = '';
-                if (Array.isArray(farmer.products)) {
-                    productsText = farmer.products.map(product => {
-                        return translations[lang][product] || product;
-                    }).join(', ');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
                 
-                row.innerHTML = `
-                    <td>${farmer.name}</td>
-                    <td>${farmer.farmName}</td>
-                    <td>${farmer.location}</td>
-                    <td>${productsText}</td>
-                `;
+                return await response.json();
+            } catch (error) {
+                console.error('Error saving farmer:', error);
+                throw error;
+            }
+        }
+
+        async function loadFarmers() {
+            try {
+                const response = await fetch(`${API_URL}/api/farmers`);
                 
-                tableBody.appendChild(row);
-            });
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                const farmers = await response.json();
+                const tableBody = document.getElementById('farmers-table-body');
+                tableBody.innerHTML = '';
+                
+                const lang = document.documentElement.lang;
+                
+                farmers.forEach(farmer => {
+                    const row = document.createElement('tr');
+                    
+                    // Format products based on language
+                    let productsText = '';
+                    if (Array.isArray(farmer.products)) {
+                        productsText = farmer.products.map(product => {
+                            return translations[lang][product] || product;
+                        }).join(', ');
+                    }
+                    
+                    row.innerHTML = `
+                        <td>${farmer.name}</td>
+                        <td>${farmer.farmName}</td>
+                        <td>${farmer.location}</td>
+                        <td>${productsText}</td>
+                    `;
+                    
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error loading farmers:', error);
+            }
         }
 
         // Notification function
@@ -933,11 +979,19 @@
         }
 
         // Form submission
-        document.getElementById('farmer-registration').addEventListener('submit', function(e) {
+        document.getElementById('farmer-registration').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const formData = new FormData(this);
-            const farmerData = {
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const submitLoading = document.getElementById('submit-loading');
+            
+            // Show loading state
+            submitText.textContent = translations[document.documentElement.lang]['loading'];
+            submitLoading.style.display = 'inline-block';
+            submitBtn.disabled = true;
+            
+            const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 phone: document.getElementById('phone').value,
@@ -945,17 +999,22 @@
                 location: document.getElementById('location').value,
                 products: Array.from(document.getElementById('products').selectedOptions).map(option => option.value),
                 message: document.getElementById('message').value,
+                language: document.documentElement.lang,
                 registrationDate: new Date().toISOString()
             };
             
-            if (saveFarmer(farmerData)) {
-                const lang = document.documentElement.lang;
-                showNotification(translations[lang]['registration_success'], true);
+            try {
+                await saveFarmer(formData);
+                showNotification(translations[document.documentElement.lang]['registration_success'], true);
                 this.reset();
-                loadFarmers();
-            } else {
-                const lang = document.documentElement.lang;
-                showNotification(translations[lang]['registration_error'], false);
+                await loadFarmers();
+            } catch (error) {
+                showNotification(translations[document.documentElement.lang]['registration_error'], false);
+            } finally {
+                // Reset button state
+                submitText.textContent = translations[document.documentElement.lang]['submit'];
+                submitLoading.style.display = 'none';
+                submitBtn.disabled = false;
             }
         });
 
