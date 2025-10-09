@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cacao Sostenible MASSA – Fotodossier</title>
+  <meta name="description" content="Bilddossier zum Cacao-Projekt MASSA.">
+  <style>
+    /* Tailwind-like minimal CSS */
+    :root { --maxw: 1100px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji'; color: #0f172a; background: #f8fafc; }
+    header { background: linear-gradient(135deg,#0f172a,#1f2937); color: white; padding: 56px 16px; }
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+    h1 { font-size: clamp(28px, 4vw, 40px); margin: 0 0 8px; }
+    .sub { opacity: .85; margin: 0; }
+    .card { background: white; border-radius: 16px; padding: 20px; box-shadow: 0 10px 20px rgba(2,6,23,.06), 0 2px 6px rgba(2,6,23,.08); }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    @media (min-width: 640px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    img { display: block; }
+    .rounded-xl { border-radius: 16px; }
+    .shadow { box-shadow: 0 4px 12px rgba(0,0,0,.12); }
+    .muted { color: #475569; }
+    .mt-2 { margin-top: .5rem; }
+    .mt-6 { margin-top: 1.5rem; }
+    .mt-10 { margin-top: 2.5rem; }
+    .mb-2 { margin-bottom: .5rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .text-sm { font-size: .9rem; }
+    .text-gray-700 { color: #334155; }
+    .badge { display: inline-block; background: #eef2ff; color: #3730a3; border-radius: 999px; padding: 6px 12px; font-size: .85rem; }
+    .hero { display: grid; gap: 16px; align-items: end; grid-template-columns: 1fr; }
+    @media (min-width: 900px) { .hero { grid-template-columns: 1.3fr 1fr; } }
+    .meta { display: grid; gap: 8px; grid-template-columns: 1fr 1fr; }
+    .meta div { background: #f1f5f9; padding: 12px; border-radius: 12px; font-size: .95rem; }
+    footer { padding: 24px 16px; color: #475569; }
+    /* Lightbox */
+    dialog::backdrop { background: rgba(15,23,42,.75); }
+    dialog { border: none; border-radius: 16px; padding: 0; overflow: hidden; max-width: 92vw; }
+    .lightbox img { width: 100%; height: auto; display: block; }
+    .lb-head { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: #0f172a; color: white; }
+    .lb-body { background: #000; }
+    .lb-btn { background: #e2e8f0; border: none; border-radius: 10px; padding: 8px 10px; cursor: pointer; }
+    .nav { display:flex; gap:8px; align-items:center; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <span class="badge">Fotodossier</span>
+      <h1>Cacao Sostenible MASSA</h1>
+      <p class="sub">Dokumentation ausgewählter Projektfotos.</p>
+    </div>
+  </header>  <main class="container">
+    <section class="hero mt-10">
+      <div class="card">
+        <h2 class="mb-2">Projektkontext</h2>
+        <p class="muted">Bildsammlung aus dem eingereichten Dokument. Diese Seite dient als schnelle, teilbare Übersicht. Alle Fotos sind lokal eingebettet.</p>
+        <div class="meta mt-6">
+          <div><strong>Ort</strong><br><span class="muted">N/A</span></div>
+          <div><strong>Zeitraum</strong><br><span class="muted">Okt 2025</span></div>
+          <div><strong>Kontakt</strong><br><span class="muted">Daniel‑Alfonsin Massa</span></div>
+          <div><strong>Lizenz</strong><br><span class="muted">Nur interner Gebrauch</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="mb-2">Hinweis</h3>
+        <p class="muted">Zum Export als PDF: Im Browser drucken und „Als PDF speichern“ wählen. Für eine öffentliche Version ergänzen Sie Impressum, Datenschutz und präzisere Bildunterschriften.</p>
+      </div>
+    </section><section class="mt-10">
+  <h2 class="mb-6">Galerie</h2>
+  <div class="grid" id="gallery">
+    <!-- Images injected by JS from window.__IMGS -->
+  </div>
+</section>
+
+  </main>  <footer class="container mt-10">
+    <p class="text-sm">© 2025 MASSA | Generiert aus DOCX.</p>
+  </footer>  <dialog id="lightbox">
+    <div class="lb-head">
+      <strong id="lb-title">Foto</strong>
+      <div class="nav">
+        <button class="lb-btn" id="prevBtn" aria-label="Vorheriges Bild">◀</button>
+        <button class="lb-btn" id="nextBtn" aria-label="Nächstes Bild">▶</button>
+        <button class="lb-btn" id="closeBtn" aria-label="Schließen">×</button>
+      </div>
+    </div>
+    <div class="lb-body lightbox">
+      <img id="lb-img" alt="Vorschau" />
+    </div>
+  </dialog>  <script>
+    // Placeholder: images will be inlined when exporting. For canvas preview, keep empty.
+    window.__IMGS = [];
+
+    const galleryEl = document.getElementById('gallery');
+    function renderGallery() {
+      if (!window.__IMGS.length) {
+        galleryEl.innerHTML = '<p>Keine eingebetteten Bilder im Dokument gefunden.</p>';
+        return;
+      }
+      galleryEl.innerHTML = window.__IMGS.map((src, i) => `
+        <figure class="group relative cursor-zoom-in" data-index="${i}">
+          <img alt="Foto ${i+1}" loading="lazy" src="${src}" class="w-full h-64 object-cover rounded-xl shadow" />
+          <figcaption class="mt-2 text-sm text-gray-700">Foto ${i+1}</figcaption>
+          <div class="absolute inset-0 ring-1 ring-black/5 rounded-xl group-hover:ring-2"></div>
+        </figure>
+      `).join('');
+      attachHandlers();
+    }
+
+    function attachHandlers(){
+      const figures = Array.from(document.querySelectorAll('#gallery figure'));
+      const dialog = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lb-img');
+      const lbTitle = document.getElementById('lb-title');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      const closeBtn = document.getElementById('closeBtn');
+      let idx = 0;
+
+      function show(i) {
+        idx = (i + figures.length) % figures.length;
+        const fig = figures[idx];
+        const img = fig.querySelector('img');
+        lbImg.src = img.src;
+        lbTitle.textContent = fig.querySelector('figcaption')?.textContent || 'Foto';
+        if (!dialog.open) dialog.showModal();
+      }
+
+      figures.forEach((fig, i) => {
+        fig.addEventListener('click', () => show(i));
+      });
+
+      prevBtn.addEventListener('click', () => show(idx - 1));
+      nextBtn.addEventListener('click', () => show(idx + 1));
+      closeBtn.addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', (e) => { if (e.target === dialog) dialog.close(); });
+      document.addEventListener('keydown', (e) => {
+        if (!dialog.open) return;
+        if (e.key === 'ArrowLeft') show(idx - 1);
+        if (e.key === 'ArrowRight') show(idx + 1);
+        if (e.key === 'Escape') dialog.close();
+      });
+    }
+
+    renderGallery();
+  </script></body>
+</html>
