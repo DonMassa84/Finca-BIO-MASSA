@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Cacao Durable - Finca BIO MASSA</title>
+    <style>
+        :root {
+            --primary-color: #4a7c59;
+            --secondary-color: #d4a574;
+            --accent-color: #8b4513;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background-color: var(--secondary-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        .hero h1 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .gallery-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--dark-color);
+        }
+        
+        .highlight {
+            background-color: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .person-card {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .person-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1.5rem;
+        }
+        
+        .person-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .person-info p {
+            color: var(--dark-color);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+            
+            .project-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .person-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .person-img {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Finca BIO MASSA</h1>
+        <p>Agriculture durable et production de cacao</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="https://donmassa84.github.io/Finca-BIO-MASSA/">Page d'accueil</a></li>
+            <li><a href="#projet">Projet</a></li>
+            <li><a href="#partenaires">Partenaires</a></li>
+            <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#livraison">Livraison</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="hero">
+            <h1>Projet de Cacao Durable à Nwangan</h1>
+            <p>Promouvoir la production durable de cacao en partenariat avec les agriculteurs locaux</p>
+        </section>
+        
+        <section id="projet" class="section">
+            <h2>À propos du projet</h2>
+            <div class="project-info">
+                <div class="info-card">
+                    <h3>Notre Mission</h3>
+                    <p>Le projet de cacao durable à Nwangan vise à soutenir les producteurs locaux de cacao tout en promouvant des méthodes agricoles écologiques. Grâce à des partenariats avec des organisations comme ETS. INASSO et Telcar Cocoa Ltd., nous créons une chaîne de valeur durable.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Garantie de Qualité</h3>
+                    <p>Notre entrepôt à Nwangan dispose d'installations de séchage solaire du cacao pour garantir les normes de qualité les plus élevées. Chaque étape du processus est surveillée pour produire des fèves de cacao de première qualité.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Approche Durable</h3>
+                    <p>Nous nous engageons à promouvoir des pratiques agricoles durables qui préservent l'environnement tout en assurant des moyens de subsistance stables pour les agriculteurs locaux et leurs familles.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="livraison" class="section">
+            <h2>Système de Livraison</h2>
+            <div class="highlight">
+                <h3>Contrat de Préfinancement avec Telcar Cocoa Ltd.</h3>
+                <p>Livraison de <strong>5 à 10 tonnes de cacao toutes les deux semaines</strong> au Représentant de Telcar à Nwangan</p>
+            </div>
+            
+            <div class="project-info">
+                <div class="info-card">
+                    <h3>Processus de Livraison</h3>
+                    <p>Le cacao est soigneusement séché au soleil, ensaché en sacs de 100 kg, puis livré régulièrement selon le calendrier établi avec Telcar Cocoa Ltd.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Contrôle Qualité</h3>
+                    <p>Chaque sac est inspecté et cousu manuellement pour assurer la qualité et l'intégrité du produit pendant le transport.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="partenaires" class="section">
+            <h2>Nos Partenaires</h2>
+            
+            <div class="person-card">
+                <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/4.jpg" alt="Mme. Meyo Mefo Lydie" class="person-img">
+                <div class="person-info">
+                    <h3>Mme. Meyo Mefo Lydie</h3>
+                    <p>Directrice Commerciale et Coordinatrice nationale d'achat du cacao chez ETS. INASSO</p>
+                    <p>Mme. Meyo Mefo Lydie dirige les activités à Nwangan. Elle supervise l'ensemble du processus, de la récolte à la livraison, et forme des stagiaires dans son entrepôt.</p>
+                </div>
+            </div>
+            
+            <div class="project-info">
+                <div class="info-card">
+                    <h3>Telcar Cocoa Ltd.</h3>
+                    <p>Notre principal acheteur de cacao de haute qualité. Grâce à des livraisons régulières et des accords de préfinancement, Telcar Cocoa Ltd. soutient le développement durable de la production locale de cacao.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>ETS. INASSO</h3>
+                    <p>L'établissement Ingénieurs Associés (ETS. INASSO) coordonne l'achat de cacao au niveau national et veille au respect des normes de qualité et à la rémunération équitable des agriculteurs.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h3>Agriculteurs Associés</h3>
+                    <p>Nos partenaires agricoles locaux qui cultivent le cacao selon des méthodes durables, préservant la biodiversité et la santé des sols pour les générations futures.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="galerie" class="section">
+            <h2>Galerie du Projet</h2>
+            <p>Photos de nos activités à Nwangan, octobre 2025</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/1.jpg" alt="Fruits de cacao dans une ferme partenaire">
+                    <div class="gallery-caption">
+                        Fruits de cacao dans l'une des fermes de nos associés // Nwangan, octobre 25
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/2.jpg" alt="Entrepôt de Mme. Meyo Mefo Lydie">
+                    <div class="gallery-caption">
+                        Entrepôt de Mme. Meyo Mefo Lydie en Nwangan // Sacs de 100 kg de cacao // marchandise prête
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/3.jpg" alt="Installations de séchage solaire">
+                    <div class="gallery-caption">
+                        Mme. Meyo Mefo Lydie // son entrepôt de Nwangan dispose d'installations pour le séchage du cacao au soleil
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/5.jpg" alt="Installations dans l'entrepôt">
+                    <div class="gallery-caption">
+                        Installations dans l'Entrepôt de Mme. Meyo Mefo Lydie de Nwangan // octobre 25
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/6.jpg" alt="Mme. Meyo Mefo Lydie cousant un sac">
+                    <div class="gallery-caption">
+                        Mme. Meyo Mefo Lydie // cousant un sac de 100 kg de cacao // marchandise prête à être livré
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/7.jpg" alt="Supervision des stagiaires">
+                    <div class="gallery-caption">
+                        Mme Meyo Mefo Lydie (au-dessus du côté gauche sur la photo) supervise le travail des stagiaires dans son entrepôt de Nwangan // octobre 2025
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/8.jpg" alt="Cacao en sacs">
+                    <div class="gallery-caption">
+                        Sacs de cacao prêts pour la livraison // Entrepôt de Nwangan
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/9.jpg" alt="Processus de qualité">
+                    <div class="gallery-caption">
+                        Contrôle qualité du cacao dans l'entrepôt de Nwangan
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/10.jpg" alt="Cacao séché">
+                    <div class="gallery-caption">
+                        Cacao séché au soleil, prêt pour l'ensachage
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/11.jpg" alt="Transport de cacao">
+                    <div class="gallery-caption">
+                        Préparation des sacs de cacao pour le transport vers Telcar Cocoa Ltd.
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/12.jpg" alt="Entrepôt de cacao">
+                    <div class="gallery-caption">
+                        Intérieur de l'entrepôt de Nwangan avec les installations de stockage
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/13.jpg" alt="Séchage du cacao">
+                    <div class="gallery-caption">
+                        Processus de séchage du cacao dans l'entrepôt de Mme. Meyo Mefo Lydie
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/14.jpg" alt="Cacao en vrac">
+                    <div class="gallery-caption">
+                        Cacao de haute qualité avant l'ensachage // Nwangan
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/15.jpg" alt="Préparation des sacs">
+                    <div class="gallery-caption">
+                        Préparation des sacs de 100 kg pour la livraison à Telcar Cocoa Ltd.
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/16.jpg" alt="Entrepôt de stockage">
+                    <div class="gallery-caption">
+                        Zone de stockage des sacs de cacao dans l'entrepôt de Nwangan
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/17.jpg" alt="Contrôle qualité">
+                    <div class="gallery-caption">
+                        Contrôle final de la qualité avant la livraison
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/18.jpg" alt="Équipe de travail">
+                    <div class="gallery-caption">
+                        L'équipe de l'entrepôt de Nwangan prépare la livraison de cacao
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2>Contact & Collaboration</h2>
+            <div class="info-card">
+                <p>Si vous souhaitez en savoir plus sur notre projet de cacao durable ou envisager une collaboration, veuillez nous contacter via la page principale de Finca BIO MASSA.</p>
+                <p style="margin-top: 1rem;">Ensemble, nous créons un avenir plus durable pour la production de cacao !</p>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2025 Finca BIO MASSA - Projet de Cacao Durable Nwangan</p>
+        <p>Cette page est un ajout au site principal de Finca BIO MASSA</p>
+    </footer>
+</body>
+</html>
