@@ -349,6 +349,159 @@
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
         }
         
+        /* Styles for Cacao Project Section */
+        .cacao-project {
+            display: none;
+            padding: 20px;
+        }
+        
+        .cacao-hero {
+            background: linear-gradient(to right, #4a7c59, #8D6E63);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        .cacao-hero h1 {
+            color: #FFD54F;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .cacao-section {
+            margin-bottom: 3rem;
+        }
+        
+        .cacao-section h2 {
+            color: #5D4037;
+            border-bottom: 2px solid #D7CCC8;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+        }
+        
+        .project-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .info-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .info-card h3 {
+            color: #5D4037;
+            margin-bottom: 1rem;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .gallery-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #3E2723;
+        }
+        
+        .highlight {
+            background-color: #D7CCC8;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .person-card {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .person-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1.5rem;
+        }
+        
+        .person-info h3 {
+            color: #5D4037;
+            margin-bottom: 0.5rem;
+        }
+        
+        .person-info p {
+            color: #3E2723;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-tab {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .nav-tab:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-tab.active {
+            background: white;
+            color: #5D4037;
+        }
+        
         @media (max-width: 768px) {
             .benefits-container {
                 grid-template-columns: 1fr;
@@ -385,6 +538,29 @@
             .farmers-table {
                 display: block;
                 overflow-x: auto;
+            }
+            
+            .person-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .person-img {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-tab {
+                margin: 5px 0;
             }
         }
         
@@ -452,145 +628,358 @@
                     <p class="subtitle" data-i18n="subtitle">Inscrivez-vous à notre programme d'agriculteurs biologiques et rejoignez notre coopérative de cacao durable</p>
                 </div>
             </div>
+            
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="registration">Inscription Agriculteurs</button>
+                <button class="nav-tab" data-tab="cacao">Projet Cacao Durable</button>
+            </div>
         </header>
         
-        <div class="cacao-decoration">
-            <i class="fas fa-seedling"></i>
-            <i class="fas fa-coffee"></i>
-            <i class="fas fa-cookie-bite"></i>
-        </div>
-        
-        <div class="progress-bar">
-            <div class="progress-step active">1</div>
-            <div class="progress-step">2</div>
-            <div class="progress-step">3</div>
-        </div>
-        
-        <div class="content">
-            <div class="registration-section">
-                <h2 class="section-title" data-i18n="registration">Inscription</h2>
-                <form id="farmer-registration">
-                    <div class="form-group">
-                        <label for="name" data-i18n="fullname">Nom complet</label>
-                        <input type="text" id="name" placeholder="Prénom et nom" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email" data-i18n="email">Adresse e-mail</label>
-                        <input type="email" id="email" placeholder="Votre adresse e-mail" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="phone" data-i18n="phone">Numéro de téléphone</label>
-                        <input type="tel" id="phone" placeholder="Votre numéro de téléphone">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="finca-name" data-i18n="farmname">Nom de la ferme</label>
-                        <input type="text" id="finca-name" placeholder="Nom de votre ferme">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="location" data-i18n="location">Emplacement</label>
-                        <input type="text" id="location" placeholder="Lieu, région">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="products" data-i18n="products">Produits cultivés</label>
-                        <select id="products" multiple>
-                            <option value="cacao" data-i18n="cacao">Cacao</option>
-                            <option value="cafe" data-i18n="coffee">Café</option>
-                            <option value="bananes" data-i18n="bananas">Bananes</option>
-                            <option value="avocat" data-i18n="avocado">Avocat</option>
-                            <option value="autres" data-i18n="other">Autres</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message" data-i18n="message">Message (optionnel)</label>
-                        <textarea id="message" rows="4" placeholder="Avez-vous des questions ou des demandes particulières?"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn" data-i18n="submit" id="submit-btn">
-                        <span id="submit-text">Soumettre l'inscription</span>
-                        <span id="submit-loading" class="loading" style="display: none;"></span>
-                    </button>
-                </form>
-
-                <div class="table-container">
-                    <h2 class="section-title" data-i18n="registered_farmers">Agriculteurs Enregistrés</h2>
-                    <div class="farmers-list">
-                        <table class="farmers-table">
-                            <thead>
-                                <tr>
-                                    <th data-i18n="name_header">Nom</th>
-                                    <th data-i18n="farm_header">Ferme</th>
-                                    <th data-i18n="location_header">Emplacement</th>
-                                    <th data-i18n="products_header">Produits</th>
-                                </tr>
-                            </thead>
-                            <tbody id="farmers-table-body">
-                                <!-- Les données des agriculteurs seront chargées ici -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+        <!-- Registration Section -->
+        <div id="registration-section" class="content">
+            <div class="cacao-decoration">
+                <i class="fas fa-seedling"></i>
+                <i class="fas fa-coffee"></i>
+                <i class="fas fa-cookie-bite"></i>
             </div>
             
-            <div class="info-section">
-                <div class="benefits">
-                    <h2 class="section-title" data-i18n="advantages">Avantages</h2>
-                    <div class="benefits-container">
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-euro-sign"></i>
-                            </div>
-                            <div>
-                                <h3 data-i18n="fairprices">Prix équitables</h3>
-                                <p data-i18n="fairprices-desc">Prix d'achat garantis pour vos produits biologiques</p>
-                            </div>
+            <div class="progress-bar">
+                <div class="progress-step active">1</div>
+                <div class="progress-step">2</div>
+                <div class="progress-step">3</div>
+            </div>
+            
+            <div class="content">
+                <div class="registration-section">
+                    <h2 class="section-title" data-i18n="registration">Inscription</h2>
+                    <form id="farmer-registration">
+                        <div class="form-group">
+                            <label for="name" data-i18n="fullname">Nom complet</label>
+                            <input type="text" id="name" placeholder="Prénom et nom" required>
                         </div>
                         
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <div>
-                                <h3 data-i18n="certification">Certification biologique</h3>
-                                <p data-i18n="certification-desc">Soutien pour la certification biologique de votre ferme</p>
-                            </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="email">Adresse e-mail</label>
+                            <input type="email" id="email" placeholder="Votre adresse e-mail" required>
                         </div>
                         
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div>
-                                <h3 data-i18n="community">Communauté</h3>
-                                <p data-i18n="community-desc">Faites partie d'une communauté d'agriculteurs durables</p>
-                            </div>
+                        <div class="form-group">
+                            <label for="phone" data-i18n="phone">Numéro de téléphone</label>
+                            <input type="tel" id="phone" placeholder="Votre numéro de téléphone">
                         </div>
                         
-                        <div class="benefit-item">
-                            <div class="benefit-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <div>
-                                <h3 data-i18n="training">Formation</h3>
-                                <p data-i18n="training-desc">Formations régulières sur les méthodes de culture durables</p>
-                            </div>
+                        <div class="form-group">
+                            <label for="finca-name" data-i18n="farmname">Nom de la ferme</label>
+                            <input type="text" id="finca-name" placeholder="Nom de votre ferme">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="location" data-i18n="location">Emplacement</label>
+                            <input type="text" id="location" placeholder="Lieu, région">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="products" data-i18n="products">Produits cultivés</label>
+                            <select id="products" multiple>
+                                <option value="cacao" data-i18n="cacao">Cacao</option>
+                                <option value="cafe" data-i18n="coffee">Café</option>
+                                <option value="bananes" data-i18n="bananas">Bananes</option>
+                                <option value="avocat" data-i18n="avocado">Avocat</option>
+                                <option value="autres" data-i18n="other">Autres</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" data-i18n="message">Message (optionnel)</label>
+                            <textarea id="message" rows="4" placeholder="Avez-vous des questions ou des demandes particulières?"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" data-i18n="submit" id="submit-btn">
+                            <span id="submit-text">Soumettre l'inscription</span>
+                            <span id="submit-loading" class="loading" style="display: none;"></span>
+                        </button>
+                    </form>
+
+                    <div class="table-container">
+                        <h2 class="section-title" data-i18n="registered_farmers">Agriculteurs Enregistrés</h2>
+                        <div class="farmers-list">
+                            <table class="farmers-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n="name_header">Nom</th>
+                                        <th data-i18n="farm_header">Ferme</th>
+                                        <th data-i18n="location_header">Emplacement</th>
+                                        <th data-i18n="products_header">Produits</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="farmers-table-body">
+                                    <!-- Les données des agriculteurs seront chargées ici -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
                 
-                <div class="about">
-                    <h2 class="section-title" data-i18n="about">À propos de Finca BIO MASSA</h2>
-                    <div class="about-content">
-                        <p data-i18n="about1">Nous sommes une coopérative d'agriculteurs biologiques spécialisée dans la culture durable du cacao. Depuis 2010, nous aidons les agriculteurs à passer à l'agriculture biologique et à commercialiser leurs produits à des prix équitables.</p>
-                        <p data-i18n="about2">Notre réseau comprend plus de 200 fermes certifiées biologiques dans la région, travaillant ensemble pour un avenir plus durable.</p>
+                <div class="info-section">
+                    <div class="benefits">
+                        <h2 class="section-title" data-i18n="advantages">Avantages</h2>
+                        <div class="benefits-container">
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-euro-sign"></i>
+                                </div>
+                                <div>
+                                    <h3 data-i18n="fairprices">Prix équitables</h3>
+                                    <p data-i18n="fairprices-desc">Prix d'achat garantis pour vos produits biologiques</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div>
+                                    <h3 data-i18n="certification">Certification biologique</h3>
+                                    <p data-i18n="certification-desc">Soutien pour la certification biologique de votre ferme</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div>
+                                    <h3 data-i18n="community">Communauté</h3>
+                                    <p data-i18n="community-desc">Faites partie d'une communauté d'agriculteurs durables</p>
+                                </div>
+                            </div>
+                            
+                            <div class="benefit-item">
+                                <div class="benefit-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h3 data-i18n="training">Formation</h3>
+                                    <p data-i18n="training-desc">Formations régulières sur les méthodes de culture durables</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about">
+                        <h2 class="section-title" data-i18n="about">À propos de Finca BIO MASSA</h2>
+                        <div class="about-content">
+                            <p data-i18n="about1">Nous sommes une coopérative d'agriculteurs biologiques spécialisée dans la culture durable du cacao. Depuis 2010, nous aidons les agriculteurs à passer à l'agriculture biologique et à commercialiser leurs produits à des prix équitables.</p>
+                            <p data-i18n="about2">Notre réseau comprend plus de 200 fermes certifiées biologiques dans la région, travaillant ensemble pour un avenir plus durable.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <!-- Cacao Project Section -->
+        <div id="cacao-project" class="cacao-project">
+            <section class="cacao-hero">
+                <h1>Projet de Cacao Durable à Nwangan</h1>
+                <p>Promouvoir la production durable de cacao en partenariat avec les agriculteurs locaux</p>
+            </section>
+            
+            <section class="cacao-section">
+                <h2>À propos du projet</h2>
+                <div class="project-info">
+                    <div class="info-card">
+                        <h3>Notre Mission</h3>
+                        <p>Le projet de cacao durable à Nwangan vise à soutenir les producteurs locaux de cacao tout en promouvant des méthodes agricoles écologiques. Grâce à des partenariats avec des organisations comme ETS. INASSO et Telcar Cocoa Ltd., nous créons une chaîne de valeur durable.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Garantie de Qualité</h3>
+                        <p>Notre entrepôt à Nwangan dispose d'installations de séchage solaire du cacao pour garantir les normes de qualité les plus élevées. Chaque étape du processus est surveillée pour produire des fèves de cacao de première qualité.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Approche Durable</h3>
+                        <p>Nous nous engageons à promouvoir des pratiques agricoles durables qui préservent l'environnement tout en assurant des moyens de subsistance stables pour les agriculteurs locaux et leurs familles.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="cacao-section">
+                <h2>Système de Livraison</h2>
+                <div class="highlight">
+                    <h3>Contrat de Préfinancement avec Telcar Cocoa Ltd.</h3>
+                    <p>Livraison de <strong>5 à 10 tonnes de cacao toutes les deux semaines</strong> au Représentant de Telcar à Nwangan</p>
+                </div>
+                
+                <div class="project-info">
+                    <div class="info-card">
+                        <h3>Processus de Livraison</h3>
+                        <p>Le cacao est soigneusement séché au soleil, ensaché en sacs de 100 kg, puis livré régulièrement selon le calendrier établi avec Telcar Cocoa Ltd.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Contrôle Qualité</h3>
+                        <p>Chaque sac est inspecté et cousu manuellement pour assurer la qualité et l'intégrité du produit pendant le transport.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="cacao-section">
+                <h2>Nos Partenaires</h2>
+                
+                <div class="person-card">
+                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/4.jpg" alt="Mme. Meyo Mefo Lydie" class="person-img">
+                    <div class="person-info">
+                        <h3>Mme. Meyo Mefo Lydie</h3>
+                        <p>Directrice Commerciale et Coordinatrice nationale d'achat du cacao chez ETS. INASSO</p>
+                        <p>Mme. Meyo Mefo Lydie dirige les activités à Nwangan. Elle supervise l'ensemble du processus, de la récolte à la livraison, et forme des stagiaires dans son entrepôt.</p>
+                    </div>
+                </div>
+                
+                <div class="project-info">
+                    <div class="info-card">
+                        <h3>Telcar Cocoa Ltd.</h3>
+                        <p>Notre principal acheteur de cacao de haute qualité. Grâce à des livraisons régulières et des accords de préfinancement, Telcar Cocoa Ltd. soutient le développement durable de la production locale de cacao.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>ETS. INASSO</h3>
+                        <p>L'établissement Ingénieurs Associés (ETS. INASSO) coordonne l'achat de cacao au niveau national et veille au respect des normes de qualité et à la rémunération équitable des agriculteurs.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>Agriculteurs Associés</h3>
+                        <p>Nos partenaires agricoles locaux qui cultivent le cacao selon des méthodes durables, préservant la biodiversité et la santé des sols pour les générations futures.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="cacao-section">
+                <h2>Galerie du Projet</h2>
+                <p>Photos de nos activités à Nwangan, octobre 2025</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/1.jpg" alt="Fruits de cacao dans une ferme partenaire">
+                        <div class="gallery-caption">
+                            Fruits de cacao dans l'une des fermes de nos associés // Nwangan, octobre 25
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/2.jpg" alt="Entrepôt de Mme. Meyo Mefo Lydie">
+                        <div class="gallery-caption">
+                            Entrepôt de Mme. Meyo Mefo Lydie en Nwangan // Sacs de 100 kg de cacao // marchandise prête
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/3.jpg" alt="Installations de séchage solaire">
+                        <div class="gallery-caption">
+                            Mme. Meyo Mefo Lydie // son entrepôt de Nwangan dispose d'installations pour le séchage du cacao au soleil
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/5.jpg" alt="Installations dans l'entrepôt">
+                        <div class="gallery-caption">
+                            Installations dans l'Entrepôt de Mme. Meyo Mefo Lydie de Nwangan // octobre 25
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/6.jpg" alt="Mme. Meyo Mefo Lydie cousant un sac">
+                        <div class="gallery-caption">
+                            Mme. Meyo Mefo Lydie // cousant un sac de 100 kg de cacao // marchandise prête à être livré
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/7.jpg" alt="Supervision des stagiaires">
+                        <div class="gallery-caption">
+                            Mme Meyo Mefo Lydie (au-dessus du côté gauche sur la photo) supervise le travail des stagiaires dans son entrepôt de Nwangan // octobre 2025
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/8.jpg" alt="Cacao en sacs">
+                        <div class="gallery-caption">
+                            Sacs de cacao prêts pour la livraison // Entrepôt de Nwangan
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/9.jpg" alt="Processus de qualité">
+                        <div class="gallery-caption">
+                            Contrôle qualité du cacao dans l'entrepôt de Nwangan
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/10.jpg" alt="Cacao séché">
+                        <div class="gallery-caption">
+                            Cacao séché au soleil, prêt pour l'ensachage
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/11.jpg" alt="Transport de cacao">
+                        <div class="gallery-caption">
+                            Préparation des sacs de cacao pour le transport vers Telcar Cocoa Ltd.
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/12.jpg" alt="Entrepôt de cacao">
+                        <div class="gallery-caption">
+                            Intérieur de l'entrepôt de Nwangan avec les installations de stockage
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/13.jpg" alt="Séchage du cacao">
+                        <div class="gallery-caption">
+                            Processus de séchage du cacao dans l'entrepôt de Mme. Meyo Mefo Lydie
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/14.jpg" alt="Cacao en vrac">
+                        <div class="gallery-caption">
+                            Cacao de haute qualité avant l'ensachage // Nwangan
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/15.jpg" alt="Préparation des sacs">
+                        <div class="gallery-caption">
+                            Préparation des sacs de 100 kg pour la livraison à Telcar Cocoa Ltd.
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/16.jpg" alt="Entrepôt de stockage">
+                        <div class="gallery-caption">
+                            Zone de stockage des sacs de cacao dans l'entrepôt de Nwangan
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/17.jpg" alt="Contrôle qualité">
+                        <div class="gallery-caption">
+                            Contrôle final de la qualité avant la livraison
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/18.jpg" alt="Équipe de travail">
+                        <div class="gallery-caption">
+                            L'équipe de l'entrepôt de Nwangan prépare la livraison de cacao
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
         
         <footer>
@@ -868,6 +1257,24 @@
             }
         };
 
+        // Tab Navigation
+        function showTab(tabName) {
+            // Hide all tabs
+            document.getElementById('registration-section').style.display = 'none';
+            document.getElementById('cacao-project').style.display = 'none';
+            
+            // Show selected tab
+            document.getElementById(tabName + '-section').style.display = 'block';
+            
+            // Update active tab button
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('data-tab') === tabName) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+
         // Set language function
         function setLanguage(lang) {
             document.documentElement.lang = lang;
@@ -899,6 +1306,14 @@
             button.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
                 setLanguage(lang);
+            });
+        });
+
+        // Event listeners for tab buttons
+        document.querySelectorAll('.nav-tab').forEach(button => {
+            button.addEventListener('click', function() {
+                const tab = this.getAttribute('data-tab');
+                showTab(tab);
             });
         });
 
