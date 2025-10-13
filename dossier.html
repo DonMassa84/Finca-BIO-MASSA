@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Master-Dossier - Project MASSA - Cacao Sostenible BIO 2025-2030</title>
-<a href="antecedentes.html" class="nav-tab">Antecedentes</a>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -132,6 +130,8 @@
             transition: all 0.3s;
             font-weight: bold;
             font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
         }
         
         .nav-tab:hover {
@@ -460,9 +460,10 @@
             
             <!-- Navigation Tabs -->
             <div class="nav-tabs">
+                <a href="index.html" class="nav-tab">Página Principal</a>
                 <button class="nav-tab active" data-tab="dossier">Master-Dossier</button>
-                <button class="nav-tab" data-tab="cacao">Proyecto Cacao</button>
-                <button class="nav-tab" data-tab="registration">Registro Agricultores</button>
+                <a href="antecedentes.html" class="nav-tab">Antecedentes</a>
+                <a href="sustainable-cacao.html" class="nav-tab">Proyecto Cacao</a>
             </div>
         </header>
         
@@ -507,6 +508,12 @@
                 <div class="info-card">
                     <h4>Enfoque Social</h4>
                     <p>Mejora de ingresos rurales y salud comunitaria mediante cooperación con action medeor e.V. y otras organizaciones.</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="antecedentes.html" class="nav-tab" style="background: var(--primary-color);">
+                        <i class="fas fa-history"></i> Ver Antecedentes Completos
+                    </a>
                 </div>
             </section>
             
@@ -744,34 +751,6 @@
             </section>
         </div>
         
-        <!-- Cacao Project Section -->
-        <div id="cacao-tab" class="tab-content">
-            <!-- Hier würde der vorhandene Cacao-Projekt Inhalt eingefügt -->
-            <section class="dossier-hero">
-                <h1>Proyecto de Cacao Sostenible en Nwangan</h1>
-                <p>Promoviendo la producción sostenible de cacao en asociación con agricultores locales</p>
-            </section>
-            
-            <div class="section">
-                <p>Esta sección contiene los detalles completos del proyecto de cacao sostenible, incluyendo la galería completa de fotos y información sobre las operaciones en Nwangan.</p>
-                <p>Para ver el contenido completo, visite la <a href="https://donmassa84.github.io/Finca-BIO-MASSA/" style="color: var(--primary-color); font-weight: bold;">página principal del proyecto</a>.</p>
-            </div>
-        </div>
-        
-        <!-- Farmer Registration Section -->
-        <div id="registration-tab" class="tab-content">
-            <!-- Hier würde der vorhandene Registrierungs-Inhalt eingefügt -->
-            <section class="dossier-hero">
-                <h1>Registro de Agricultores</h1>
-                <p>Únase a nuestro programa de agricultores orgánicos y forme parte de nuestra cooperativa de cacao sostenible</p>
-            </section>
-            
-            <div class="section">
-                <p>Esta sección contiene el formulario de registro para agricultores interesados en unirse al proyecto.</p>
-                <p>Para acceder al formulario completo, visite la <a href="https://donmassa84.github.io/Finca-BIO-MASSA/" style="color: var(--primary-color); font-weight: bold;">página principal del proyecto</a>.</p>
-            </div>
-        </div>
-        
         <footer>
             <h2 style="color: #FFD54F; border-bottom-color: rgba(255, 255, 255, 0.3); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">Contacto</h2>
             
@@ -812,7 +791,7 @@
                         </div>
                         <div class="contact-details">
                             <a href="tel:+237697121480">+237 697 121 480</a>
-                        <div><small>Coordinadora Nacional</small></div>
+                            <div><small>Coordinadora Nacional</small></div>
                         </div>
                     </div>
                 </div>
@@ -887,33 +866,6 @@
     </div>
 
     <script>
-        // Tab Navigation
-        function showTab(tabName) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(tabName + '-tab').classList.add('active');
-            
-            // Update active tab button
-            document.querySelectorAll('.nav-tab').forEach(tab => {
-                tab.classList.remove('active');
-                if (tab.getAttribute('data-tab') === tabName) {
-                    tab.classList.add('active');
-                }
-            });
-        }
-
-        // Event listeners for tab buttons
-        document.querySelectorAll('.nav-tab').forEach(button => {
-            button.addEventListener('click', function() {
-                const tab = this.getAttribute('data-tab');
-                showTab(tab);
-            });
-        });
-
         // Simple language switching (basic implementation)
         document.querySelectorAll('.lang-btn').forEach(button => {
             button.addEventListener('click', function() {
@@ -926,13 +878,9 @@
                 this.classList.add('active');
                 
                 // In a full implementation, we would update all text content based on language
-                // For now, we just change the active button
                 console.log('Language switched to: ' + lang);
             });
         });
-
-        // Initialize with dossier tab active
-        showTab('dossier');
     </script>
 </body>
 </html>
