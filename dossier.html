@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Master-Dossier - Project MASSA - Cacao Sostenible BIO 2025-2030">
     <title>Master-Dossier - Project MASSA - Cacao Sostenible BIO 2025-2030</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -117,6 +118,7 @@
             border-radius: 8px;
             padding: 10px;
             backdrop-filter: blur(10px);
+            flex-wrap: wrap;
         }
         
         .nav-tab {
@@ -124,7 +126,7 @@
             border: none;
             color: white;
             padding: 12px 24px;
-            margin: 0 10px;
+            margin: 5px;
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s;
@@ -132,6 +134,8 @@
             font-size: 16px;
             text-decoration: none;
             display: inline-block;
+            text-align: center;
+            min-width: 150px;
         }
         
         .nav-tab:hover {
@@ -143,13 +147,8 @@
             color: #5D4037;
         }
         
-        .tab-content {
-            display: none;
-            padding: 30px;
-        }
-        
-        .tab-content.active {
-            display: block;
+        .content-section {
+            padding: 40px;
         }
         
         .dossier-hero {
@@ -288,11 +287,21 @@
             transform: translateY(-5px);
         }
         
-        .gallery-item img {
+        .gallery-img-container {
             width: 100%;
             height: 250px;
+            overflow: hidden;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
         }
         
         .gallery-caption {
@@ -392,6 +401,17 @@
             margin-bottom: 1rem;
         }
         
+        .img-fallback {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #4a7c59, #8D6E63);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.2rem;
@@ -405,7 +425,6 @@
             
             .nav-tabs {
                 flex-direction: column;
-                gap: 10px;
             }
             
             .nav-tab {
@@ -453,148 +472,154 @@
                     <i class="fas fa-leaf"></i>
                 </div>
                 <div>
-                    <h1>Finca BIO MASSA</h1>
-                    <p class="subtitle">Master-Dossier - Project MASSA - Cacao Sostenible BIO 2025-2030</p>
+                    <h1 data-i18n="title">Finca BIO MASSA</h1>
+                    <p class="subtitle" data-i18n="subtitle">Master-Dossier - Project MASSA - Cacao Sostenible BIO 2025-2030</p>
                 </div>
             </div>
             
             <!-- Navigation Tabs -->
             <div class="nav-tabs">
                 <a href="index.html" class="nav-tab">Página Principal</a>
-                <button class="nav-tab active" data-tab="dossier">Master-Dossier</button>
+                <a href="dossier.html" class="nav-tab active">Master-Dossier</a>
                 <a href="antecedentes.html" class="nav-tab">Antecedentes</a>
                 <a href="sustainable-cacao.html" class="nav-tab">Proyecto Cacao</a>
             </div>
         </header>
         
-        <!-- Master Dossier Section -->
-        <div id="dossier-tab" class="tab-content active">
+        <div class="content-section">
+            <!-- Master Dossier Section -->
             <section class="dossier-hero">
-                <h1>MASTER-DOSSIER – PROJECT MASSA – CACAO SOSTENIBLE BIO (2025–2030)</h1>
-                <p>Dirección General: Pablo Massa (ETS. INASSO) | Coordinación Nacional: Mme. Meyo Mefo Lydie</p>
-                <p>Sede Principal: Nwangan, Région du Sud, Camerún | Contacto: +237 655310460 | pablomassa77@gmail.com</p>
+                <h1 data-i18n="hero_title">MASTER-DOSSIER – PROJECT MASSA – CACAO SOSTENIBLE BIO (2025–2030)</h1>
+                <p data-i18n="hero_subtitle">Dirección General: Pablo Massa (ETS. INASSO) | Coordinación Nacional: Mme. Meyo Mefo Lydie</p>
+                <p data-i18n="hero_contact">Sede Principal: Nwangan, Région du Sud, Camerún | Contacto: +237 655310460 | pablomassa77@gmail.com</p>
             </section>
             
             <section class="section">
-                <h2>1. Resumen Ejecutivo</h2>
+                <h2 data-i18n="section1_title">1. Resumen Ejecutivo</h2>
                 <div class="info-card">
-                    <h4>Objetivo Principal</h4>
-                    <p>Consolidar una cadena de suministro sostenible y certificada BIO para cacao camerunés con horizonte temporal 2025–2030.</p>
+                    <h4 data-i18n="objective_title">Objetivo Principal</h4>
+                    <p data-i18n="objective_text">Consolidar una cadena de suministro sostenible y certificada BIO para cacao camerunés con horizonte temporal 2025–2030.</p>
                 </div>
                 
                 <div class="info-card">
-                    <h4>Estrategia</h4>
-                    <p>Modelo de 3 fases (compra local, exportación, finca propia BIO) en colaboración con socios estratégicos: ETS. INASSO, Telcar Cocoa Ltd, Olam, Barry Callebaut/SIC Cacaos.</p>
+                    <h4 data-i18n="strategy_title">Estrategia</h4>
+                    <p data-i18n="strategy_text">Modelo de 3 fases (compra local, exportación, finca propia BIO) en colaboración con socios estratégicos: ETS. INASSO, Telcar Cocoa Ltd, Olam, Barry Callebaut/SIC Cacaos.</p>
                 </div>
                 
                 <div class="info-card">
-                    <h4>Impacto Esperado</h4>
-                    <p>+200 productores integrados, producción BIO certificada >500 t/año para exportación, mejora de ingresos rurales y salud comunitaria.</p>
+                    <h4 data-i18n="impact_title">Impacto Esperado</h4>
+                    <p data-i18n="impact_text">+200 productores integrados, producción BIO certificada >500 t/año para exportación, mejora de ingresos rurales y salud comunitaria.</p>
                 </div>
             </section>
             
             <section class="section">
-                <h2>2. Antecedentes del Proyecto</h2>
+                <h2 data-i18n="section2_title">2. Antecedentes del Proyecto</h2>
                 <div class="info-card">
-                    <h4>Orígenes</h4>
-                    <p>Nacimiento del proyecto durante la crisis COVID-19 como respuesta a la necesidad de transformar el comercio local en una cadena agroindustrial sostenible.</p>
+                    <h4 data-i18n="origins_title">Orígenes</h4>
+                    <p data-i18n="origins_text">Nacimiento del proyecto durante la crisis COVID-19 como respuesta a la necesidad de transformar el comercio local en una cadena agroindustrial sostenible.</p>
                 </div>
                 
                 <div class="info-card">
-                    <h4>Liderazgo</h4>
-                    <p><strong>Pablo Massa</strong> (dirección estratégica) y <strong>Lydie Meyo</strong> (coordinación operativa) lideran la transición hacia un modelo sostenible.</p>
+                    <h4 data-i18n="leadership_title">Liderazgo</h4>
+                    <p data-i18n="leadership_text"><strong>Pablo Massa</strong> (dirección estratégica) y <strong>Lydie Meyo</strong> (coordinación operativa) lideran la transición hacia un modelo sostenible.</p>
                 </div>
                 
                 <div class="info-card">
-                    <h4>Enfoque Social</h4>
-                    <p>Mejora de ingresos rurales y salud comunitaria mediante cooperación con action medeor e.V. y otras organizaciones.</p>
+                    <h4 data-i18n="social_title">Enfoque Social</h4>
+                    <p data-i18n="social_text">Mejora de ingresos rurales y salud comunitaria mediante cooperación con action medeor e.V. y otras organizaciones.</p>
                 </div>
                 
                 <div style="text-align: center; margin-top: 2rem;">
                     <a href="antecedentes.html" class="nav-tab" style="background: var(--primary-color);">
-                        <i class="fas fa-history"></i> Ver Antecedentes Completos
+                        <i class="fas fa-history"></i> <span data-i18n="view_history">Ver Antecedentes Completos</span>
                     </a>
                 </div>
             </section>
             
             <section class="section">
-                <h2>3. Fases del Proyecto</h2>
+                <h2 data-i18n="section3_title">3. Fases del Proyecto</h2>
                 
                 <div class="phase-timeline">
                     <div class="phase">
-                        <h4>Fase I</h4>
-                        <p>Consolidación Local<br>(2023–2025)</p>
+                        <h4 data-i18n="phase1_title">Fase I</h4>
+                        <p data-i18n="phase1_period">Consolidación Local<br>(2023–2025)</p>
                     </div>
                     <div class="phase">
-                        <h4>Fase II</h4>
-                        <p>Expansión a Douala<br>(2026–2028)</p>
+                        <h4 data-i18n="phase2_title">Fase II</h4>
+                        <p data-i18n="phase2_period">Expansión a Douala<br>(2026–2028)</p>
                     </div>
                     <div class="phase">
-                        <h4>Fase III</h4>
-                        <p>Finca BIO MASSA<br>(2026–2030)</p>
+                        <h4 data-i18n="phase3_title">Fase III</h4>
+                        <p data-i18n="phase3_period">Finca BIO MASSA<br>(2026–2030)</p>
                     </div>
                 </div>
                 
-                <h3>Fase I – Consolidación Local (2023–2025)</h3>
+                <h3 data-i18n="phase1_detail_title">Fase I – Consolidación Local (2023–2025)</h3>
                 <div class="info-card">
-                    <p>Red de productores en Nwangan y Ebolowa. Contratos de prefinanciación (5–10 t/2 sem.) con Telcar Cocoa Ltd. Construcción de almacén central con secado solar y espacio de empaque. Resultados: estabilidad en volúmenes y control de calidad.</p>
+                    <p data-i18n="phase1_detail_text">Red de productores en Nwangan y Ebolowa. Contratos de prefinanciación (5–10 t/2 sem.) con Telcar Cocoa Ltd. Construcción de almacén central con secado solar y espacio de empaque. Resultados: estabilidad en volúmenes y control de calidad.</p>
                 </div>
                 
-                <h3>Fase II – Expansión a Douala (2026–2028)</h3>
+                <h3 data-i18n="phase2_detail_title">Fase II – Expansión a Douala (2026–2028)</h3>
                 <div class="info-card">
-                    <p>Apertura de plataforma logística y acuerdos directos con exportadores. Meta: 10–20 t/mes. Certificación BIO/EU y documentación de trazabilidad completa. Implementación de sistema ERP agrícola (control de lotes, humedad, trazabilidad).</p>
+                    <p data-i18n="phase2_detail_text">Apertura de plataforma logística y acuerdos directos con exportadores. Meta: 10–20 t/mes. Certificación BIO/EU y documentación de trazabilidad completa. Implementación de sistema ERP agrícola (control de lotes, humedad, trazabilidad).</p>
                 </div>
                 
-                <h3>Fase III – Finca BIO MASSA (2026–2030)</h3>
+                <h3 data-i18n="phase3_detail_title">Fase III – Finca BIO MASSA (2026–2030)</h3>
                 <div class="info-card">
-                    <p>Adquisición o arriendo de fincas productivas (~50 ha). Producción certificada BIO bajo normas UE y Fairtrade. Integración vertical: cultivo → fermentación → exportación. Formación técnica a agricultores (Escuela de Cacao BIO).</p>
+                    <p data-i18n="phase3_detail_text">Adquisición o arriendo de fincas productivas (~50 ha). Producción certificada BIO bajo normas UE y Fairtrade. Integración vertical: cultivo → fermentación → exportación. Formación técnica a agricultores (Escuela de Cacao BIO).</p>
                 </div>
             </section>
             
             <section class="section">
-                <h2>4. Infraestructura Existente</h2>
+                <h2 data-i18n="section4_title">4. Infraestructura Existente</h2>
                 
                 <div class="project-info">
                     <div class="info-card">
-                        <h4>Entrepôt Principal</h4>
-                        <p>Nwangan (sistema de secado solar) con capacidad de procesamiento de 5-10 toneladas cada dos semanas.</p>
+                        <h4 data-i18n="warehouse_title">Entrepôt Principal</h4>
+                        <p data-i18n="warehouse_text">Nwangan (sistema de secado solar) con capacidad de procesamiento de 5-10 toneladas cada dos semanas.</p>
                     </div>
                     
                     <div class="info-card">
-                        <h4>Almacén Secundario</h4>
-                        <p>Ebolowa para expansión regional y apoyo logístico.</p>
+                        <h4 data-i18n="secondary_title">Almacén Secundario</h4>
+                        <p data-i18n="secondary_text">Ebolowa para expansión regional y apoyo logístico.</p>
                     </div>
                     
                     <div class="info-card">
-                        <h4>Equipos</h4>
-                        <p>Balanza industriales, sacos 100 kg, área de costura, mesas de control de calidad.</p>
+                        <h4 data-i18n="equipment_title">Equipos</h4>
+                        <p data-i18n="equipment_text">Balanza industriales, sacos 100 kg, área de costura, mesas de control de calidad.</p>
                     </div>
                 </div>
                 
                 <div class="info-card">
-                    <h4>Personal</h4>
-                    <p>Coordinadora + 5 operarios + 3 aprendices bajo supervisión de Mme. Meyo Mefo Lydie.</p>
+                    <h4 data-i18n="staff_title">Personal</h4>
+                    <p data-i18n="staff_text">Coordinadora + 5 operarios + 3 aprendices bajo supervisión de Mme. Meyo Mefo Lydie.</p>
                 </div>
                 
-                <h3>Galería de Infraestructura</h3>
+                <h3 data-i18n="gallery_title">Galería de Infraestructura</h3>
                 <div class="gallery">
                     <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/2.jpg" alt="Entrepôt de Mme. Meyo Mefo Lydie">
-                        <div class="gallery-caption">
+                        <div class="gallery-img-container">
+                            <img src="image/2.jpg" alt="Entrepôt de Mme. Meyo Mefo Lydie" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Entrepôt de Mme. Meyo Mefo Lydie</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery1_caption">
                             Entrepôt de Mme. Meyo Mefo Lydie en Nwangan // Sacs de 100 kg de cacao
                         </div>
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/3.jpg" alt="Instalaciones de secado solar">
-                        <div class="gallery-caption">
+                        <div class="gallery-img-container">
+                            <img src="image/3.jpg" alt="Instalaciones de secado solar" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Instalaciones de secado solar</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery2_caption">
                             Instalaciones para el secado del cacao al soleil en Nwangan
                         </div>
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/6.jpg" alt="Proceso de empaque">
-                        <div class="gallery-caption">
+                        <div class="gallery-img-container">
+                            <img src="image/6.jpg" alt="Proceso de empaque" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Proceso de empaque</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery3_caption">
                             Mme. Meyo Mefo Lydie // cousant un sac de 100 kg de cacao
                         </div>
                     </div>
@@ -602,141 +627,147 @@
             </section>
             
             <section class="section">
-                <h2>5. Socios Estratégicos y Financiadores</h2>
+                <h2 data-i18n="section5_title">5. Socios Estratégicos y Financiadores</h2>
                 
                 <table>
                     <thead>
                         <tr>
-                            <th>Socio</th>
-                            <th>Rol</th>
-                            <th>Estado</th>
+                            <th data-i18n="partner_header">Socio</th>
+                            <th data-i18n="role_header">Rol</th>
+                            <th data-i18n="status_header">Estado</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Telcar Cocoa Ltd</td>
-                            <td>Exportación y prefinanciación</td>
-                            <td>Activo</td>
+                            <td data-i18n="telcar_role">Exportación y prefinanciación</td>
+                            <td data-i18n="status_active">Activo</td>
                         </tr>
                         <tr>
                             <td>Olam Cam SARL</td>
-                            <td>Comercialización</td>
-                            <td>Negociación</td>
+                            <td data-i18n="olam_role">Comercialización</td>
+                            <td data-i18n="status_negotiation">Negociación</td>
                         </tr>
                         <tr>
                             <td>Barry Callebaut / SIC Cacaos</td>
-                            <td>Calidad y exportación</td>
-                            <td>Previsto</td>
+                            <td data-i18n="barry_role">Calidad y exportación</td>
+                            <td data-i18n="status_planned">Previsto</td>
                         </tr>
                         <tr>
                             <td>action medeor e.V.</td>
-                            <td>Cooperación sanitaria</td>
-                            <td>En diálogo</td>
+                            <td data-i18n="medeor_role">Cooperación sanitaria</td>
+                            <td data-i18n="status_dialogue">En diálogo</td>
                         </tr>
                         <tr>
-                            <td>Ministerio de Agricultura (MINADER)</td>
-                            <td>Certificación BIO</td>
-                            <td>Plan 2026</td>
+                            <td data-i18n="ministry_name">Ministerio de Agricultura (MINADER)</td>
+                            <td data-i18n="ministry_role">Certificación BIO</td>
+                            <td data-i18n="status_plan2026">Plan 2026</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
             
             <section class="section">
-                <h2>6. Presupuesto y Necesidades Financieras</h2>
+                <h2 data-i18n="section6_title">6. Presupuesto y Necesidades Financieras</h2>
                 
                 <table>
                     <thead>
                         <tr>
-                            <th>Fase</th>
-                            <th>Periodo</th>
-                            <th>Inversión estimada (FCFA)</th>
-                            <th>Fuentes</th>
+                            <th data-i18n="phase_header">Fase</th>
+                            <th data-i18n="period_header">Periodo</th>
+                            <th data-i18n="investment_header">Inversión estimada (FCFA)</th>
+                            <th data-i18n="sources_header">Fuentes</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Fase I</td>
+                            <td data-i18n="phase1">Fase I</td>
                             <td>2023–2025</td>
                             <td>35 M</td>
-                            <td>Recursos propios + Telcar</td>
+                            <td data-i18n="sources1">Recursos propios + Telcar</td>
                         </tr>
                         <tr>
-                            <td>Fase II</td>
+                            <td data-i18n="phase2">Fase II</td>
                             <td>2026–2028</td>
                             <td>65 M</td>
-                            <td>Préstamos agrícolas + alianzas</td>
+                            <td data-i18n="sources2">Préstamos agrícolas + alianzas</td>
                         </tr>
                         <tr>
-                            <td>Fase III</td>
+                            <td data-i18n="phase3">Fase III</td>
                             <td>2026–2030</td>
                             <td>120 M</td>
-                            <td>Inversores BIO + cooperación</td>
+                            <td data-i18n="sources3">Inversores BIO + cooperación</td>
                         </tr>
                     </tbody>
                 </table>
             </section>
             
             <section class="section">
-                <h2>7. Impacto y Sostenibilidad</h2>
+                <h2 data-i18n="section7_title">7. Impacto y Sostenibilidad</h2>
                 
                 <div class="impact-grid">
                     <div class="impact-item">
                         <div class="impact-icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h4>+200 Familias</h4>
-                        <p>Familias rurales beneficiadas directamente</p>
+                        <h4 data-i18n="impact1_title">+200 Familias</h4>
+                        <p data-i18n="impact1_text">Familias rurales beneficiadas directamente</p>
                     </div>
                     
                     <div class="impact-item">
                         <div class="impact-icon">
                             <i class="fas fa-tree"></i>
                         </div>
-                        <h4>Agricultura Regenerativa</h4>
-                        <p>Reducción de deforestación mediante prácticas sostenibles</p>
+                        <h4 data-i18n="impact2_title">Agricultura Regenerativa</h4>
+                        <p data-i18n="impact2_text">Reducción de deforestación mediante prácticas sostenibles</p>
                     </div>
                     
                     <div class="impact-item">
                         <div class="impact-icon">
                             <i class="fas fa-female"></i>
                         </div>
-                        <h4>Empleo Femenino</h4>
-                        <p>Creación de empleo femenino en logística y gestión</p>
+                        <h4 data-i18n="impact3_title">Empleo Femenino</h4>
+                        <p data-i18n="impact3_text">Creación de empleo femenino en logística y gestión</p>
                     </div>
                     
                     <div class="impact-item">
                         <div class="impact-icon">
                             <i class="fas fa-globe-europe"></i>
                         </div>
-                        <h4>Mercado Europeo</h4>
-                        <p>Promoción del cacao camerunés de alta calidad en Europa</p>
+                        <h4 data-i18n="impact4_title">Mercado Europeo</h4>
+                        <p data-i18n="impact4_text">Promoción del cacao camerunés de alta calidad en Europa</p>
                     </div>
                 </div>
             </section>
             
             <section class="section">
-                <h2>8. Documentación Visual</h2>
-                <p>Fotografías de las operaciones en Nwangan y Ebolowa, diagramas de flujo de la cadena de valor, y mapa logístico (Nwangan – Ebolowa – Douala – Europa).</p>
+                <h2 data-i18n="section8_title">8. Documentación Visual</h2>
+                <p data-i18n="section8_text">Fotografías de las operaciones en Nwangan y Ebolowa, diagramas de flujo de la cadena de valor, y mapa logístico (Nwangan – Ebolowa – Douala – Europa).</p>
                 
                 <div class="gallery">
                     <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/1.jpg" alt="Fruits de cacao dans une ferme partenaire">
-                        <div class="gallery-caption">
+                        <div class="gallery-img-container">
+                            <img src="image/1.jpg" alt="Fruits de cacao dans une ferme partenaire" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Cacao en ferme partenaire</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery4_caption">
                             Fruits de cacao dans l'une des fermes de nos associés // Nwangan
                         </div>
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/7.jpg" alt="Supervision des stagiaires">
-                        <div class="gallery-caption">
+                        <div class="gallery-img-container">
+                            <img src="image/7.jpg" alt="Supervision des stagiaires" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Supervisión de aprendices</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery5_caption">
                             Mme Meyo Mefo Lydie supervise le travail des stagiaires // Nwangan
                         </div>
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/11.jpg" alt="Préparation des sacs">
-                        <div class="gallery-caption">
+                        <div class="gallery-img-container">
+                            <img src="image/11.jpg" alt="Préparation des sacs" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Preparación de sacos</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery6_caption">
                             Préparation des sacs de cacao pour le transport
                         </div>
                     </div>
@@ -744,19 +775,19 @@
             </section>
             
             <section class="section">
-                <h2>9. Conclusión</h2>
+                <h2 data-i18n="section9_title">9. Conclusión</h2>
                 <div class="info-card">
-                    <p>El proyecto MASSA representa un modelo de integración vertical y sostenibilidad real en el sector cacaotero camerunés. La combinación de liderazgo local, alianzas internacionales y visión ecológica garantiza una proyección estable 2025–2030 con impacto tangible en las comunidades rurales y el medio ambiente.</p>
+                    <p data-i18n="conclusion_text">El proyecto MASSA representa un modelo de integración vertical y sostenibilidad real en el sector cacaotero camerunés. La combinación de liderazgo local, alianzas internacionales y visión ecológica garantiza una proyección estable 2025–2030 con impacto tangible en las comunidades rurales y el medio ambiente.</p>
                 </div>
             </section>
         </div>
         
         <footer>
-            <h2 style="color: #FFD54F; border-bottom-color: rgba(255, 255, 255, 0.3); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">Contacto</h2>
+            <h2 style="color: #FFD54F; border-bottom-color: rgba(255, 255, 255, 0.3); padding-bottom: 0.5rem; margin-bottom: 1.5rem;" data-i18n="contact">Contacto</h2>
             
             <div class="contact-grid">
                 <div class="contact-card">
-                    <h3><i class="fas fa-globe-africa"></i> Contactos en Camerún</h3>
+                    <h3><i class="fas fa-globe-africa"></i> <span data-i18n="cameroon">Contactos en Camerún</span></h3>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
@@ -791,13 +822,13 @@
                         </div>
                         <div class="contact-details">
                             <a href="tel:+237697121480">+237 697 121 480</a>
-                            <div><small>Coordinadora Nacional</small></div>
+                            <div><small data-i18n="coordinator">Coordinadora Nacional</small></div>
                         </div>
                     </div>
                 </div>
                 
                 <div class="contact-card">
-                    <h3><i class="fas fa-map-marker-alt"></i> Coordinación (Alemania)</h3>
+                    <h3><i class="fas fa-map-marker-alt"></i> <span data-i18n="coordination">Coordinación (Alemania)</span></h3>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
@@ -828,7 +859,7 @@
                 </div>
                 
                 <div class="contact-card">
-                    <h3><i class="fas fa-users"></i> Contacto Familia Massa</h3>
+                    <h3><i class="fas fa-users"></i> <span data-i18n="family-contact">Contacto Familia Massa</span></h3>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
@@ -860,27 +891,337 @@
             </div>
             
             <div class="copyright">
-                <p>© 2023-2025 Finca BIO MASSA - Project MASSA Cacao Sostenible BIO. Todos los derechos reservados.</p>
+                <p>© 2023-2025 Finca BIO MASSA - Project MASSA Cacao Sostenible BIO. <span data-i18n="rights">Todos los derechos reservados</span>.</p>
             </div>
         </footer>
     </div>
 
     <script>
-        // Simple language switching (basic implementation)
+        // Multilingual support
+        const translations = {
+            es: {
+                title: "Finca BIO MASSA",
+                subtitle: "Master-Dossier - Project MASSA - Cacao Sostenible BIO 2025-2030",
+                hero_title: "MASTER-DOSSIER – PROJECT MASSA – CACAO SOSTENIBLE BIO (2025–2030)",
+                hero_subtitle: "Dirección General: Pablo Massa (ETS. INASSO) | Coordinación Nacional: Mme. Meyo Mefo Lydie",
+                hero_contact: "Sede Principal: Nwangan, Région du Sud, Camerún | Contacto: +237 655310460 | pablomassa77@gmail.com",
+                section1_title: "1. Resumen Ejecutivo",
+                objective_title: "Objetivo Principal",
+                objective_text: "Consolidar una cadena de suministro sostenible y certificada BIO para cacao camerunés con horizonte temporal 2025–2030.",
+                strategy_title: "Estrategia",
+                strategy_text: "Modelo de 3 fases (compra local, exportación, finca propia BIO) en colaboración con socios estratégicos: ETS. INASSO, Telcar Cocoa Ltd, Olam, Barry Callebaut/SIC Cacaos.",
+                impact_title: "Impacto Esperado",
+                impact_text: "+200 productores integrados, producción BIO certificada >500 t/año para exportación, mejora de ingresos rurales y salud comunitaria.",
+                section2_title: "2. Antecedentes del Proyecto",
+                origins_title: "Orígenes",
+                origins_text: "Nacimiento del proyecto durante la crisis COVID-19 como respuesta a la necesidad de transformar el comercio local en una cadena agroindustrial sostenible.",
+                leadership_title: "Liderazgo",
+                leadership_text: "Pablo Massa (dirección estratégica) y Lydie Meyo (coordinación operativa) lideran la transición hacia un modelo sostenible.",
+                social_title: "Enfoque Social",
+                social_text: "Mejora de ingresos rurales y salud comunitaria mediante cooperación con action medeor e.V. y otras organizaciones.",
+                view_history: "Ver Antecedentes Completos",
+                section3_title: "3. Fases del Proyecto",
+                phase1_title: "Fase I",
+                phase1_period: "Consolidación Local<br>(2023–2025)",
+                phase2_title: "Fase II",
+                phase2_period: "Expansión a Douala<br>(2026–2028)",
+                phase3_title: "Fase III",
+                phase3_period: "Finca BIO MASSA<br>(2026–2030)",
+                phase1_detail_title: "Fase I – Consolidación Local (2023–2025)",
+                phase1_detail_text: "Red de productores en Nwangan y Ebolowa. Contratos de prefinanciación (5–10 t/2 sem.) con Telcar Cocoa Ltd. Construcción de almacén central con secado solar y espacio de empaque. Resultados: estabilidad en volúmenes y control de calidad.",
+                phase2_detail_title: "Fase II – Expansión a Douala (2026–2028)",
+                phase2_detail_text: "Apertura de plataforma logística y acuerdos directos con exportadores. Meta: 10–20 t/mes. Certificación BIO/EU y documentación de trazabilidad completa. Implementación de sistema ERP agrícola (control de lotes, humedad, trazabilidad).",
+                phase3_detail_title: "Fase III – Finca BIO MASSA (2026–2030)",
+                phase3_detail_text: "Adquisición o arriendo de fincas productivas (~50 ha). Producción certificada BIO bajo normas UE y Fairtrade. Integración vertical: cultivo → fermentación → exportación. Formación técnica a agricultores (Escuela de Cacao BIO).",
+                section4_title: "4. Infraestructura Existente",
+                warehouse_title: "Entrepôt Principal",
+                warehouse_text: "Nwangan (sistema de secado solar) con capacidad de procesamiento de 5-10 toneladas cada dos semanas.",
+                secondary_title: "Almacén Secundario",
+                secondary_text: "Ebolowa para expansión regional y apoyo logístico.",
+                equipment_title: "Equipos",
+                equipment_text: "Balanza industriales, sacos 100 kg, área de costura, mesas de control de calidad.",
+                staff_title: "Personal",
+                staff_text: "Coordinadora + 5 operarios + 3 aprendices bajo supervisión de Mme. Meyo Mefo Lydie.",
+                gallery_title: "Galería de Infraestructura",
+                gallery1_caption: "Entrepôt de Mme. Meyo Mefo Lydie en Nwangan // Sacs de 100 kg de cacao",
+                gallery2_caption: "Instalaciones para el secado del cacao al soleil en Nwangan",
+                gallery3_caption: "Mme. Meyo Mefo Lydie // cousant un sac de 100 kg de cacao",
+                section5_title: "5. Socios Estratégicos y Financiadores",
+                partner_header: "Socio",
+                role_header: "Rol",
+                status_header: "Estado",
+                telcar_role: "Exportación y prefinanciación",
+                olam_role: "Comercialización",
+                barry_role: "Calidad y exportación",
+                medeor_role: "Cooperación sanitaria",
+                ministry_name: "Ministerio de Agricultura (MINADER)",
+                ministry_role: "Certificación BIO",
+                status_active: "Activo",
+                status_negotiation: "Negociación",
+                status_planned: "Previsto",
+                status_dialogue: "En diálogo",
+                status_plan2026: "Plan 2026",
+                section6_title: "6. Presupuesto y Necesidades Financieras",
+                phase_header: "Fase",
+                period_header: "Periodo",
+                investment_header: "Inversión estimada (FCFA)",
+                sources_header: "Fuentes",
+                phase1: "Fase I",
+                phase2: "Fase II",
+                phase3: "Fase III",
+                sources1: "Recursos propios + Telcar",
+                sources2: "Préstamos agrícolas + alianzas",
+                sources3: "Inversores BIO + cooperación",
+                section7_title: "7. Impacto y Sostenibilidad",
+                impact1_title: "+200 Familias",
+                impact1_text: "Familias rurales beneficiadas directamente",
+                impact2_title: "Agricultura Regenerativa",
+                impact2_text: "Reducción de deforestación mediante prácticas sostenibles",
+                impact3_title: "Empleo Femenino",
+                impact3_text: "Creación de empleo femenino en logística y gestión",
+                impact4_title: "Mercado Europeo",
+                impact4_text: "Promoción del cacao camerunés de alta calidad en Europa",
+                section8_title: "8. Documentación Visual",
+                section8_text: "Fotografías de las operaciones en Nwangan y Ebolowa, diagramas de flujo de la cadena de valor, y mapa logístico (Nwangan – Ebolowa – Douala – Europa).",
+                gallery4_caption: "Fruits de cacao dans l'une des fermes de nos associés // Nwangan",
+                gallery5_caption: "Mme Meyo Mefo Lydie supervise le travail des stagiaires // Nwangan",
+                gallery6_caption: "Préparation des sacs de cacao pour le transport",
+                section9_title: "9. Conclusión",
+                conclusion_text: "El proyecto MASSA representa un modelo de integración vertical y sostenibilidad real en el sector cacaotero camerunés. La combinación de liderazgo local, alianzas internacionales y visión ecológica garantiza una proyección estable 2025–2030 con impacto tangible en las comunidades rurales y el medio ambiente.",
+                contact: "Contacto",
+                cameroon: "Contactos en Camerún",
+                coordination: "Coordinación (Alemania)",
+                "family-contact": "Contacto Familia Massa",
+                coordinator: "Coordinadora Nacional",
+                rights: "Todos los derechos reservados"
+            },
+            fr: {
+                title: "Finca BIO MASSA",
+                subtitle: "Master-Dossier - Projet MASSA - Cacao Biologique Durable 2025-2030",
+                hero_title: "MASTER-DOSSIER – PROJET MASSA – CACAO BIOLOGIQUE DURABLE (2025–2030)",
+                hero_subtitle: "Direction Générale: Pablo Massa (ETS. INASSO) | Coordination Nationale: Mme. Meyo Mefo Lydie",
+                hero_contact: "Siège Principal: Nwangan, Région du Sud, Cameroun | Contact: +237 655310460 | pablomassa77@gmail.com",
+                section1_title: "1. Résumé Exécutif",
+                objective_title: "Objectif Principal",
+                objective_text: "Consolider une chaîne d'approvisionnement durable et certifiée BIO pour le cacao camerounais avec horizon temporel 2025–2030.",
+                strategy_title: "Stratégie",
+                strategy_text: "Modèle à 3 phases (achat local, exportation, ferme propre BIO) en collaboration avec des partenaires stratégiques: ETS. INASSO, Telcar Cocoa Ltd, Olam, Barry Callebaut/SIC Cacaos.",
+                impact_title: "Impact Attendu",
+                impact_text: "+200 producteurs intégrés, production BIO certifiée >500 t/an pour l'exportation, amélioration des revenus ruraux et de la santé communautaire.",
+                section2_title: "2. Contexte du Projet",
+                origins_title: "Origines",
+                origins_text: "Naissance du projet pendant la crise COVID-19 en réponse au besoin de transformer le commerce local en une chaîne agroindustrielle durable.",
+                leadership_title: "Leadership",
+                leadership_text: "Pablo Massa (direction stratégique) et Lydie Meyo (coordination opérationnelle) dirigent la transition vers un modèle durable.",
+                social_title: "Approche Sociale",
+                social_text: "Amélioration des revenus ruraux et de la santé communautaire grâce à la coopération avec action medeor e.V. et d'autres organisations.",
+                view_history: "Voir Historique Complet",
+                section3_title: "3. Phases du Projet",
+                phase1_title: "Phase I",
+                phase1_period: "Consolidation Locale<br>(2023–2025)",
+                phase2_title: "Phase II",
+                phase2_period: "Expansion à Douala<br>(2026–2028)",
+                phase3_title: "Phase III",
+                phase3_period: "Finca BIO MASSA<br>(2026–2030)",
+                phase1_detail_title: "Phase I – Consolidation Locale (2023–2025)",
+                phase1_detail_text: "Réseau de producteurs à Nwangan et Ebolowa. Contrats de préfinancement (5–10 t/2 sem.) avec Telcar Cocoa Ltd. Construction d'entrepôt central avec séchage solaire et espace d'emballage. Résultats: stabilité des volumes et contrôle qualité.",
+                phase2_detail_title: "Phase II – Expansion à Douala (2026–2028)",
+                phase2_detail_text: "Ouverture de plateforme logistique et accords directs avec exportateurs. Objectif: 10–20 t/mois. Certification BIO/UE et documentation de traçabilité complète. Mise en œuvre d'un système ERP agricole (contrôle des lots, humidité, traçabilité).",
+                phase3_detail_title: "Phase III – Finca BIO MASSA (2026–2030)",
+                phase3_detail_text: "Acquisition ou location de fermes productives (~50 ha). Production certifiée BIO selon normes UE et Fairtrade. Intégration verticale: culture → fermentation → exportation. Formation technique des agriculteurs (École de Cacao BIO).",
+                section4_title: "4. Infrastructure Existante",
+                warehouse_title: "Entrepôt Principal",
+                warehouse_text: "Nwangan (système de séchage solaire) avec capacité de traitement de 5-10 tonnes toutes les deux semaines.",
+                secondary_title: "Entrepôt Secondaire",
+                secondary_text: "Ebolowa pour l'expansion régionale et le soutien logistique.",
+                equipment_title: "Équipements",
+                equipment_text: "Balances industrielles, sacs de 100 kg, zone de couture, tables de contrôle qualité.",
+                staff_title: "Personnel",
+                staff_text: "Coordinatrice + 5 opérateurs + 3 apprentis sous supervision de Mme. Meyo Mefo Lydie.",
+                gallery_title: "Galerie d'Infrastructure",
+                gallery1_caption: "Entrepôt de Mme. Meyo Mefo Lydie à Nwangan // Sacs de 100 kg de cacao",
+                gallery2_caption: "Installations pour le séchage du cacao au soleil à Nwangan",
+                gallery3_caption: "Mme. Meyo Mefo Lydie // en train de coudre un sac de 100 kg de cacao",
+                section5_title: "5. Partenaires Stratégiques et Financeurs",
+                partner_header: "Partenaire",
+                role_header: "Rôle",
+                status_header: "Statut",
+                telcar_role: "Exportation et préfinancement",
+                olam_role: "Commercialisation",
+                barry_role: "Qualité et exportation",
+                medeor_role: "Coopération sanitaire",
+                ministry_name: "Ministère de l'Agriculture (MINADER)",
+                ministry_role: "Certification BIO",
+                status_active: "Actif",
+                status_negotiation: "Négociation",
+                status_planned: "Prévu",
+                status_dialogue: "En dialogue",
+                status_plan2026: "Plan 2026",
+                section6_title: "6. Budget et Besoins Financiers",
+                phase_header: "Phase",
+                period_header: "Période",
+                investment_header: "Investissement estimé (FCFA)",
+                sources_header: "Sources",
+                phase1: "Phase I",
+                phase2: "Phase II",
+                phase3: "Phase III",
+                sources1: "Ressources propres + Telcar",
+                sources2: "Prêts agricoles + alliances",
+                sources3: "Investisseurs BIO + coopération",
+                section7_title: "7. Impact et Durabilité",
+                impact1_title: "+200 Familles",
+                impact1_text: "Familles rurales bénéficiaires directes",
+                impact2_title: "Agriculture Régénérative",
+                impact2_text: "Réduction de la déforestation grâce à des pratiques durables",
+                impact3_title: "Emploi Féminin",
+                impact3_text: "Création d'emplois féminins dans la logistique et la gestion",
+                impact4_title: "Marché Européen",
+                impact4_text: "Promotion du cacao camerounais de haute qualité en Europe",
+                section8_title: "8. Documentation Visuelle",
+                section8_text: "Photographies des opérations à Nwangan et Ebolowa, diagrammes de flux de la chaîne de valeur, et carte logistique (Nwangan – Ebolowa – Douala – Europe).",
+                gallery4_caption: "Fruits de cacao dans l'une des fermes de nos associés // Nwangan",
+                gallery5_caption: "Mme Meyo Mefo Lydie supervise le travail des stagiaires // Nwangan",
+                gallery6_caption: "Préparation des sacs de cacao pour le transport",
+                section9_title: "9. Conclusion",
+                conclusion_text: "Le projet MASSA représente un modèle d'intégration verticale et de durabilité réelle dans le secteur cacaoyer camerounais. La combinaison de leadership local, de partenariats internationaux et de vision écologique garantit une projection stable 2025–2030 avec un impact tangible sur les communautés rurales et l'environnement.",
+                contact: "Contact",
+                cameroon: "Contacts au Cameroun",
+                coordination: "Coordination (Allemagne)",
+                "family-contact": "Contact Famille Massa",
+                coordinator: "Coordinatrice Nationale",
+                rights: "Tous droits réservés"
+            },
+            de: {
+                title: "Finca BIO MASSA",
+                subtitle: "Master-Dossier - Projekt MASSA - Nachhaltiger BIO-Kakao 2025-2030",
+                hero_title: "MASTER-DOSSIER – PROJEKT MASSA – NACHHALTIGER BIO-KAKAO (2025–2030)",
+                hero_subtitle: "Generaldirektion: Pablo Massa (ETS. INASSO) | Nationale Koordination: Frau Meyo Mefo Lydie",
+                hero_contact: "Hauptsitz: Nwangan, Region Sud, Kamerun | Kontakt: +237 655310460 | pablomassa77@gmail.com",
+                section1_title: "1. Exekutive Zusammenfassung",
+                objective_title: "Hauptziel",
+                objective_text: "Konsolidierung einer nachhaltigen und BIO-zertifizierten Lieferkette für kamerunischen Kakao mit Zeithorizont 2025–2030.",
+                strategy_title: "Strategie",
+                strategy_text: "3-Phasen-Modell (lokaler Einkauf, Export, eigene BIO-Farm) in Zusammenarbeit mit strategischen Partnern: ETS. INASSO, Telcar Cocoa Ltd, Olam, Barry Callebaut/SIC Cacaos.",
+                impact_title: "Erwartete Auswirkungen",
+                impact_text: "+200 integrierte Produzenten, BIO-zertifizierte Produktion >500 t/Jahr für den Export, Verbesserung der ländlichen Einkommen und der Gemeindegesundheit.",
+                section2_title: "2. Projekthintergrund",
+                origins_title: "Ursprünge",
+                origins_text: "Entstehung des Projekts während der COVID-19-Krise als Reaktion auf die Notwendigkeit, den lokalen Handel in eine nachhaltige agroindustrielle Kette zu verwandeln.",
+                leadership_title: "Führung",
+                leadership_text: "Pablo Massa (strategische Leitung) und Lydie Meyo (operative Koordination) leiten den Übergang zu einem nachhaltigen Modell.",
+                social_title: "Sozialer Ansatz",
+                social_text: "Verbesserung der ländlichen Einkommen und der Gemeindegesundheit durch Zusammenarbeit mit action medeor e.V. und anderen Organisationen.",
+                view_history: "Vollständigen Hintergrund anzeigen",
+                section3_title: "3. Projektphasen",
+                phase1_title: "Phase I",
+                phase1_period: "Lokale Konsolidierung<br>(2023–2025)",
+                phase2_title: "Phase II",
+                phase2_period: "Expansion nach Douala<br>(2026–2028)",
+                phase3_title: "Phase III",
+                phase3_period: "Finca BIO MASSA<br>(2026–2030)",
+                phase1_detail_title: "Phase I – Lokale Konsolidierung (2023–2025)",
+                phase1_detail_text: "Produzentennetzwerk in Nwangan und Ebolowa. Vorfinanzierungsverträge (5–10 t/2 Wo.) mit Telcar Cocoa Ltd. Bau eines zentralen Lagers mit Solartrocknung und Verpackungsbereich. Ergebnisse: Stabilität der Volumina und Qualitätskontrolle.",
+                phase2_detail_title: "Phase II – Expansion nach Douala (2026–2028)",
+                phase2_detail_text: "Eröffnung einer Logistikplattform und direkte Vereinbarungen mit Exporteuren. Ziel: 10–20 t/Monat. BIO/EU-Zertifizierung und vollständige Rückverfolgbarkeitsdokumentation. Implementierung eines landwirtschaftlichen ERP-Systems (Chargenkontrolle, Feuchtigkeit, Rückverfolgbarkeit).",
+                phase3_detail_title: "Phase III – Finca BIO MASSA (2026–2030)",
+                phase3_detail_text: "Erwerb oder Pacht produktiver Farmen (~50 ha). BIO-zertifizierte Produktion nach EU- und Fairtrade-Normen. Vertikale Integration: Anbau → Fermentation → Export. Technische Ausbildung der Landwirte (BIO-Kakao-Schule).",
+                section4_title: "4. Bestehende Infrastruktur",
+                warehouse_title: "Hauptlager",
+                warehouse_text: "Nwangan (Solartrocknungssystem) mit Verarbeitungskapazität von 5-10 Tonnen alle zwei Wochen.",
+                secondary_title: "Sekundärlager",
+                secondary_text: "Ebolowa für regionale Expansion und logistische Unterstützung.",
+                equipment_title: "Ausrüstung",
+                equipment_text: "Industriewaagen, 100-kg-Säcke, Näherei, Qualitätskontrolltische.",
+                staff_title: "Personal",
+                staff_text: "Koordinatorin + 5 Operatoren + 3 Auszubildende unter Aufsicht von Frau Meyo Mefo Lydie.",
+                gallery_title: "Infrastruktur-Galerie",
+                gallery1_caption: "Lager von Frau Meyo Mefo Lydie in Nwangan // 100-kg-Kakaosäcke",
+                gallery2_caption: "Einrichtungen für die Sonnentrocknung von Kakao in Nwangan",
+                gallery3_caption: "Frau Meyo Mefo Lydie // beim Nähen eines 100-kg-Kakaosacks",
+                section5_title: "5. Strategische Partner und Geldgeber",
+                partner_header: "Partner",
+                role_header: "Rolle",
+                status_header: "Status",
+                telcar_role: "Export und Vorfinanzierung",
+                olam_role: "Vermarktung",
+                barry_role: "Qualität und Export",
+                medeor_role: "Gesundheitskooperation",
+                ministry_name: "Landwirtschaftsministerium (MINADER)",
+                ministry_role: "BIO-Zertifizierung",
+                status_active: "Aktiv",
+                status_negotiation: "Verhandlung",
+                status_planned: "Geplant",
+                status_dialogue: "Im Dialog",
+                status_plan2026: "Plan 2026",
+                section6_title: "6. Budget und Finanzierungsbedarf",
+                phase_header: "Phase",
+                period_header: "Zeitraum",
+                investment_header: "Geschätzte Investition (FCFA)",
+                sources_header: "Quellen",
+                phase1: "Phase I",
+                phase2: "Phase II",
+                phase3: "Phase III",
+                sources1: "Eigenmittel + Telcar",
+                sources2: "Agrarkredite + Partnerschaften",
+                sources3: "BIO-Investoren + Zusammenarbeit",
+                section7_title: "7. Auswirkungen und Nachhaltigkeit",
+                impact1_title: "+200 Familien",
+                impact1_text: "Direkt begünstigte ländliche Familien",
+                impact2_title: "Regenerative Landwirtschaft",
+                impact2_text: "Reduzierung der Entwaldung durch nachhaltige Praktiken",
+                impact3_title: "Frauenbeschäftigung",
+                impact3_text: "Schaffung von Frauenarbeitsplätzen in Logistik und Management",
+                impact4_title: "Europäischer Markt",
+                impact4_text: "Förderung von hochwertigem kamerunischem Kakao in Europa",
+                section8_title: "8. Visuelle Dokumentation",
+                section8_text: "Fotos der Operationen in Nwangan und Ebolowa, Flussdiagramme der Wertschöpfungskette und logistische Karte (Nwangan – Ebolowa – Douala – Europa).",
+                gallery4_caption: "Kakaofrüchte auf einer unserer Partnerfarmen // Nwangan",
+                gallery5_caption: "Frau Meyo Mefo Lydie überwacht die Arbeit der Auszubildenden // Nwangan",
+                gallery6_caption: "Vorbereitung der Kakaosäcke für den Transport",
+                section9_title: "9. Schlussfolgerung",
+                conclusion_text: "Das MASSA-Projekt stellt ein Modell vertikaler Integration und echter Nachhaltigkeit im kamerunischen Kakaosektor dar. Die Kombination aus lokaler Führung, internationalen Partnerschaften und ökologischer Vision gewährleistet eine stabile Projektion 2025–2030 mit greifbaren Auswirkungen auf ländliche Gemeinden und die Umwelt.",
+                contact: "Kontakt",
+                cameroon: "Kontakte in Kamerun",
+                coordination: "Koordination (Deutschland)",
+                "family-contact": "Kontakt Familie Massa",
+                coordinator: "Nationale Koordinatorin",
+                rights: "Alle Rechte vorbehalten"
+            }
+        };
+
+        // Set language function
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.placeholder) {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Event listeners for language buttons
         document.querySelectorAll('.lang-btn').forEach(button => {
             button.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
-                
-                // Update active button
-                document.querySelectorAll('.lang-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                // In a full implementation, we would update all text content based on language
-                console.log('Language switched to: ' + lang);
+                setLanguage(lang);
             });
         });
+
+        // Initialize with Spanish
+        setLanguage('es');
     </script>
 </body>
 </html>
