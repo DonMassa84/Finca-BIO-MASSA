@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projet Cacao Durable - Finca BIO MASSA</title>
-<a href="dossier.html" class="nav-tab">Master-Dossier</a>
+    <meta name="description" content="Proyecto Cacao Sostenible BIO - Finca BIO MASSA">
+    <title>Proyecto Cacao Sostenible - Finca BIO MASSA</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -24,9 +24,24 @@
         
         body {
             font-family: 'Roboto', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1580591090179-235a1d3c5a58?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #3E2723;
             line-height: 1.6;
-            color: var(--dark-color);
-            background-color: var(--light-color);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 253, 250, 0.97);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
         
         header {
@@ -95,12 +110,6 @@
             color: #5D4037;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
         .nav-tabs {
             display: flex;
             justify-content: center;
@@ -109,6 +118,7 @@
             border-radius: 8px;
             padding: 10px;
             backdrop-filter: blur(10px);
+            flex-wrap: wrap;
         }
         
         .nav-tab {
@@ -116,12 +126,16 @@
             border: none;
             color: white;
             padding: 12px 24px;
-            margin: 0 10px;
+            margin: 5px;
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: bold;
             font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 150px;
         }
         
         .nav-tab:hover {
@@ -133,15 +147,11 @@
             color: #5D4037;
         }
         
-        .tab-content {
-            display: none;
+        .content-section {
+            padding: 40px;
         }
         
-        .tab-content.active {
-            display: block;
-        }
-        
-        .cacao-hero {
+        .project-hero {
             background: linear-gradient(to right, var(--primary-color), #8D6E63);
             color: white;
             padding: 3rem 2rem;
@@ -150,7 +160,7 @@
             border-radius: 8px;
         }
         
-        .cacao-hero h1 {
+        .project-hero h1 {
             color: #FFD54F;
             margin-bottom: 1rem;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
@@ -158,6 +168,10 @@
         
         .section {
             margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .section h2 {
@@ -169,23 +183,82 @@
             font-size: 1.8rem;
         }
         
-        .project-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+        .section h3 {
+            color: var(--accent-color);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
         }
         
         .info-card {
-            background-color: white;
+            background-color: #F5F5F5;
             padding: 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
         }
         
-        .info-card h3 {
+        .info-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-item {
+            background: #F5F5F5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .process-step {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            width: 22%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .process-step h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary-color);
+            z-index: 1;
         }
         
         .gallery {
@@ -207,227 +280,27 @@
             transform: translateY(-5px);
         }
         
-        .gallery-item img {
+        .gallery-img-container {
             width: 100%;
             height: 250px;
+            overflow: hidden;
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.05);
         }
         
         .gallery-caption {
             padding: 1rem;
             font-size: 0.9rem;
             color: var(--dark-color);
-        }
-        
-        .highlight {
-            background-color: var(--secondary-color);
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .person-card {
-            display: flex;
-            align-items: center;
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .person-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 1.5rem;
-        }
-        
-        .person-info h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        
-        .person-info p {
-            color: var(--dark-color);
-        }
-        
-        /* Farmer Registration Styles */
-        .registration-section {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        input, select, textarea {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid #D7CCC8;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-        
-        input:focus, select:focus, textarea:focus {
-            border-color: #8D6E63;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(141, 110, 99, 0.3);
-        }
-        
-        button.submit-btn {
-            background: linear-gradient(to right, var(--primary-color), #8D6E63);
-            color: white;
-            border: none;
-            padding: 16px;
-            font-size: 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-            font-weight: 700;
-            margin-top: 10px;
-        }
-        
-        button.submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .benefits-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .benefit-item {
-            display: flex;
-            align-items: center;
-            background: #F5F5F5;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .benefit-icon {
-            background: #8D6E63;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-        
-        .about-content {
-            background: #F5F5F5;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .about-content p {
-            margin-bottom: 15px;
-        }
-        
-        .progress-bar {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        .progress-step {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #D7CCC8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            z-index: 2;
-        }
-        
-        .progress-step.active {
-            background: #8D6E63;
-        }
-        
-        .progress-bar::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: #D7CCC8;
-            z-index: 1;
-        }
-        
-        .farmers-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 30px;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .farmers-table th, .farmers-table td {
-            padding: 12px 15px;
-            text-align: left;
-            border-bottom: 1px solid #D7CCC8;
-        }
-        
-        .farmers-table th {
-            background: #8D6E63;
-            color: white;
-            font-weight: 700;
-        }
-        
-        .farmers-table tr:nth-child(even) {
-            background: #F5F5F5;
-        }
-        
-        .farmers-table tr:hover {
-            background: #EFEBE9;
-        }
-        
-        .table-container {
-            margin-top: 40px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        footer {
-            background: #5D4037;
-            color: white;
-            text-align: center;
-            padding: 30px;
-            margin-top: 20px;
         }
         
         .contact-grid {
@@ -486,11 +359,12 @@
             text-decoration: underline;
         }
         
-        .cacao-decoration {
+        footer {
+            background: #5D4037;
+            color: white;
             text-align: center;
-            margin: 20px 0;
-            font-size: 2rem;
-            color: #7E57C2;
+            padding: 30px;
+            margin-top: 20px;
         }
         
         .copyright {
@@ -499,43 +373,56 @@
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 15px 20px;
-            background: #4CAF50;
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .impact-item {
+            background: #F5F5F5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .impact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .img-fallback {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #4a7c59, #8D6E63);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            border-radius: 5px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 1000;
+            font-weight: bold;
         }
         
-        .notification.show {
-            opacity: 1;
-        }
-        
-        .loading {
+        .cta-button {
             display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: #fff;
-            animation: spin 1s ease-in-out infinite;
+            background: linear-gradient(to right, var(--primary-color), #8D6E63);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: all 0.3s;
         }
         
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         @media (max-width: 768px) {
-            .benefits-container {
-                grid-template-columns: 1fr;
-            }
-            
             h1 {
                 font-size: 2.2rem;
             }
@@ -546,666 +433,538 @@
                 margin-bottom: 15px;
             }
             
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-card {
-                text-align: center;
-            }
-            
-            .contact-item {
+            .nav-tabs {
                 flex-direction: column;
-                text-align: center;
-                gap: 8px;
             }
             
-            .farmers-table {
-                display: block;
-                overflow-x: auto;
+            .nav-tab {
+                margin: 5px 0;
             }
             
-            .person-card {
+            .process-steps {
                 flex-direction: column;
-                text-align: center;
+                gap: 1rem;
             }
             
-            .person-img {
-                margin-right: 0;
-                margin-bottom: 1rem;
+            .process-step {
+                width: 100%;
+            }
+            
+            .process-steps::before {
+                display: none;
             }
             
             .gallery {
                 grid-template-columns: 1fr;
             }
             
-            .nav-tabs {
-                flex-direction: column;
-                gap: 10px;
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
             
-            .nav-tab {
-                margin: 5px 0;
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="language-selector">
-            <button class="lang-btn active" data-lang="fr">FR</button>
-            <button class="lang-btn" data-lang="es">ES</button>
-            <button class="lang-btn" data-lang="de">DE</button>
-        </div>
-        
-        <div class="logo-container">
-            <div class="logo">
-                <i class="fas fa-leaf"></i>
-            </div>
-            <div>
-                <h1>Finca BIO MASSA</h1>
-                <p class="subtitle">Agriculture durable et production de cacao</p>
-            </div>
-        </div>
-        
-        <!-- Navigation Tabs -->
-        <div class="nav-tabs">
-            <button class="nav-tab active" data-tab="cacao">Projet Cacao Durable</button>
-            <button class="nav-tab" data-tab="registration">Inscription Agriculteurs</button>
-        </div>
-    </header>
-    
     <div class="container">
-        <!-- Cacao Project Section -->
-        <div id="cacao-tab" class="tab-content active">
-            <section class="cacao-hero">
-                <h1>Projet de Cacao Durable à Nwangan</h1>
-                <p>Promouvoir la production durable de cacao en partenariat avec les agriculteurs locaux</p>
+        <header>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="de">DE</button>
+            </div>
+            
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div>
+                    <h1 data-i18n="title">Finca BIO MASSA</h1>
+                    <p class="subtitle" data-i18n="subtitle">Proyecto Cacao Sostenible BIO - Cultivo Responsable y Comercio Justo</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <a href="index.html" class="nav-tab">Página Principal</a>
+                <a href="dossier.html" class="nav-tab">Master-Dossier</a>
+                <a href="antecedentes.html" class="nav-tab">Antecedentes</a>
+                <a href="sustainable-cacao.html" class="nav-tab active">Proyecto Cacao</a>
+            </div>
+        </header>
+        
+        <div class="content-section">
+            <section class="project-hero">
+                <h1 data-i18n="hero_title">PROYECTO CACAO SOSTENIBLE BIO</h1>
+                <p data-i18n="hero_subtitle">Transformando la cadena de valor del cacao camerunés hacia la sostenibilidad y el comercio justo</p>
+                <p data-i18n="hero_vision">Visión 2025-2030: +500 toneladas de cacao BIO certificado para exportación directa</p>
             </section>
             
             <section class="section">
-                <h2>À propos du projet</h2>
-                <div class="project-info">
-                    <div class="info-card">
-                        <h3>Notre Mission</h3>
-                        <p>Le projet de cacao durable à Nwangan vise à soutenir les producteurs locaux de cacao tout en promouvant des méthodes agricoles écologiques. Grâce à des partenariats avec des organisations comme ETS. INASSO et Telcar Cocoa Ltd., nous créons une chaîne de valeur durable.</p>
+                <h2 data-i18n="section1_title">Nuestro Enfoque Sostenible</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4 data-i18n="feature1_title">Agricultura Regenerativa</h4>
+                        <p data-i18n="feature1_text">Prácticas de cultivo que mejoran la salud del suelo y la biodiversidad, reduciendo la deforestación.</p>
                     </div>
                     
-                    <div class="info-card">
-                        <h3>Garantie de Qualité</h3>
-                        <p>Notre entrepôt à Nwangan dispose d'installations de séchage solaire du cacao pour garantir les normes de qualité les plus élevées. Chaque étape du processus est surveillée pour produire des fèves de cacao de première qualité.</p>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h4 data-i18n="feature2_title">Comercio Justo</h4>
+                        <p data-i18n="feature2_text">Precios garantizados que permiten a los agricultores vivir dignamente de su trabajo.</p>
                     </div>
                     
-                    <div class="info-card">
-                        <h3>Approche Durable</h3>
-                        <p>Nous nous engageons à promouvoir des pratiques agricoles durables qui préservent l'environnement tout en assurant des moyens de subsistance stables pour les agriculteurs locaux et leurs familles.</p>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 data-i18n="feature3_title">Comunidad</h4>
+                        <p data-i18n="feature3_text">Fortalecimiento de las comunidades rurales mediante programas de salud y educación.</p>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4 data-i18n="feature4_title">Certificación BIO</h4>
+                        <p data-i18n="feature4_text">Proceso de certificación orgánica según estándares europeos para acceso a mercados premium.</p>
                     </div>
                 </div>
             </section>
             
             <section class="section">
-                <h2>Système de Livraison</h2>
-                <div class="highlight">
-                    <h3>Contrat de Préfinancement avec Telcar Cocoa Ltd.</h3>
-                    <p>Livraison de <strong>5 à 10 tonnes de cacao toutes les deux semaines</strong> au Représentant de Telcar à Nwangan</p>
+                <h2 data-i18n="section2_title">Proceso de Producción Sostenible</h2>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <h4 data-i18n="step1_title">Cultivo</h4>
+                        <p data-i18n="step1_text">Agricultura BIO sin pesticidas</p>
+                    </div>
+                    <div class="process-step">
+                        <h4 data-i18n="step2_title">Cosecha</h4>
+                        <p data-i18n="step2_text">Selección manual óptima</p>
+                    </div>
+                    <div class="process-step">
+                        <h4 data-i18n="step3_title">Fermentación</h4>
+                        <p data-i18n="step3_text">Proceso natural controlado</p>
+                    </div>
+                    <div class="process-step">
+                        <h4 data-i18n="step4_title">Secado</h4>
+                        <p data-i18n="step4_text">Energía solar sostenible</p>
+                    </div>
                 </div>
                 
-                <div class="project-info">
-                    <div class="info-card">
-                        <h3>Processus de Livraison</h3>
-                        <p>Le cacao est soigneusement séché au soleil, ensaché en sacs de 100 kg, puis livré régulièrement selon le calendrier établi avec Telcar Cocoa Ltd.</p>
+                <div class="info-card">
+                    <h4 data-i18n="quality_title">Control de Calidad Integral</h4>
+                    <p data-i18n="quality_text">Cada lote pasa por rigurosos controles de humedad, fermentación y pureza antes del empaque. Nuestro sistema de trazabilidad garantiza transparencia total desde el agricultor hasta el consumidor final.</p>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 data-i18n="section3_title">Impacto en las Comunidades</h2>
+                
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h4 data-i18n="impact1_title">+200 Familias</h4>
+                        <p data-i18n="impact1_text">Beneficiadas directamente por el proyecto</p>
                     </div>
                     
-                    <div class="info-card">
-                        <h3>Contrôle Qualité</h3>
-                        <p>Chaque sac est inspecté et cousu manuellement pour assurer la qualité et l'intégrité du produit pendant le transport.</p>
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4 data-i18n="impact2_title">Formación Continua</h4>
+                        <p data-i18n="impact2_text">Capacitación en técnicas agrícolas sostenibles</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h4 data-i18n="impact3_title">Empoderamiento Femenino</h4>
+                        <p data-i18n="impact3_text">40% de mujeres en puestos de liderazgo</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h4 data-i18n="impact4_title">Reforestación</h4>
+                        <p data-i18n="impact4_text">+5,000 árboles nativos plantados anualmente</p>
                     </div>
                 </div>
             </section>
             
             <section class="section">
-                <h2>Nos Partenaires</h2>
-                
-                <div class="person-card">
-                    <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/4.jpg" alt="Mme. Meyo Mefo Lydie" class="person-img">
-                    <div class="person-info">
-                        <h3>Mme. Meyo Mefo Lydie</h3>
-                        <p>Directrice Commerciale et Coordinatrice nationale d'achat du cacao chez ETS. INASSO</p>
-                        <p>Mme. Meyo Mefo Lydie dirige les activités à Nwangan. Elle supervise l'ensemble du processus, de la récolte à la livraison, et forme des stagiaires dans son entrepôt.</p>
-                    </div>
-                </div>
-                
-                <div class="project-info">
-                    <div class="info-card">
-                        <h3>Telcar Cocoa Ltd.</h3>
-                        <p>Notre principal acheteur de cacao de haute qualité. Grâce à des livraisons régulières et des accords de préfinancement, Telcar Cocoa Ltd. soutient le développement durable de la production locale de cacao.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>ETS. INASSO</h3>
-                        <p>L'établissement Ingénieurs Associés (ETS. INASSO) coordonne l'achat de cacao au niveau national et veille au respect des normes de qualité et à la rémunération équitable des agriculteurs.</p>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>Agriculteurs Associés</h3>
-                        <p>Nos partenaires agricoles locaux qui cultivent le cacao selon des méthodes durables, préservant la biodiversité et la santé des sols pour les générations futures.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2>Galerie du Projet</h2>
-                <p>Photos de nos activités à Nwangan, octobre 2025</p>
+                <h2 data-i18n="section4_title">Galería del Proyecto</h2>
+                <p data-i18n="section4_text">Conozca nuestro trabajo en las comunidades de Nwangan y Ebolowa</p>
                 
                 <div class="gallery">
                     <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/1.jpg" alt="Fruits de cacao dans une ferme partenaire">
-                        <div class="gallery-caption">
-                            Fruits de cacao dans l'une des fermes de nos associés // Nwangan, octobre 25
+                        <div class="gallery-img-container">
+                            <img src="image/1.jpg" alt="Cultivo de cacao" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Cultivo de cacao</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery1_caption">
+                            Plantaciones de cacao en Nwangan - Cultivo sostenible bajo sombra
                         </div>
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/2.jpg" alt="Entrepôt de Mme. Meyo Mefo Lydie">
-                        <div class="gallery-caption">
-                            Entrepôt de Mme. Meyo Mefo Lydie en Nwangan // Sacs de 100 kg de cacao // marchandise prête
+                        <div class="gallery-img-container">
+                            <img src="image/3.jpg" alt="Secado solar" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Secado solar</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery2_caption">
+                            Proceso de secado solar - Energía 100% renovable
                         </div>
                     </div>
                     
                     <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/3.jpg" alt="Installations de séchage solaire">
-                        <div class="gallery-caption">
-                            Mme. Meyo Mefo Lydie // son entrepôt de Nwangan dispose d'installations pour le séchage du cacao au soleil
+                        <div class="gallery-img-container">
+                            <img src="image/7.jpg" alt="Formación" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Formación</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery3_caption">
+                            Capacitación a agricultores - Transferencia de conocimiento
                         </div>
                     </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2 data-i18n="section5_title">Únase a Nuestro Proyecto</h2>
+                <div class="info-card">
+                    <h4 data-i18n="join_title">Oportunidades de Colaboración</h4>
+                    <p data-i18n="join_text">Buscamos socios estratégicos, inversionistas y compradores comprometidos con la sostenibilidad y el comercio justo. Juntos podemos transformar la industria del cacao en Camerún.</p>
                     
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/5.jpg" alt="Installations dans l'entrepôt">
-                        <div class="gallery-caption">
-                            Installations dans l'Entrepôt de Mme. Meyo Mefo Lydie de Nwangan // octobre 25
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/6.jpg" alt="Mme. Meyo Mefo Lydie cousant un sac">
-                        <div class="gallery-caption">
-                            Mme. Meyo Mefo Lydie // cousant un sac de 100 kg de cacao // marchandise prête à être livré
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/7.jpg" alt="Supervision des stagiaires">
-                        <div class="gallery-caption">
-                            Mme Meyo Mefo Lydie (au-dessus du côté gauche sur la photo) supervise le travail des stagiaires dans son entrepôt de Nwangan // octobre 2025
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/8.jpg" alt="Cacao en sacs">
-                        <div class="gallery-caption">
-                            Sacs de cacao prêts pour la livraison // Entrepôt de Nwangan
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/9.jpg" alt="Processus de qualité">
-                        <div class="gallery-caption">
-                            Contrôle qualité du cacao dans l'entrepôt de Nwangan
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/10.jpg" alt="Cacao séché">
-                        <div class="gallery-caption">
-                            Cacao séché au soleil, prêt pour l'ensachage
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/11.jpg" alt="Transport de cacao">
-                        <div class="gallery-caption">
-                            Préparation des sacs de cacao pour le transport vers Telcar Cocoa Ltd.
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/12.jpg" alt="Entrepôt de cacao">
-                        <div class="gallery-caption">
-                            Intérieur de l'entrepôt de Nwangan avec les installations de stockage
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/13.jpg" alt="Séchage du cacao">
-                        <div class="gallery-caption">
-                            Processus de séchage du cacao dans l'entrepôt de Mme. Meyo Mefo Lydie
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/14.jpg" alt="Cacao en vrac">
-                        <div class="gallery-caption">
-                            Cacao de haute qualité avant l'ensachage // Nwangan
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/15.jpg" alt="Préparation des sacs">
-                        <div class="gallery-caption">
-                            Préparation des sacs de 100 kg pour la livraison à Telcar Cocoa Ltd.
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/16.jpg" alt="Entrepôt de stockage">
-                        <div class="gallery-caption">
-                            Zone de stockage des sacs de cacao dans l'entrepôt de Nwangan
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/17.jpg" alt="Contrôle qualité">
-                        <div class="gallery-caption">
-                            Contrôle final de la qualité avant la livraison
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/18.jpg" alt="Équipe de travail">
-                        <div class="gallery-caption">
-                            L'équipe de l'entrepôt de Nwangan prépare la livraison de cacao
-                        </div>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <a href="index.html" class="cta-button" data-i18n="join_button">
+                            <i class="fas fa-handshake"></i> Colaborar con Nosotros
+                        </a>
                     </div>
                 </div>
             </section>
         </div>
         
-        <!-- Farmer Registration Section -->
-        <div id="registration-tab" class="tab-content">
-            <div class="cacao-decoration">
-                <i class="fas fa-seedling"></i>
-                <i class="fas fa-coffee"></i>
-                <i class="fas fa-cookie-bite"></i>
-            </div>
+        <footer>
+            <h2 style="color: #FFD54F; border-bottom-color: rgba(255, 255, 255, 0.3); padding-bottom: 0.5rem; margin-bottom: 1.5rem;" data-i18n="contact">Contacto</h2>
             
-            <div class="progress-bar">
-                <div class="progress-step active">1</div>
-                <div class="progress-step">2</div>
-                <div class="progress-step">3</div>
-            </div>
-            
-            <div class="registration-section">
-                <h2 class="section-title">Inscription des Agriculteurs</h2>
-                <form id="farmer-registration">
-                    <div class="form-group">
-                        <label for="name">Nom complet</label>
-                        <input type="text" id="name" placeholder="Prénom et nom" required>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3><i class="fas fa-globe-africa"></i> <span data-i18n="cameroon">Contactos en Camerún</span></h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-details">
+                            <strong>Pablo Massa</strong>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="email">Adresse e-mail</label>
-                        <input type="email" id="email" placeholder="Votre adresse e-mail" required>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <a href="tel:+237655310460">+237 655 310 460</a>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="phone">Numéro de téléphone</label>
-                        <input type="tel" id="phone" placeholder="Votre numéro de téléphone">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-details">
+                            <strong>Lydie Meyo</strong>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="finca-name">Nom de la ferme</label>
-                        <input type="text" id="finca-name" placeholder="Nom de votre ferme">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <a href="tel:+237697121480">+237 697 121 480</a>
+                            <div><small data-i18n="coordinator">Coordinadora Nacional</small></div>
+                        </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="location">Emplacement</label>
-                        <input type="text" id="location" placeholder="Lieu, région">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="products">Produits cultivés</label>
-                        <select id="products" multiple>
-                            <option value="cacao">Cacao</option>
-                            <option value="cafe">Café</option>
-                            <option value="bananes">Bananes</option>
-                            <option value="avocat">Avocat</option>
-                            <option value="autres">Autres</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message (optionnel)</label>
-                        <textarea id="message" rows="4" placeholder="Avez-vous des questions ou des demandes particulières?"></textarea>
-                    </div>
-                    
-                    <button type="submit" class="submit-btn" id="submit-btn">
-                        <span id="submit-text">Soumettre l'inscription</span>
-                        <span id="submit-loading" class="loading" style="display: none;"></span>
-                    </button>
-                </form>
-            </div>
-
-            <div class="table-container">
-                <h2 class="section-title">Agriculteurs Enregistrés</h2>
-                <div class="farmers-list">
-                    <table class="farmers-table">
-                        <thead>
-                            <tr>
-                                <th>Nom</th>
-                                <th>Ferme</th>
-                                <th>Emplacement</th>
-                                <th>Produits</th>
-                            </tr>
-                        </thead>
-                        <tbody id="farmers-table-body">
-                            <!-- Les données des agriculteurs seront chargées ici -->
-                        </tbody>
-                    </table>
                 </div>
-            </div>
-            
-            <div class="benefits">
-                <h2 class="section-title">Avantages</h2>
-                <div class="benefits-container">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-euro-sign"></i>
+                
+                <div class="contact-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> <span data-i18n="coordination">Coordinación (Alemania)</span></h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
                         </div>
-                        <div>
-                            <h3>Prix équitables</h3>
-                            <p>Prix d'achat garantis pour vos produits biologiques</p>
+                        <div class="contact-details">
+                            <strong>Daniel Massa</strong>
                         </div>
                     </div>
                     
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-certificate"></i>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
                         </div>
-                        <div>
-                            <h3>Certification biologique</h3>
-                            <p>Soutien pour la certification biologique de votre ferme</p>
-                        </div>
-                    </div>
-                    
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div>
-                            <h3>Communauté</h3>
-                            <p>Faites partie d'une communauté d'agriculteurs durables</p>
+                        <div class="contact-details">
+                            <a href="tel:+491782989360">+49 178 2989360</a>
                         </div>
                     </div>
                     
-                    <div class="benefit-item">
-                        <div class="benefit-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                        <div>
-                            <h3>Formation</h3>
-                            <p>Formations régulières sur les méthodes de culture durables</p>
+                        <div class="contact-details">
+                            <a href="mailto:Daniel.Alfonsin.Massa.IT@protonmail.com">Daniel.Alfonsin.Massa.IT@protonmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3><i class="fas fa-users"></i> <span data-i18n="family-contact">Contacto Familia Massa</span></h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-details">
+                            <strong>Michael Massa</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <a href="tel:+491782180114">+49 178 2180114</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <a href="mailto:DonMassa-Business@proton.me">DonMassa-Business@proton.me</a>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <div class="about">
-                <h2 class="section-title">À propos de Finca BIO MASSA</h2>
-                <div class="about-content">
-                    <p>Nous sommes une coopérative d'agriculteurs biologiques spécialisée dans la culture durable du cacao. Depuis 2010, nous aidons les agriculteurs à passer à l'agriculture biologique et à commercialiser leurs produits à des prix équitables.</p>
-                    <p>Notre réseau comprend plus de 200 fermes certifiées biologiques dans la région, travaillant ensemble pour un avenir plus durable.</p>
-                </div>
+            <div class="copyright">
+                <p>© 2023-2025 Finca BIO MASSA - Project MASSA Cacao Sostenible BIO. <span data-i18n="rights">Todos los derechos reservados</span>.</p>
             </div>
-        </div>
+        </footer>
     </div>
-    
-    <footer>
-        <h2 class="section-title" style="color: #FFD54F; border-bottom-color: rgba(255, 255, 255, 0.3);">Contact</h2>
-        
-        <div class="contact-grid">
-            <div class="contact-card">
-                <h3><i class="fas fa-globe-africa"></i> Cameroun Contacts</h3>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="contact-details">
-                        <strong>Pablo Massa</strong>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details">
-                        <a href="tel:+237655310460">+237 655 310 460</a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="contact-details">
-                        <strong>Lydie Meyo</strong>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details">
-                        <a href="tel:+237697121480">+237 697 121 480</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-card">
-                <h3><i class="fas fa-map-marker-alt"></i> Coordination (Allemagne)</h3>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="contact-details">
-                        <strong>Daniel Massa</strong>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details">
-                        <a href="tel:+491782989360">+49 178 2989360</a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <a href="mailto:Daniel.Alfonsin.Massa.IT@protonmail.com">Daniel.Alfonsin.Massa.IT@protonmail.com</a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <a href="mailto:massa.consulting.it@pm.me">massa.consulting.it@pm.me</a>
-                        <div><small>(Pour la coordination de projet)</small></div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="contact-card">
-                <h3><i class="fas fa-users"></i> Contact Famille Massa</h3>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="contact-details">
-                        <strong>Michael Massa</strong>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details">
-                        <a href="tel:+491782180114">+49 178 2180114</a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <a href="mailto:DonMassa-Business@proton.me">DonMassa-Business@proton.me</a>
-                    </div>
-                </div>
-                
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <a href="mailto:daniel.asset.network@proton.me">daniel.asset.network@proton.me</a>
-                        <div><small>(Pour les partenariats stratégiques)</small></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>© 2023 Finca BIO MASSA. Tous droits réservés.</p>
-        </div>
-    </footer>
-
-    <div class="notification" id="notification"></div>
 
     <script>
-        // Tab Navigation
-        function showTab(tabName) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Show selected tab
-            document.getElementById(tabName + '-tab').classList.add('active');
-            
-            // Update active tab button
-            document.querySelectorAll('.nav-tab').forEach(tab => {
-                tab.classList.remove('active');
-                if (tab.getAttribute('data-tab') === tabName) {
-                    tab.classList.add('active');
-                }
-            });
-        }
-
-        // Event listeners for tab buttons
-        document.querySelectorAll('.nav-tab').forEach(button => {
-            button.addEventListener('click', function() {
-                const tab = this.getAttribute('data-tab');
-                showTab(tab);
-            });
-        });
-
-        // Notification function
-        function showNotification(message, isSuccess = true) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.style.background = isSuccess ? '#4CAF50' : '#F44336';
-            notification.classList.add('show');
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
-        }
-
-        // Form submission
-        document.getElementById('farmer-registration').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submit-btn');
-            const submitText = document.getElementById('submit-text');
-            const submitLoading = document.getElementById('submit-loading');
-            
-            // Show loading state
-            submitText.textContent = 'Chargement...';
-            submitLoading.style.display = 'inline-block';
-            submitBtn.disabled = true;
-            
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                farmName: document.getElementById('finca-name').value,
-                location: document.getElementById('location').value,
-                products: Array.from(document.getElementById('products').selectedOptions).map(option => option.value),
-                message: document.getElementById('message').value,
-                registrationDate: new Date().toISOString()
-            };
-            
-            try {
-                // Simulate API call - replace with actual API endpoint
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Save to localStorage for demo purposes
-                let farmers = JSON.parse(localStorage.getItem('farmers') || '[]');
-                farmers.push({...formData, id: Date.now()});
-                localStorage.setItem('farmers', JSON.stringify(farmers));
-                
-                showNotification('Inscription réussie!', true);
-                this.reset();
-                loadFarmers();
-            } catch (error) {
-                showNotification('Erreur lors de l\'enregistrement.', false);
-            } finally {
-                // Reset button state
-                submitText.textContent = 'Soumettre l\'inscription';
-                submitLoading.style.display = 'none';
-                submitBtn.disabled = false;
+        // Multilingual support
+        const translations = {
+            es: {
+                title: "Finca BIO MASSA",
+                subtitle: "Proyecto Cacao Sostenible BIO - Cultivo Responsable y Comercio Justo",
+                hero_title: "PROYECTO CACAO SOSTENIBLE BIO",
+                hero_subtitle: "Transformando la cadena de valor del cacao camerunés hacia la sostenibilidad y el comercio justo",
+                hero_vision: "Visión 2025-2030: +500 toneladas de cacao BIO certificado para exportación directa",
+                section1_title: "Nuestro Enfoque Sostenible",
+                feature1_title: "Agricultura Regenerativa",
+                feature1_text: "Prácticas de cultivo que mejoran la salud del suelo y la biodiversidad, reduciendo la deforestación.",
+                feature2_title: "Comercio Justo",
+                feature2_text: "Precios garantizados que permiten a los agricultores vivir dignamente de su trabajo.",
+                feature3_title: "Comunidad",
+                feature3_text: "Fortalecimiento de las comunidades rurales mediante programas de salud y educación.",
+                feature4_title: "Certificación BIO",
+                feature4_text: "Proceso de certificación orgánica según estándares europeos para acceso a mercados premium.",
+                section2_title: "Proceso de Producción Sostenible",
+                step1_title: "Cultivo",
+                step1_text: "Agricultura BIO sin pesticidas",
+                step2_title: "Cosecha",
+                step2_text: "Selección manual óptima",
+                step3_title: "Fermentación",
+                step3_text: "Proceso natural controlado",
+                step4_title: "Secado",
+                step4_text: "Energía solar sostenible",
+                quality_title: "Control de Calidad Integral",
+                quality_text: "Cada lote pasa por rigurosos controles de humedad, fermentación y pureza antes del empaque. Nuestro sistema de trazabilidad garantiza transparencia total desde el agricultor hasta el consumidor final.",
+                section3_title: "Impacto en las Comunidades",
+                impact1_title: "+200 Familias",
+                impact1_text: "Beneficiadas directamente por el proyecto",
+                impact2_title: "Formación Continua",
+                impact2_text: "Capacitación en técnicas agrícolas sostenibles",
+                impact3_title: "Empoderamiento Femenino",
+                impact3_text: "40% de mujeres en puestos de liderazgo",
+                impact4_title: "Reforestación",
+                impact4_text: "+5,000 árboles nativos plantados anualmente",
+                section4_title: "Galería del Proyecto",
+                section4_text: "Conozca nuestro trabajo en las comunidades de Nwangan y Ebolowa",
+                gallery1_caption: "Plantaciones de cacao en Nwangan - Cultivo sostenible bajo sombra",
+                gallery2_caption: "Proceso de secado solar - Energía 100% renovable",
+                gallery3_caption: "Capacitación a agricultores - Transferencia de conocimiento",
+                section5_title: "Únase a Nuestro Proyecto",
+                join_title: "Oportunidades de Colaboración",
+                join_text: "Buscamos socios estratégicos, inversionistas y compradores comprometidos con la sostenibilidad y el comercio justo. Juntos podemos transformar la industria del cacao en Camerún.",
+                join_button: "Colaborar con Nosotros",
+                contact: "Contacto",
+                cameroon: "Contactos en Camerún",
+                coordination: "Coordinación (Alemania)",
+                "family-contact": "Contacto Familia Massa",
+                coordinator: "Coordinadora Nacional",
+                rights: "Todos los derechos reservados"
+            },
+            fr: {
+                title: "Finca BIO MASSA",
+                subtitle: "Projet Cacao Biologique Durable - Culture Responsable et Commerce Équitable",
+                hero_title: "PROJET CACAO BIOLOGIQUE DURABLE",
+                hero_subtitle: "Transformer la chaîne de valeur du cacao camerounais vers la durabilité et le commerce équitable",
+                hero_vision: "Vision 2025-2030: +500 tonnes de cacao BIO certifié pour l'exportation directe",
+                section1_title: "Notre Approche Durable",
+                feature1_title: "Agriculture Régénérative",
+                feature1_text: "Pratiques culturales qui améliorent la santé des sols et la biodiversité, réduisant la déforestation.",
+                feature2_title: "Commerce Équitable",
+                feature2_text: "Prix garantis permettant aux agriculteurs de vivre dignement de leur travail.",
+                feature3_title: "Communauté",
+                feature3_text: "Renforcement des communautés rurales grâce à des programmes de santé et d'éducation.",
+                feature4_title: "Certification BIO",
+                feature4_text: "Processus de certification biologique selon les normes européennes pour l'accès aux marchés premium.",
+                section2_title: "Processus de Production Durable",
+                step1_title: "Culture",
+                step1_text: "Agriculture BIO sans pesticides",
+                step2_title: "Récolte",
+                step2_text: "Sélection manuelle optimale",
+                step3_title: "Fermentation",
+                step3_text: "Processus naturel contrôlé",
+                step4_title: "Séchage",
+                step4_text: "Énergie solaire durable",
+                quality_title: "Contrôle Qualité Intégral",
+                quality_text: "Chaque lot passe par des contrôles rigoureux d'humidité, de fermentation et de pureté avant l'emballage. Notre système de traçabilité garantit une transparence totale de l'agriculteur au consommateur final.",
+                section3_title: "Impact sur les Communautés",
+                impact1_title: "+200 Familles",
+                impact1_text: "Bénéficiaires directes du projet",
+                impact2_title: "Formation Continue",
+                impact2_text: "Formation aux techniques agricoles durables",
+                impact3_title: "Autonomisation des Femmes",
+                impact3_text: "40% de femmes dans des postes de direction",
+                impact4_title: "Reforestation",
+                impact4_text: "+5,000 arbres natifs plantés annuellement",
+                section4_title: "Galerie du Projet",
+                section4_text: "Découvrez notre travail dans les communautés de Nwangan et Ebolowa",
+                gallery1_caption: "Plantations de cacao à Nwangan - Culture durable sous ombrage",
+                gallery2_caption: "Processus de séchage solaire - Énergie 100% renouvelable",
+                gallery3_caption: "Formation des agriculteurs - Transfert de connaissances",
+                section5_title: "Rejoignez Notre Projet",
+                join_title: "Opportunités de Collaboration",
+                join_text: "Nous recherchons des partenaires stratégiques, des investisseurs et des acheteurs engagés dans la durabilité et le commerce équitable. Ensemble, nous pouvons transformer l'industrie du cacao au Cameroun.",
+                join_button: "Collaborer avec Nous",
+                contact: "Contact",
+                cameroon: "Contacts au Cameroun",
+                coordination: "Coordination (Allemagne)",
+                "family-contact": "Contact Famille Massa",
+                coordinator: "Coordinatrice Nationale",
+                rights: "Tous droits réservés"
+            },
+            de: {
+                title: "Finca BIO MASSA",
+                subtitle: "Nachhaltiges BIO-Kakao-Projekt - Verantwortungsvoller Anbau und Fairer Handel",
+                hero_title: "NACHHALTIGES BIO-KAKAO-PROJEKT",
+                hero_subtitle: "Transformation der kamerunischen Kakao-Wertschöpfungskette hin zu Nachhaltigkeit und fairem Handel",
+                hero_vision: "Vision 2025-2030: +500 Tonnen BIO-zertifizierter Kakao für den Direktexport",
+                section1_title: "Unser Nachhaltigkeitsansatz",
+                feature1_title: "Regenerative Landwirtschaft",
+                feature1_text: "Anbaupraktiken, die die Bodengesundheit und Biodiversität verbessern und Entwaldung reduzieren.",
+                feature2_title: "Fairer Handel",
+                feature2_text: "Garantierte Preise, die es Landwirten ermöglichen, würdevoll von ihrer Arbeit zu leben.",
+                feature3_title: "Gemeinschaft",
+                feature3_text: "Stärkung ländlicher Gemeinden durch Gesundheits- und Bildungsprogramme.",
+                feature4_title: "BIO-Zertifizierung",
+                feature4_text: "Ökozertifizierungsprozess nach europäischen Standards für den Zugang zu Premium-Märkten.",
+                section2_title: "Nachhaltiger Produktionsprozess",
+                step1_title: "Anbau",
+                step1_text: "BIO-Landwirtschaft ohne Pestizide",
+                step2_title: "Ernte",
+                step2_text: "Optimale manuelle Auswahl",
+                step3_title: "Fermentation",
+                step3_text: "Kontrollierter natürlicher Prozess",
+                step4_title: "Trocknung",
+                step4_text: "Nachhaltige Solarenergie",
+                quality_title: "Umfassende Qualitätskontrolle",
+                quality_text: "Jede Charge durchläuft strenge Kontrollen von Feuchtigkeit, Fermentation und Reinheit vor der Verpackung. Unser Rückverfolgbarkeitssystem gewährleistet totale Transparenz vom Landwirt bis zum Endverbraucher.",
+                section3_title: "Auswirkungen auf die Gemeinden",
+                impact1_title: "+200 Familien",
+                impact1_text: "Direkt vom Projekt begünstigt",
+                impact2_title: "Kontinuierliche Ausbildung",
+                impact2_text: "Schulung in nachhaltigen landwirtschaftlichen Techniken",
+                impact3_title: "Frauenförderung",
+                impact3_text: "40% Frauen in Führungspositionen",
+                impact4_title: "Aufforstung",
+                impact4_text: "+5.000 einheimische Bäume jährlich gepflanzt",
+                section4_title: "Projektgalerie",
+                section4_text: "Lernen Sie unsere Arbeit in den Gemeinden von Nwangan und Ebolowa kennen",
+                gallery1_caption: "Kakaoplantagen in Nwangan - Nachhaltiger Anbau im Schatten",
+                gallery2_caption: "Solartrocknungsprozess - 100% erneuerbare Energie",
+                gallery3_caption: "Schulung der Landwirte - Wissenstransfer",
+                section5_title: "Werden Sie Teil Unseres Projekts",
+                join_title: "Kooperationsmöglichkeiten",
+                join_text: "Wir suchen strategische Partner, Investoren und Käufer, die sich für Nachhaltigkeit und fairen Handel engagieren. Gemeinsam können wir die Kakaobranche in Kamerun transformieren.",
+                join_button: "Mit Uns Zusammenarbeiten",
+                contact: "Kontakt",
+                cameroon: "Kontakte in Kamerun",
+                coordination: "Koordination (Deutschland)",
+                "family-contact": "Kontakt Familie Massa",
+                coordinator: "Nationale Koordinatorin",
+                rights: "Alle Rechte vorbehalten"
             }
-        });
+        };
 
-        // Load farmers from localStorage
-        function loadFarmers() {
-            const farmers = JSON.parse(localStorage.getItem('farmers') || '[]');
-            const tableBody = document.getElementById('farmers-table-body');
-            tableBody.innerHTML = '';
-            
-            farmers.forEach(farmer => {
-                const row = document.createElement('tr');
-                
-                let productsText = '';
-                if (Array.isArray(farmer.products)) {
-                    productsText = farmer.products.join(', ');
+        // Set language function
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    if (element.placeholder) {
+                        element.placeholder = translations[lang][key];
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
                 }
-                
-                row.innerHTML = `
-                    <td>${farmer.name}</td>
-                    <td>${farmer.farmName}</td>
-                    <td>${farmer.location}</td>
-                    <td>${productsText}</td>
-                `;
-                
-                tableBody.appendChild(row);
+            });
+            
+            // Update active button
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-lang') === lang) {
+                    btn.classList.add('active');
+                }
             });
         }
 
-        // Initialize
-        loadFarmers();
+        // Event listeners for language buttons
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                setLanguage(lang);
+            });
+        });
+
+        // Initialize with Spanish
+        setLanguage('es');
     </script>
 </body>
 </html>
