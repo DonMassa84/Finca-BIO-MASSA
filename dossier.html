@@ -1,0 +1,937 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master-Dossier - Project MASSA - Cacao Sostenible BIO 2025-2030</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a7c59;
+            --secondary-color: #d4a574;
+            --accent-color: #8b4513;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1580591090179-235a1d3c5a58?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #3E2723;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 253, 250, 0.97);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        header {
+            background: linear-gradient(to right, #5D4037, #8D6E63);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            background: #7E57C2;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .lang-btn:hover, .lang-btn.active {
+            background: white;
+            color: #5D4037;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-tab {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .nav-tab:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-tab.active {
+            background: white;
+            color: #5D4037;
+        }
+        
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .dossier-hero {
+            background: linear-gradient(to right, var(--primary-color), #8D6E63);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        .dossier-hero h1 {
+            color: #FFD54F;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
+        }
+        
+        .section h3 {
+            color: var(--accent-color);
+            margin: 1.5rem 0 1rem 0;
+            font-size: 1.4rem;
+        }
+        
+        .info-card {
+            background-color: #F5F5F5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .phase-timeline {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .phase {
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            width: 30%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .phase h4 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .phase-timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--secondary-color);
+            z-index: 1;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #D7CCC8;
+        }
+        
+        th {
+            background: #8D6E63;
+            color: white;
+            font-weight: 700;
+        }
+        
+        tr:nth-child(even) {
+            background: #F5F5F5;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .gallery-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .gallery-caption {
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: var(--dark-color);
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+            text-align: left;
+        }
+        
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-card h3 {
+            margin-bottom: 15px;
+            color: #FFD54F;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 12px 0;
+            gap: 12px;
+        }
+        
+        .contact-icon {
+            width: 35px;
+            height: 35px;
+            background: #8D6E63;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .contact-details {
+            flex: 1;
+        }
+        
+        .contact-details a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-details a:hover {
+            color: #FFD54F;
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: #5D4037;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .impact-item {
+            background: #F5F5F5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .impact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .language-selector {
+                position: static;
+                justify-content: center;
+                margin-bottom: 15px;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-tab {
+                margin: 5px 0;
+            }
+            
+            .phase-timeline {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .phase {
+                width: 100%;
+            }
+            
+            .phase-timeline::before {
+                display: none;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="language-selector">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+                <button class="lang-btn" data-lang="de">DE</button>
+            </div>
+            
+            <div class="logo-container">
+                <div class="logo">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <div>
+                    <h1>Finca BIO MASSA</h1>
+                    <p class="subtitle">Master-Dossier - Project MASSA - Cacao Sostenible BIO 2025-2030</p>
+                </div>
+            </div>
+            
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="dossier">Master-Dossier</button>
+                <button class="nav-tab" data-tab="cacao">Proyecto Cacao</button>
+                <button class="nav-tab" data-tab="registration">Registro Agricultores</button>
+            </div>
+        </header>
+        
+        <!-- Master Dossier Section -->
+        <div id="dossier-tab" class="tab-content active">
+            <section class="dossier-hero">
+                <h1>MASTER-DOSSIER – PROJECT MASSA – CACAO SOSTENIBLE BIO (2025–2030)</h1>
+                <p>Dirección General: Pablo Massa (ETS. INASSO) | Coordinación Nacional: Mme. Meyo Mefo Lydie</p>
+                <p>Sede Principal: Nwangan, Région du Sud, Camerún | Contacto: +237 655310460 | pablomassa77@gmail.com</p>
+            </section>
+            
+            <section class="section">
+                <h2>1. Resumen Ejecutivo</h2>
+                <div class="info-card">
+                    <h4>Objetivo Principal</h4>
+                    <p>Consolidar una cadena de suministro sostenible y certificada BIO para cacao camerunés con horizonte temporal 2025–2030.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>Estrategia</h4>
+                    <p>Modelo de 3 fases (compra local, exportación, finca propia BIO) en colaboración con socios estratégicos: ETS. INASSO, Telcar Cocoa Ltd, Olam, Barry Callebaut/SIC Cacaos.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>Impacto Esperado</h4>
+                    <p>+200 productores integrados, producción BIO certificada >500 t/año para exportación, mejora de ingresos rurales y salud comunitaria.</p>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>2. Antecedentes del Proyecto</h2>
+                <div class="info-card">
+                    <h4>Orígenes</h4>
+                    <p>Nacimiento del proyecto durante la crisis COVID-19 como respuesta a la necesidad de transformar el comercio local en una cadena agroindustrial sostenible.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>Liderazgo</h4>
+                    <p><strong>Pablo Massa</strong> (dirección estratégica) y <strong>Lydie Meyo</strong> (coordinación operativa) lideran la transición hacia un modelo sostenible.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4>Enfoque Social</h4>
+                    <p>Mejora de ingresos rurales y salud comunitaria mediante cooperación con action medeor e.V. y otras organizaciones.</p>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>3. Fases del Proyecto</h2>
+                
+                <div class="phase-timeline">
+                    <div class="phase">
+                        <h4>Fase I</h4>
+                        <p>Consolidación Local<br>(2023–2025)</p>
+                    </div>
+                    <div class="phase">
+                        <h4>Fase II</h4>
+                        <p>Expansión a Douala<br>(2026–2028)</p>
+                    </div>
+                    <div class="phase">
+                        <h4>Fase III</h4>
+                        <p>Finca BIO MASSA<br>(2026–2030)</p>
+                    </div>
+                </div>
+                
+                <h3>Fase I – Consolidación Local (2023–2025)</h3>
+                <div class="info-card">
+                    <p>Red de productores en Nwangan y Ebolowa. Contratos de prefinanciación (5–10 t/2 sem.) con Telcar Cocoa Ltd. Construcción de almacén central con secado solar y espacio de empaque. Resultados: estabilidad en volúmenes y control de calidad.</p>
+                </div>
+                
+                <h3>Fase II – Expansión a Douala (2026–2028)</h3>
+                <div class="info-card">
+                    <p>Apertura de plataforma logística y acuerdos directos con exportadores. Meta: 10–20 t/mes. Certificación BIO/EU y documentación de trazabilidad completa. Implementación de sistema ERP agrícola (control de lotes, humedad, trazabilidad).</p>
+                </div>
+                
+                <h3>Fase III – Finca BIO MASSA (2026–2030)</h3>
+                <div class="info-card">
+                    <p>Adquisición o arriendo de fincas productivas (~50 ha). Producción certificada BIO bajo normas UE y Fairtrade. Integración vertical: cultivo → fermentación → exportación. Formación técnica a agricultores (Escuela de Cacao BIO).</p>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>4. Infraestructura Existente</h2>
+                
+                <div class="project-info">
+                    <div class="info-card">
+                        <h4>Entrepôt Principal</h4>
+                        <p>Nwangan (sistema de secado solar) con capacidad de procesamiento de 5-10 toneladas cada dos semanas.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Almacén Secundario</h4>
+                        <p>Ebolowa para expansión regional y apoyo logístico.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>Equipos</h4>
+                        <p>Balanza industriales, sacos 100 kg, área de costura, mesas de control de calidad.</p>
+                    </div>
+                </div>
+                
+                <div class="info-card">
+                    <h4>Personal</h4>
+                    <p>Coordinadora + 5 operarios + 3 aprendices bajo supervisión de Mme. Meyo Mefo Lydie.</p>
+                </div>
+                
+                <h3>Galería de Infraestructura</h3>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/2.jpg" alt="Entrepôt de Mme. Meyo Mefo Lydie">
+                        <div class="gallery-caption">
+                            Entrepôt de Mme. Meyo Mefo Lydie en Nwangan // Sacs de 100 kg de cacao
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/3.jpg" alt="Instalaciones de secado solar">
+                        <div class="gallery-caption">
+                            Instalaciones para el secado del cacao al soleil en Nwangan
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/6.jpg" alt="Proceso de empaque">
+                        <div class="gallery-caption">
+                            Mme. Meyo Mefo Lydie // cousant un sac de 100 kg de cacao
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>5. Socios Estratégicos y Financiadores</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Socio</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Telcar Cocoa Ltd</td>
+                            <td>Exportación y prefinanciación</td>
+                            <td>Activo</td>
+                        </tr>
+                        <tr>
+                            <td>Olam Cam SARL</td>
+                            <td>Comercialización</td>
+                            <td>Negociación</td>
+                        </tr>
+                        <tr>
+                            <td>Barry Callebaut / SIC Cacaos</td>
+                            <td>Calidad y exportación</td>
+                            <td>Previsto</td>
+                        </tr>
+                        <tr>
+                            <td>action medeor e.V.</td>
+                            <td>Cooperación sanitaria</td>
+                            <td>En diálogo</td>
+                        </tr>
+                        <tr>
+                            <td>Ministerio de Agricultura (MINADER)</td>
+                            <td>Certificación BIO</td>
+                            <td>Plan 2026</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section class="section">
+                <h2>6. Presupuesto y Necesidades Financieras</h2>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fase</th>
+                            <th>Periodo</th>
+                            <th>Inversión estimada (FCFA)</th>
+                            <th>Fuentes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fase I</td>
+                            <td>2023–2025</td>
+                            <td>35 M</td>
+                            <td>Recursos propios + Telcar</td>
+                        </tr>
+                        <tr>
+                            <td>Fase II</td>
+                            <td>2026–2028</td>
+                            <td>65 M</td>
+                            <td>Préstamos agrícolas + alianzas</td>
+                        </tr>
+                        <tr>
+                            <td>Fase III</td>
+                            <td>2026–2030</td>
+                            <td>120 M</td>
+                            <td>Inversores BIO + cooperación</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section class="section">
+                <h2>7. Impacto y Sostenibilidad</h2>
+                
+                <div class="impact-grid">
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>+200 Familias</h4>
+                        <p>Familias rurales beneficiadas directamente</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h4>Agricultura Regenerativa</h4>
+                        <p>Reducción de deforestación mediante prácticas sostenibles</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h4>Empleo Femenino</h4>
+                        <p>Creación de empleo femenino en logística y gestión</p>
+                    </div>
+                    
+                    <div class="impact-item">
+                        <div class="impact-icon">
+                            <i class="fas fa-globe-europe"></i>
+                        </div>
+                        <h4>Mercado Europeo</h4>
+                        <p>Promoción del cacao camerunés de alta calidad en Europa</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>8. Documentación Visual</h2>
+                <p>Fotografías de las operaciones en Nwangan y Ebolowa, diagramas de flujo de la cadena de valor, y mapa logístico (Nwangan – Ebolowa – Douala – Europa).</p>
+                
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/1.jpg" alt="Fruits de cacao dans une ferme partenaire">
+                        <div class="gallery-caption">
+                            Fruits de cacao dans l'une des fermes de nos associés // Nwangan
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/7.jpg" alt="Supervision des stagiaires">
+                        <div class="gallery-caption">
+                            Mme Meyo Mefo Lydie supervise le travail des stagiaires // Nwangan
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <img src="https://raw.githubusercontent.com/DonMassa84/Finca-BIO-MASSA/main/image/11.jpg" alt="Préparation des sacs">
+                        <div class="gallery-caption">
+                            Préparation des sacs de cacao pour le transport
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="section">
+                <h2>9. Conclusión</h2>
+                <div class="info-card">
+                    <p>El proyecto MASSA representa un modelo de integración vertical y sostenibilidad real en el sector cacaotero camerunés. La combinación de liderazgo local, alianzas internacionales y visión ecológica garantiza una proyección estable 2025–2030 con impacto tangible en las comunidades rurales y el medio ambiente.</p>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Cacao Project Section -->
+        <div id="cacao-tab" class="tab-content">
+            <!-- Hier würde der vorhandene Cacao-Projekt Inhalt eingefügt -->
+            <section class="dossier-hero">
+                <h1>Proyecto de Cacao Sostenible en Nwangan</h1>
+                <p>Promoviendo la producción sostenible de cacao en asociación con agricultores locales</p>
+            </section>
+            
+            <div class="section">
+                <p>Esta sección contiene los detalles completos del proyecto de cacao sostenible, incluyendo la galería completa de fotos y información sobre las operaciones en Nwangan.</p>
+                <p>Para ver el contenido completo, visite la <a href="https://donmassa84.github.io/Finca-BIO-MASSA/" style="color: var(--primary-color); font-weight: bold;">página principal del proyecto</a>.</p>
+            </div>
+        </div>
+        
+        <!-- Farmer Registration Section -->
+        <div id="registration-tab" class="tab-content">
+            <!-- Hier würde der vorhandene Registrierungs-Inhalt eingefügt -->
+            <section class="dossier-hero">
+                <h1>Registro de Agricultores</h1>
+                <p>Únase a nuestro programa de agricultores orgánicos y forme parte de nuestra cooperativa de cacao sostenible</p>
+            </section>
+            
+            <div class="section">
+                <p>Esta sección contiene el formulario de registro para agricultores interesados en unirse al proyecto.</p>
+                <p>Para acceder al formulario completo, visite la <a href="https://donmassa84.github.io/Finca-BIO-MASSA/" style="color: var(--primary-color); font-weight: bold;">página principal del proyecto</a>.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <h2 style="color: #FFD54F; border-bottom-color: rgba(255, 255, 255, 0.3); padding-bottom: 0.5rem; margin-bottom: 1.5rem;">Contacto</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3><i class="fas fa-globe-africa"></i> Contactos en Camerún</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-details">
+                            <strong>Pablo Massa</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <a href="tel:+237655310460">+237 655 310 460</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-details">
+                            <strong>Lydie Meyo</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <a href="tel:+237697121480">+237 697 121 480</a>
+                        <div><small>Coordinadora Nacional</small></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3><i class="fas fa-map-marker-alt"></i> Coordinación (Alemania)</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-details">
+                            <strong>Daniel Massa</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <a href="tel:+491782989360">+49 178 2989360</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <a href="mailto:Daniel.Alfonsin.Massa.IT@protonmail.com">Daniel.Alfonsin.Massa.IT@protonmail.com</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <h3><i class="fas fa-users"></i> Contacto Familia Massa</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="contact-details">
+                            <strong>Michael Massa</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <a href="tel:+491782180114">+49 178 2180114</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <a href="mailto:DonMassa-Business@proton.me">DonMassa-Business@proton.me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023-2025 Finca BIO MASSA - Project MASSA Cacao Sostenible BIO. Todos los derechos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Tab Navigation
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            
+            // Update active tab button
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.getAttribute('data-tab') === tabName) {
+                    tab.classList.add('active');
+                }
+            });
+        }
+
+        // Event listeners for tab buttons
+        document.querySelectorAll('.nav-tab').forEach(button => {
+            button.addEventListener('click', function() {
+                const tab = this.getAttribute('data-tab');
+                showTab(tab);
+            });
+        });
+
+        // Simple language switching (basic implementation)
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                
+                // Update active button
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                // In a full implementation, we would update all text content based on language
+                // For now, we just change the active button
+                console.log('Language switched to: ' + lang);
+            });
+        });
+
+        // Initialize with dossier tab active
+        showTab('dossier');
+    </script>
+</body>
+</html>
