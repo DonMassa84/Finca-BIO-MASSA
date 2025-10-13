@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Finca BIO MASSA - Programme d'agriculteurs biologiques et coopérative de cacao durable">
     <title>Finca BIO MASSA - Enregistrement des Agriculteurs</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-color: #4a7c59;
+            --secondary-color: #d4a574;
+            --accent-color: #8b4513;
+            --light-color: #f5f5f5;
+            --dark-color: #333;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -101,33 +110,41 @@
             color: #5D4037;
         }
         
-        .cacao-project-link {
-            text-align: center;
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
             margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px;
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
         }
         
-        .cacao-btn {
-            background: linear-gradient(to right, #4a7c59, #8D6E63);
-            color: white;
+        .nav-tab {
+            background: rgba(255, 255, 255, 0.2);
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 8px;
+            color: white;
+            padding: 12px 24px;
+            margin: 5px;
+            border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s;
-            font-weight: 700;
+            font-weight: bold;
+            font-size: 16px;
             text-decoration: none;
             display: inline-block;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            min-width: 150px;
         }
         
-        .cacao-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+        .nav-tab:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
         
-        .cacao-btn i {
-            margin-right: 10px;
+        .nav-tab.active {
+            background: white;
+            color: #5D4037;
         }
         
         .content {
@@ -423,6 +440,17 @@
             to { transform: rotate(360deg); }
         }
         
+        .img-fallback {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #4a7c59, #8D6E63);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
         @media (max-width: 768px) {
             .benefits-container {
                 grid-template-columns: 1fr;
@@ -440,6 +468,14 @@
                 position: static;
                 justify-content: center;
                 margin-bottom: 15px;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .nav-tab {
+                margin: 5px 0;
             }
             
             .contact-grid {
@@ -482,16 +518,12 @@
                 </div>
             </div>
             
-            <!-- Cacao Project Link -->
-            <div class="cacao-project-link">
-                <a href="sustainable-cacao.html" class="cacao-btn">
-                    <i class="fas fa-seedling"></i>
-                    Découvrir notre Projet Cacao Durable
-                </a>
-                <a href="dossier.html" class="cacao-btn" style="margin-left: 15px;">
-                    <i class="fas fa-book"></i>
-                    Master-Dossier
-                </a>
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <a href="index.html" class="nav-tab active">Page Principale</a>
+                <a href="dossier.html" class="nav-tab">Master-Dossier</a>
+                <a href="antecedentes.html" class="nav-tab">Historique</a>
+                <a href="sustainable-cacao.html" class="nav-tab">Projet Cacao</a>
             </div>
         </header>
         
@@ -943,12 +975,22 @@
             });
         });
 
-        // API URL - Ersetzen Sie dies mit Ihrer Railway-API-URL
-        const API_URL = 'https://your-railway-app.railway.app';
+        // API URL - Replace with your actual Railway API URL
+        const API_URL = 'https://finca-bio-massa-api.railway.app'; // Replace with your actual URL
 
         // Farmers data storage in MongoDB
         async function saveFarmer(farmerData) {
             try {
+                // For demo purposes, we'll use localStorage if API is not available
+                if (!API_URL || API_URL.includes('your-railway-app')) {
+                    // Fallback to localStorage
+                    const farmers = JSON.parse(localStorage.getItem('farmers') || '[]');
+                    farmerData.id = Date.now().toString();
+                    farmers.push(farmerData);
+                    localStorage.setItem('farmers', JSON.stringify(farmers));
+                    return farmerData;
+                }
+                
                 const response = await fetch(`${API_URL}/api/farmers`, {
                     method: 'POST',
                     headers: {
@@ -970,13 +1012,21 @@
 
         async function loadFarmers() {
             try {
-                const response = await fetch(`${API_URL}/api/farmers`);
+                let farmers = [];
                 
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
+                // For demo purposes, we'll use localStorage if API is not available
+                if (!API_URL || API_URL.includes('your-railway-app')) {
+                    farmers = JSON.parse(localStorage.getItem('farmers') || '[]');
+                } else {
+                    const response = await fetch(`${API_URL}/api/farmers`);
+                    
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    
+                    farmers = await response.json();
                 }
                 
-                const farmers = await response.json();
                 const tableBody = document.getElementById('farmers-table-body');
                 tableBody.innerHTML = '';
                 
