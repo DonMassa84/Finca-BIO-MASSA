@@ -166,6 +166,48 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         
+        .current-status {
+            background: linear-gradient(135deg, #FFD54F, #FFB300);
+            color: #5D4037;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 3px solid #5D4037;
+        }
+        
+        .current-status h3 {
+            color: #5D4037;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .status-item {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #5D4037;
+        }
+        
+        .status-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .status-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
         .section {
             margin-bottom: 3rem;
             background: white;
@@ -444,6 +486,10 @@
                 display: none;
             }
             
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .gallery {
                 grid-template-columns: 1fr;
             }
@@ -494,6 +540,31 @@
                 <p data-i18n="hero_contact">Sede Principal: Nwangan, Région du Sud, Camerún | Contacto: +237 655310460 | pablomassa77@gmail.com</p>
             </section>
             
+            <!-- NEU: Aktueller Status Oktober 2025 -->
+            <div class="current-status">
+                <h3 data-i18n="current_status_title">🏭 ESTADO ACTUAL - OCTUBRE 2025</h3>
+                <p data-i18n="current_status_text"><strong>Fase I en ejecución:</strong> Operaciones estables en Nwangan bajo dirección de Mme. Meyo Mefo Lydie</p>
+                
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-value">5-10 t</span>
+                        <span class="status-label" data-i18n="status_volume">Cada 2 semanas</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-value">Telcar</span>
+                        <span class="status-label" data-i18n="status_partner">Contrato activo</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-value">50+</span>
+                        <span class="status-label" data-i18n="status_producers">Productores</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-value">Nwangan</span>
+                        <span class="status-label" data-i18n="status_location">Centro operativo</span>
+                    </div>
+                </div>
+            </div>
+            
             <section class="section">
                 <h2 data-i18n="section1_title">1. Resumen Ejecutivo</h2>
                 <div class="info-card">
@@ -509,6 +580,12 @@
                 <div class="info-card">
                     <h4 data-i18n="impact_title">Impacto Esperado</h4>
                     <p data-i18n="impact_text">+200 productores integrados, producción BIO certificada >500 t/año para exportación, mejora de ingresos rurales y salud comunitaria.</p>
+                </div>
+                
+                <!-- NEU: Aktualisierung Fase I -->
+                <div class="info-card" style="background: #E8F5E8; border-left: 4px solid #4a7c59;">
+                    <h4>✅ FASE I EN EJECUCIÓN - OCTUBRE 2025</h4>
+                    <p><strong>Operaciones establecidas en Nwangan:</strong> Producción estable de 5-10 toneladas cada dos semanas bajo contrato con Telcar Cocoa Ltd. Centro operativo funcional bajo gestión de Mme. Meyo Mefo Lydie con sistema de secado solar y control calidad implementado.</p>
                 </div>
             </section>
             
@@ -540,9 +617,9 @@
                 <h2 data-i18n="section3_title">3. Fases del Proyecto</h2>
                 
                 <div class="phase-timeline">
-                    <div class="phase">
+                    <div class="phase" style="background: #4a7c59; border: 3px solid #FFD54F;">
                         <h4 data-i18n="phase1_title">Fase I</h4>
-                        <p data-i18n="phase1_period">Consolidación Local<br>(2023–2025)</p>
+                        <p data-i18n="phase1_period">Consolidación Local<br>(2023–2025) <br>✅ EN EJECUCIÓN</p>
                     </div>
                     <div class="phase">
                         <h4 data-i18n="phase2_title">Fase II</h4>
@@ -554,9 +631,11 @@
                     </div>
                 </div>
                 
-                <h3 data-i18n="phase1_detail_title">Fase I – Consolidación Local (2023–2025)</h3>
-                <div class="info-card">
-                    <p data-i18n="phase1_detail_text">Red de productores en Nwangan y Ebolowa. Contratos de prefinanciación (5–10 t/2 sem.) con Telcar Cocoa Ltd. Construcción de almacén central con secado solar y espacio de empaque. Resultados: estabilidad en volúmenes y control de calidad.</p>
+                <h3 data-i18n="phase1_detail_title">Fase I – Consolidación Local (2023–2025) - EN EJECUCIÓN</h3>
+                <div class="info-card" style="background: #E8F5E8; border-left: 4px solid #4a7c59;">
+                    <h4>🏭 OPERACIONES ACTUALES - OCTUBRE 2025</h4>
+                    <p><strong>Centro Operativo Nwangan:</strong> Red de productores en Nwangan y Ebolowa. <strong>Contratos de prefinanciación activos (5–10 t/2 sem.) con Telcar Cocoa Ltd.</strong> Almacén central operativo con secado solar y espacio de empaque. <strong>Resultados:</strong> Estabilidad en volúmenes y control de calidad implementado.</p>
+                    <p style="margin-top: 10px;"><strong>✅ Logro:</strong> Producción estable de 5-10 toneladas cada dos semanas bajo gestión de Mme. Meyo Mefo Lydie.</p>
                 </div>
                 
                 <h3 data-i18n="phase2_detail_title">Fase II – Expansión a Douala (2026–2028)</h3>
@@ -638,10 +717,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Telcar Cocoa Ltd</td>
+                        <tr style="background: #E8F5E8;">
+                            <td><strong>Telcar Cocoa Ltd</strong></td>
                             <td data-i18n="telcar_role">Exportación y prefinanciación</td>
-                            <td data-i18n="status_active">Activo</td>
+                            <td><strong data-i18n="status_active">ACTIVO - Contrato vigente</strong></td>
                         </tr>
                         <tr>
                             <td>Olam Cam SARL</td>
@@ -677,26 +756,30 @@
                             <th data-i18n="period_header">Periodo</th>
                             <th data-i18n="investment_header">Inversión estimada (FCFA)</th>
                             <th data-i18n="sources_header">Fuentes</th>
+                            <th data-i18n="status_header">Estado</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr style="background: #E8F5E8;">
                             <td data-i18n="phase1">Fase I</td>
                             <td>2023–2025</td>
                             <td>35 M</td>
                             <td data-i18n="sources1">Recursos propios + Telcar</td>
+                            <td><strong>EN EJECUCIÓN</strong></td>
                         </tr>
                         <tr>
                             <td data-i18n="phase2">Fase II</td>
                             <td>2026–2028</td>
                             <td>65 M</td>
                             <td data-i18n="sources2">Préstamos agrícolas + alianzas</td>
+                            <td>PLANIFICADO</td>
                         </tr>
                         <tr>
                             <td data-i18n="phase3">Fase III</td>
                             <td>2026–2030</td>
                             <td>120 M</td>
                             <td data-i18n="sources3">Inversores BIO + cooperación</td>
+                            <td>FUTURO</td>
                         </tr>
                     </tbody>
                 </table>
@@ -778,6 +861,10 @@
                 <h2 data-i18n="section9_title">9. Conclusión</h2>
                 <div class="info-card">
                     <p data-i18n="conclusion_text">El proyecto MASSA representa un modelo de integración vertical y sostenibilidad real en el sector cacaotero camerunés. La combinación de liderazgo local, alianzas internacionales y visión ecológica garantiza una proyección estable 2025–2030 con impacto tangible en las comunidades rurales y el medio ambiente.</p>
+                    
+                    <p style="margin-top: 1rem; padding: 1rem; background: #E8F5E8; border-radius: 5px; border-left: 4px solid #4a7c59;">
+                        <strong>Estado actual Octubre 2025:</strong> Fase I en plena ejecución con operaciones estables en Nwangan. Producción de 5-10 toneladas cada dos semanas bajo contrato con Telcar Cocoa Ltd. Infraestructura operativa funcional bajo gestión de Mme. Meyo Mefo Lydie.
+                    </p>
                 </div>
             </section>
         </div>
@@ -905,6 +992,12 @@
                 hero_title: "MASTER-DOSSIER – PROJECT MASSA – CACAO SOSTENIBLE BIO (2025–2030)",
                 hero_subtitle: "Dirección General: Pablo Massa (ETS. INASSO) | Coordinación Nacional: Mme. Meyo Mefo Lydie",
                 hero_contact: "Sede Principal: Nwangan, Région du Sud, Camerún | Contacto: +237 655310460 | pablomassa77@gmail.com",
+                current_status_title: "🏭 ESTADO ACTUAL - OCTUBRE 2025",
+                current_status_text: "Fase I en ejecución: Operaciones estables en Nwangan bajo dirección de Mme. Meyo Mefo Lydie",
+                status_volume: "Cada 2 semanas",
+                status_partner: "Contrato activo",
+                status_producers: "Productores",
+                status_location: "Centro operativo",
                 section1_title: "1. Resumen Ejecutivo",
                 objective_title: "Objetivo Principal",
                 objective_text: "Consolidar una cadena de suministro sostenible y certificada BIO para cacao camerunés con horizonte temporal 2025–2030.",
@@ -928,7 +1021,6 @@
                 phase3_title: "Fase III",
                 phase3_period: "Finca BIO MASSA<br>(2026–2030)",
                 phase1_detail_title: "Fase I – Consolidación Local (2023–2025)",
-                phase1_detail_text: "Red de productores en Nwangan y Ebolowa. Contratos de prefinanciación (5–10 t/2 sem.) con Telcar Cocoa Ltd. Construcción de almacén central con secado solar y espacio de empaque. Resultados: estabilidad en volúmenes y control de calidad.",
                 phase2_detail_title: "Fase II – Expansión a Douala (2026–2028)",
                 phase2_detail_text: "Apertura de plataforma logística y acuerdos directos con exportadores. Meta: 10–20 t/mes. Certificación BIO/EU y documentación de trazabilidad completa. Implementación de sistema ERP agrícola (control de lotes, humedad, trazabilidad).",
                 phase3_detail_title: "Fase III – Finca BIO MASSA (2026–2030)",
@@ -956,7 +1048,7 @@
                 medeor_role: "Cooperación sanitaria",
                 ministry_name: "Ministerio de Agricultura (MINADER)",
                 ministry_role: "Certificación BIO",
-                status_active: "Activo",
+                status_active: "ACTIVO - Contrato vigente",
                 status_negotiation: "Negociación",
                 status_planned: "Previsto",
                 status_dialogue: "En diálogo",
@@ -1001,6 +1093,12 @@
                 hero_title: "MASTER-DOSSIER – PROJET MASSA – CACAO BIOLOGIQUE DURABLE (2025–2030)",
                 hero_subtitle: "Direction Générale: Pablo Massa (ETS. INASSO) | Coordination Nationale: Mme. Meyo Mefo Lydie",
                 hero_contact: "Siège Principal: Nwangan, Région du Sud, Cameroun | Contact: +237 655310460 | pablomassa77@gmail.com",
+                current_status_title: "🏭 ÉTAT ACTUEL - OCTOBRE 2025",
+                current_status_text: "Phase I en cours: Opérations stables à Nwangan sous direction de Mme. Meyo Mefo Lydie",
+                status_volume: "Toutes les 2 semaines",
+                status_partner: "Contrat actif",
+                status_producers: "Producteurs",
+                status_location: "Centre opérationnel",
                 section1_title: "1. Résumé Exécutif",
                 objective_title: "Objectif Principal",
                 objective_text: "Consolider une chaîne d'approvisionnement durable et certifiée BIO pour le cacao camerounais avec horizon temporel 2025–2030.",
@@ -1024,7 +1122,6 @@
                 phase3_title: "Phase III",
                 phase3_period: "Finca BIO MASSA<br>(2026–2030)",
                 phase1_detail_title: "Phase I – Consolidation Locale (2023–2025)",
-                phase1_detail_text: "Réseau de producteurs à Nwangan et Ebolowa. Contrats de préfinancement (5–10 t/2 sem.) avec Telcar Cocoa Ltd. Construction d'entrepôt central avec séchage solaire et espace d'emballage. Résultats: stabilité des volumes et contrôle qualité.",
                 phase2_detail_title: "Phase II – Expansion à Douala (2026–2028)",
                 phase2_detail_text: "Ouverture de plateforme logistique et accords directs avec exportateurs. Objectif: 10–20 t/mois. Certification BIO/UE et documentation de traçabilité complète. Mise en œuvre d'un système ERP agricole (contrôle des lots, humidité, traçabilité).",
                 phase3_detail_title: "Phase III – Finca BIO MASSA (2026–2030)",
@@ -1052,7 +1149,7 @@
                 medeor_role: "Coopération sanitaire",
                 ministry_name: "Ministère de l'Agriculture (MINADER)",
                 ministry_role: "Certification BIO",
-                status_active: "Actif",
+                status_active: "ACTIF - Contrat en vigueur",
                 status_negotiation: "Négociation",
                 status_planned: "Prévu",
                 status_dialogue: "En dialogue",
@@ -1097,6 +1194,12 @@
                 hero_title: "MASTER-DOSSIER – PROJEKT MASSA – NACHHALTIGER BIO-KAKAO (2025–2030)",
                 hero_subtitle: "Generaldirektion: Pablo Massa (ETS. INASSO) | Nationale Koordination: Frau Meyo Mefo Lydie",
                 hero_contact: "Hauptsitz: Nwangan, Region Sud, Kamerun | Kontakt: +237 655310460 | pablomassa77@gmail.com",
+                current_status_title: "🏭 AKTUELLER STATUS - OKTOBER 2025",
+                current_status_text: "Phase I im Gange: Stabile Operationen in Nwangan unter Leitung von Frau Meyo Mefo Lydie",
+                status_volume: "Alle 2 Wochen",
+                status_partner: "Aktiver Vertrag",
+                status_producers: "Produzenten",
+                status_location: "Betriebszentrum",
                 section1_title: "1. Exekutive Zusammenfassung",
                 objective_title: "Hauptziel",
                 objective_text: "Konsolidierung einer nachhaltigen und BIO-zertifizierten Lieferkette für kamerunischen Kakao mit Zeithorizont 2025–2030.",
@@ -1120,7 +1223,6 @@
                 phase3_title: "Phase III",
                 phase3_period: "Finca BIO MASSA<br>(2026–2030)",
                 phase1_detail_title: "Phase I – Lokale Konsolidierung (2023–2025)",
-                phase1_detail_text: "Produzentennetzwerk in Nwangan und Ebolowa. Vorfinanzierungsverträge (5–10 t/2 Wo.) mit Telcar Cocoa Ltd. Bau eines zentralen Lagers mit Solartrocknung und Verpackungsbereich. Ergebnisse: Stabilität der Volumina und Qualitätskontrolle.",
                 phase2_detail_title: "Phase II – Expansion nach Douala (2026–2028)",
                 phase2_detail_text: "Eröffnung einer Logistikplattform und direkte Vereinbarungen mit Exporteuren. Ziel: 10–20 t/Monat. BIO/EU-Zertifizierung und vollständige Rückverfolgbarkeitsdokumentation. Implementierung eines landwirtschaftlichen ERP-Systems (Chargenkontrolle, Feuchtigkeit, Rückverfolgbarkeit).",
                 phase3_detail_title: "Phase III – Finca BIO MASSA (2026–2030)",
@@ -1148,7 +1250,7 @@
                 medeor_role: "Gesundheitskooperation",
                 ministry_name: "Landwirtschaftsministerium (MINADER)",
                 ministry_role: "BIO-Zertifizierung",
-                status_active: "Aktiv",
+                status_active: "AKTIV - Vertrag gültig",
                 status_negotiation: "Verhandlung",
                 status_planned: "Geplant",
                 status_dialogue: "Im Dialog",
