@@ -166,6 +166,43 @@
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         
+        .current-operations-highlight {
+            background: linear-gradient(135deg, #FFD54F, #FFB300);
+            color: #5D4037;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+            border: 3px solid #5D4037;
+        }
+        
+        .operations-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #5D4037;
+        }
+        
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
         .section {
             margin-bottom: 3rem;
             background: white;
@@ -259,6 +296,28 @@
             height: 3px;
             background: var(--secondary-color);
             z-index: 1;
+        }
+        
+        .supply-chain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .supply-item {
+            background: #F5F5F5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .supply-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .gallery {
@@ -454,6 +513,10 @@
                 display: none;
             }
             
+            .operations-stats {
+                grid-template-columns: 1fr;
+            }
+            
             .gallery {
                 grid-template-columns: 1fr;
             }
@@ -467,6 +530,10 @@
             }
             
             .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .supply-chain-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -505,6 +572,36 @@
                 <h1 data-i18n="hero_title">PROYECTO CACAO SOSTENIBLE BIO</h1>
                 <p data-i18n="hero_subtitle">Transformando la cadena de valor del cacao camerunés hacia la sostenibilidad y el comercio justo</p>
                 <p data-i18n="hero_vision">Visión 2025-2030: +500 toneladas de cacao BIO certificado para exportación directa</p>
+            </section>
+            
+            <!-- NEU: Aktuelle Betriebsdaten Oktober 2025 -->
+            <section class="current-operations-highlight" id="operations-2025">
+                <h2 data-i18n="operations_title">📊 Reporte Operativo - Octubre 2025</h2>
+                <p data-i18n="operations_subtitle"><strong>Centro Operativo Nwangan</strong> bajo dirección de <strong>Mme. Meyo Mefo Lydie</strong></p>
+                
+                <div class="operations-stats">
+                    <div class="stat-box">
+                        <span class="stat-number">5-10 t</span>
+                        <span class="stat-label" data-i18n="stat_volume">Cada 2 semanas</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">Telcar</span>
+                        <span class="stat-label" data-i18n="stat_partner">Contrato activo</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label" data-i18n="stat_solar">Secado solar</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label" data-i18n="stat_trainees">Aprendices</span>
+                    </div>
+                </div>
+                
+                <div class="info-card" style="background: rgba(255,255,255,0.9); margin: 1rem 0;">
+                    <h4 data-i18n="operations_detail_title">Operaciones Estables en Nwangan</h4>
+                    <p data-i18n="operations_detail_text">El cacao se recolecta y seca en el almacén de la Sra. Meyo Mefo Lydie en Nwangan, conforme al contrato de prefinanciación con Telcar Cocoa Ltd (5-10 toneladas cada dos semanas). Cada lote pasa por control riguroso de humedad y calidad antes del empaque en sacos de 100 kg.</p>
+                </div>
             </section>
             
             <section class="section">
@@ -573,6 +670,33 @@
                 </div>
             </section>
             
+            <!-- NEU: Cadena de Suministro Actualizada -->
+            <section class="section">
+                <h2 data-i18n="supply_chain_title">Cadena de Suministro & Logística - Octubre 2025</h2>
+                
+                <div class="supply-chain-grid">
+                    <div class="supply-item">
+                        <h4><i class="fas fa-warehouse"></i> <span data-i18n="supply1_title">Centro de Acopio Nwangan</span></h4>
+                        <p data-i18n="supply1_text">Almacén principal bajo gestión de Mme. Meyo Mefo Lydie. Capacidad: 5-10 toneladas cada quincena.</p>
+                    </div>
+                    
+                    <div class="supply-item">
+                        <h4><i class="fas fa-handshake"></i> <span data-i18n="supply2_title">Asociación Estratégica</span></h4>
+                        <p data-i18n="supply2_text">Contrato de prefinanciación activo con Telcar Cocoa Ltd garantizando compra y exportación estable.</p>
+                    </div>
+                    
+                    <div class="supply-item">
+                        <h4><i class="fas fa-sun"></i> <span data-i18n="supply3_title">Procesamiento Sostenible</span></h4>
+                        <p data-i18n="supply3_text">Secado 100% solar, control de calidad riguroso, empaque en sacos de 100 kg cosidos manualmente.</p>
+                    </div>
+                    
+                    <div class="supply-item">
+                        <h4><i class="fas fa-graduation-cap"></i> <span data-i18n="supply4_title">Formación Continua</span></h4>
+                        <p data-i18n="supply4_text">Programa de aprendices en técnicas de control calidad y procesamiento sostenible.</p>
+                    </div>
+                </div>
+            </section>
+            
             <section class="section">
                 <h2 data-i18n="section3_title">Impacto en las Comunidades</h2>
                 
@@ -612,34 +736,61 @@
             </section>
             
             <section class="section">
-                <h2 data-i18n="section4_title">Galería del Proyecto</h2>
-                <p data-i18n="section4_text">Conozca nuestro trabajo en las comunidades de Nwangan y Ebolowa</p>
+                <h2 data-i18n="section4_title">Galería del Proyecto - Nwangan 2025</h2>
+                <p data-i18n="section4_text">Documentación visual de nuestras operaciones en el centro de Nwangan</p>
                 
                 <div class="gallery">
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/1.jpg" alt="Cultivo de cacao" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Cultivo de cacao</div>'">
+                            <img src="image/nwangan-collecte-2025.jpg" alt="Collecte de cacao à Nwangan" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Collecte de cacao</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery1_caption">
-                            Plantaciones de cacao en Nwangan - Cultivo sostenible bajo sombra
+                            Recolección de cacao en plantaciones asociadas - Nwangan Octubre 2025
                         </div>
                     </div>
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/3.jpg" alt="Secado solar" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Secado solar</div>'">
+                            <img src="image/sechage-solaire-2025.jpg" alt="Séchage solaire à Nwangan" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Séchage solaire</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery2_caption">
-                            Proceso de secado solar - Energía 100% renovable
+                            Proceso de secado solar en el almacén de Nwangan - Control calidad riguroso
                         </div>
                     </div>
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/7.jpg" alt="Formación" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Formación</div>'">
+                            <img src="image/formation-stagiaires-2025.jpg" alt="Formation des stagiaires" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Formación aprendices</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery3_caption">
-                            Capacitación a agricultores - Transferencia de conocimiento
+                            Mme. Meyo Mefo Lydie formando aprendices en técnicas de control calidad
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-img-container">
+                            <img src="image/entrepot-nwangan-2025.jpg" alt="Entrepôt de Nwangan" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Almacén Nwangan</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery4_caption">
+                            Almacén principal de Nwangan - Capacidad: 5-10 toneladas por quincena
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-img-container">
+                            <img src="image/conditionnement-2025.jpg" alt="Conditionnement des sacs" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Embalaje</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery5_caption">
+                            Empaque en sacos de 100 kg - Preparación para exportación vía Telcar Cocoa Ltd
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item">
+                        <div class="gallery-img-container">
+                            <img src="image/equipe-nwangan-2025.jpg" alt="Équipe de Nwangan" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Equipo Nwangan</div>'">
+                        </div>
+                        <div class="gallery-caption" data-i18n="gallery6_caption">
+                            Equipo operativo de Nwangan - Coordinación: Mme. Meyo Mefo Lydie
                         </div>
                     </div>
                 </div>
@@ -783,6 +934,14 @@
                 hero_title: "PROYECTO CACAO SOSTENIBLE BIO",
                 hero_subtitle: "Transformando la cadena de valor del cacao camerunés hacia la sostenibilidad y el comercio justo",
                 hero_vision: "Visión 2025-2030: +500 toneladas de cacao BIO certificado para exportación directa",
+                operations_title: "📊 Reporte Operativo - Octubre 2025",
+                operations_subtitle: "Centro Operativo Nwangan bajo dirección de Mme. Meyo Mefo Lydie",
+                stat_volume: "Cada 2 semanas",
+                stat_partner: "Contrato activo",
+                stat_solar: "Secado solar",
+                stat_trainees: "Aprendices",
+                operations_detail_title: "Operaciones Estables en Nwangan",
+                operations_detail_text: "El cacao se recolecta y seca en el almacén de la Sra. Meyo Mefo Lydie en Nwangan, conforme al contrato de prefinanciación con Telcar Cocoa Ltd (5-10 toneladas cada dos semanas). Cada lote pasa por control riguroso de humedad y calidad antes del empaque en sacos de 100 kg.",
                 section1_title: "Nuestro Enfoque Sostenible",
                 feature1_title: "Agricultura Regenerativa",
                 feature1_text: "Prácticas de cultivo que mejoran la salud del suelo y la biodiversidad, reduciendo la deforestación.",
@@ -803,6 +962,15 @@
                 step4_text: "Energía solar sostenible",
                 quality_title: "Control de Calidad Integral",
                 quality_text: "Cada lote pasa por rigurosos controles de humedad, fermentación y pureza antes del empaque. Nuestro sistema de trazabilidad garantiza transparencia total desde el agricultor hasta el consumidor final.",
+                supply_chain_title: "Cadena de Suministro & Logística - Octubre 2025",
+                supply1_title: "Centro de Acopio Nwangan",
+                supply1_text: "Almacén principal bajo gestión de Mme. Meyo Mefo Lydie. Capacidad: 5-10 toneladas cada quincena.",
+                supply2_title: "Asociación Estratégica",
+                supply2_text: "Contrato de prefinanciación activo con Telcar Cocoa Ltd garantizando compra y exportación estable.",
+                supply3_title: "Procesamiento Sostenible",
+                supply3_text: "Secado 100% solar, control de calidad riguroso, empaque en sacos de 100 kg cosidos manualmente.",
+                supply4_title: "Formación Continua",
+                supply4_text: "Programa de aprendices en técnicas de control calidad y procesamiento sostenible.",
                 section3_title: "Impacto en las Comunidades",
                 impact1_title: "+200 Familias",
                 impact1_text: "Beneficiadas directamente por el proyecto",
@@ -812,11 +980,14 @@
                 impact3_text: "40% de mujeres en puestos de liderazgo",
                 impact4_title: "Reforestación",
                 impact4_text: "+5,000 árboles nativos plantados anualmente",
-                section4_title: "Galería del Proyecto",
-                section4_text: "Conozca nuestro trabajo en las comunidades de Nwangan y Ebolowa",
-                gallery1_caption: "Plantaciones de cacao en Nwangan - Cultivo sostenible bajo sombra",
-                gallery2_caption: "Proceso de secado solar - Energía 100% renovable",
-                gallery3_caption: "Capacitación a agricultores - Transferencia de conocimiento",
+                section4_title: "Galería del Proyecto - Nwangan 2025",
+                section4_text: "Documentación visual de nuestras operaciones en el centro de Nwangan",
+                gallery1_caption: "Recolección de cacao en plantaciones asociadas - Nwangan Octubre 2025",
+                gallery2_caption: "Proceso de secado solar en el almacén de Nwangan - Control calidad riguroso",
+                gallery3_caption: "Mme. Meyo Mefo Lydie formando aprendices en técnicas de control calidad",
+                gallery4_caption: "Almacén principal de Nwangan - Capacidad: 5-10 toneladas por quincena",
+                gallery5_caption: "Empaque en sacos de 100 kg - Preparación para exportación vía Telcar Cocoa Ltd",
+                gallery6_caption: "Equipo operativo de Nwangan - Coordinación: Mme. Meyo Mefo Lydie",
                 section5_title: "Únase a Nuestro Proyecto",
                 join_title: "Oportunidades de Colaboración",
                 join_text: "Buscamos socios estratégicos, inversionistas y compradores comprometidos con la sostenibilidad y el comercio justo. Juntos podemos transformar la industria del cacao en Camerún.",
@@ -834,6 +1005,14 @@
                 hero_title: "PROJET CACAO BIOLOGIQUE DURABLE",
                 hero_subtitle: "Transformer la chaîne de valeur du cacao camerounais vers la durabilité et le commerce équitable",
                 hero_vision: "Vision 2025-2030: +500 tonnes de cacao BIO certifié pour l'exportation directe",
+                operations_title: "📊 Rapport Opérationnel - Octobre 2025",
+                operations_subtitle: "Centre Opérationnel Nwangan sous direction de Mme. Meyo Mefo Lydie",
+                stat_volume: "Toutes les 2 semaines",
+                stat_partner: "Contrat actif",
+                stat_solar: "Séchage solaire",
+                stat_trainees: "Apprentis",
+                operations_detail_title: "Opérations Stables à Nwangan",
+                operations_detail_text: "Le cacao est collecté et séché dans l'entrepôt de Mme Meyo Mefo Lydie à Nwangan, conformément au contrat de préfinancement avec Telcar Cocoa Ltd (5-10 tonnes toutes les deux semaines). Chaque lot subit un contrôle rigoureux d'humidité et de qualité avant l'emballage en sacs de 100 kg.",
                 section1_title: "Notre Approche Durable",
                 feature1_title: "Agriculture Régénérative",
                 feature1_text: "Pratiques culturales qui améliorent la santé des sols et la biodiversité, réduisant la déforestation.",
@@ -854,6 +1033,15 @@
                 step4_text: "Énergie solaire durable",
                 quality_title: "Contrôle Qualité Intégral",
                 quality_text: "Chaque lot passe par des contrôles rigoureux d'humidité, de fermentation et de pureté avant l'emballage. Notre système de traçabilité garantit une transparence totale de l'agriculteur au consommateur final.",
+                supply_chain_title: "Chaîne d'Approvisionnement & Logistique - Octobre 2025",
+                supply1_title: "Centre de Collecte Nwangan",
+                supply1_text: "Entrepôt principal sous gestion de Mme. Meyo Mefo Lydie. Capacité: 5-10 tonnes toutes les deux semaines.",
+                supply2_title: "Partenariat Stratégique",
+                supply2_text: "Contrat de préfinancement actif avec Telcar Cocoa Ltd garantissant achat et exportation stables.",
+                supply3_title: "Traitement Durable",
+                supply3_text: "Séchage 100% solaire, contrôle qualité rigoureux, emballage en sacs de 100 kg cousus manuellement.",
+                supply4_title: "Formation Continue",
+                supply4_text: "Programme d'apprentis en techniques de contrôle qualité et traitement durable.",
                 section3_title: "Impact sur les Communautés",
                 impact1_title: "+200 Familles",
                 impact1_text: "Bénéficiaires directes du projet",
@@ -863,11 +1051,14 @@
                 impact3_text: "40% de femmes dans des postes de direction",
                 impact4_title: "Reforestation",
                 impact4_text: "+5,000 arbres natifs plantés annuellement",
-                section4_title: "Galerie du Projet",
-                section4_text: "Découvrez notre travail dans les communautés de Nwangan et Ebolowa",
-                gallery1_caption: "Plantations de cacao à Nwangan - Culture durable sous ombrage",
-                gallery2_caption: "Processus de séchage solaire - Énergie 100% renouvelable",
-                gallery3_caption: "Formation des agriculteurs - Transfert de connaissances",
+                section4_title: "Galerie du Projet - Nwangan 2025",
+                section4_text: "Documentation visuelle de nos opérations au centre de Nwangan",
+                gallery1_caption: "Collecte de cacao dans les plantations associées - Nwangan Octobre 2025",
+                gallery2_caption: "Processus de séchage solaire dans l'entrepôt de Nwangan - Contrôle qualité rigoureux",
+                gallery3_caption: "Mme. Meyo Mefo Lydie formant les apprentis aux techniques de contrôle qualité",
+                gallery4_caption: "Entrepôt principal de Nwangan - Capacité: 5-10 tonnes par quinzaine",
+                gallery5_caption: "Emballage en sacs de 100 kg - Préparation pour l'exportation via Telcar Cocoa Ltd",
+                gallery6_caption: "Équipe opérationnelle de Nwangan - Coordination: Mme. Meyo Mefo Lydie",
                 section5_title: "Rejoignez Notre Projet",
                 join_title: "Opportunités de Collaboration",
                 join_text: "Nous recherchons des partenaires stratégiques, des investisseurs et des acheteurs engagés dans la durabilité et le commerce équitable. Ensemble, nous pouvons transformer l'industrie du cacao au Cameroun.",
@@ -885,6 +1076,14 @@
                 hero_title: "NACHHALTIGES BIO-KAKAO-PROJEKT",
                 hero_subtitle: "Transformation der kamerunischen Kakao-Wertschöpfungskette hin zu Nachhaltigkeit und fairem Handel",
                 hero_vision: "Vision 2025-2030: +500 Tonnen BIO-zertifizierter Kakao für den Direktexport",
+                operations_title: "📊 Betriebsbericht - Oktober 2025",
+                operations_subtitle: "Betriebszentrum Nwangan unter Leitung von Frau Meyo Mefo Lydie",
+                stat_volume: "Alle 2 Wochen",
+                stat_partner: "Aktiver Vertrag",
+                stat_solar: "Solartrocknung",
+                stat_trainees: "Auszubildende",
+                operations_detail_title: "Stabile Operationen in Nwangan",
+                operations_detail_text: "Der Kakao wird im Lager von Frau Meyo Mefo Lydie in Nwangan gesammelt und getrocknet, gemäß dem Vorfinanzierungsvertrag mit Telcar Cocoa Ltd (5-10 Tonnen alle zwei Wochen). Jede Charge unterliegt einer rigorosen Feuchtigkeits- und Qualitätskontrolle vor der Verpackung in 100-kg-Säcken.",
                 section1_title: "Unser Nachhaltigkeitsansatz",
                 feature1_title: "Regenerative Landwirtschaft",
                 feature1_text: "Anbaupraktiken, die die Bodengesundheit und Biodiversität verbessern und Entwaldung reduzieren.",
@@ -905,6 +1104,15 @@
                 step4_text: "Nachhaltige Solarenergie",
                 quality_title: "Umfassende Qualitätskontrolle",
                 quality_text: "Jede Charge durchläuft strenge Kontrollen von Feuchtigkeit, Fermentation und Reinheit vor der Verpackung. Unser Rückverfolgbarkeitssystem gewährleistet totale Transparenz vom Landwirt bis zum Endverbraucher.",
+                supply_chain_title: "Lieferkette & Logistik - Oktober 2025",
+                supply1_title: "Sammelzentrum Nwangan",
+                supply1_text: "Hauptlager unter Leitung von Frau Meyo Mefo Lydie. Kapazität: 5-10 Tonnen alle zwei Wochen.",
+                supply2_title: "Strategische Partnerschaft",
+                supply2_text: "Aktiver Vorfinanzierungsvertrag mit Telcar Cocoa Ltd garantiert stabile Abnahme und Export.",
+                supply3_title: "Nachhaltige Verarbeitung",
+                supply3_text: "100% Solartrocknung, rigorose Qualitätskontrolle, Verpackung in handgenähten 100-kg-Säcken.",
+                supply4_title: "Kontinuierliche Ausbildung",
+                supply4_text: "Auszubildendenprogramm in Qualitätskontrolltechniken und nachhaltiger Verarbeitung.",
                 section3_title: "Auswirkungen auf die Gemeinden",
                 impact1_title: "+200 Familien",
                 impact1_text: "Direkt vom Projekt begünstigt",
@@ -914,19 +1122,22 @@
                 impact3_text: "40% Frauen in Führungspositionen",
                 impact4_title: "Aufforstung",
                 impact4_text: "+5.000 einheimische Bäume jährlich gepflanzt",
-                section4_title: "Projektgalerie",
-                section4_text: "Lernen Sie unsere Arbeit in den Gemeinden von Nwangan und Ebolowa kennen",
-                gallery1_caption: "Kakaoplantagen in Nwangan - Nachhaltiger Anbau im Schatten",
-                gallery2_caption: "Solartrocknungsprozess - 100% erneuerbare Energie",
-                gallery3_caption: "Schulung der Landwirte - Wissenstransfer",
+                section4_title: "Projektgalerie - Nwangan 2025",
+                section4_text: "Visuelle Dokumentation unserer Operationen im Nwangan-Zentrum",
+                gallery1_caption: "Kakaosammlung in Partnerplantagen - Nwangan Oktober 2025",
+                gallery2_caption: "Solartrocknungsprozess im Nwangan-Lager - Rigorose Qualitätskontrolle",
+                gallery3_caption: "Frau Meyo Mefo Lydie schult Auszubildende in Qualitätskontrolltechniken",
+                gallery4_caption: "Hauptlager Nwangan - Kapazität: 5-10 Tonnen alle zwei Wochen",
+                gallery5_caption: "Verpackung in 100-kg-Säcken - Vorbereitung für den Export über Telcar Cocoa Ltd",
+                gallery6_caption: "Betriebsteam Nwangan - Koordination: Frau Meyo Mefo Lydie",
                 section5_title: "Werden Sie Teil Unseres Projekts",
                 join_title: "Kooperationsmöglichkeiten",
                 join_text: "Wir suchen strategische Partner, Investoren und Käufer, die sich für Nachhaltigkeit und fairen Handel engagieren. Gemeinsam können wir die Kakaobranche in Kamerun transformieren.",
                 join_button: "Mit Uns Zusammenarbeiten",
                 contact: "Kontakt",
-                cameroon: "Kontakte in Kamerun",
+                cameroon: "Kamerun Kontakte",
                 coordination: "Koordination (Deutschland)",
-                "family-contact": "Kontakt Familie Massa",
+                "family-contact": "Ansprechpartner Familie Massa",
                 coordinator: "Nationale Koordinatorin",
                 rights: "Alle Rechte vorbehalten"
             }
