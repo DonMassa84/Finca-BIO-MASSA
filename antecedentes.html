@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Antecedentes del Proyecto MASSA - Cacao Sostenible BIO 2025-2030">
+    <meta name="description" content="Antecedentes Históricos - Project MASSA - Cacao Sostenible BIO">
     <title>Antecedentes - Project MASSA - Cacao Sostenible BIO</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -151,6 +151,21 @@
             padding: 40px;
         }
         
+        .history-hero {
+            background: linear-gradient(to right, var(--primary-color), #8D6E63);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+        }
+        
+        .history-hero h1 {
+            color: #FFD54F;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
         .section {
             margin-bottom: 3rem;
             background: white;
@@ -189,7 +204,7 @@
         
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 1000px;
             margin: 2rem auto;
         }
         
@@ -211,44 +226,46 @@
             box-sizing: border-box;
         }
         
-        .timeline-item:nth-child(odd) {
-            left: 0;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
         .timeline-item::after {
             content: '';
             position: absolute;
             width: 20px;
             height: 20px;
-            background-color: var(--primary-color);
-            border: 4px solid var(--secondary-color);
-            top: 15px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
             border-radius: 50%;
+            top: 15px;
             z-index: 1;
         }
         
-        .timeline-item:nth-child(odd)::after {
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
             right: -10px;
         }
         
-        .timeline-item:nth-child(even)::after {
+        .right::after {
             left: -10px;
         }
         
         .timeline-content {
             padding: 20px;
-            background-color: #F5F5F5;
+            background-color: white;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary-color);
         }
         
-        .timeline-date {
+        .timeline-year {
             font-weight: bold;
-            color: var(--accent-color);
+            color: var(--primary-color);
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
         }
         
@@ -275,7 +292,6 @@
             width: 100%;
             height: 250px;
             overflow: hidden;
-            position: relative;
         }
         
         .team-img {
@@ -293,127 +309,39 @@
             padding: 1.5rem;
         }
         
-        .team-info h4 {
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: bold;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
         
         .team-role {
             color: var(--accent-color);
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 1rem;
         }
         
-        .gallery {
+        .milestone-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
-            margin-top: 1.5rem;
+            margin: 1.5rem 0;
         }
         
-        .gallery-item {
-            background-color: white;
+        .milestone-item {
+            background: #F5F5F5;
+            padding: 1.5rem;
             border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .gallery-item:hover {
-            transform: translateY(-5px);
-        }
-        
-        .gallery-img-container {
-            width: 100%;
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .gallery-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .gallery-item:hover .gallery-img {
-            transform: scale(1.05);
-        }
-        
-        .gallery-caption {
-            padding: 1rem;
-            font-size: 0.9rem;
-            color: var(--dark-color);
-        }
-        
-        footer {
-            background: #5D4037;
-            color: white;
             text-align: center;
-            padding: 30px;
-            margin-top: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--primary-color);
         }
         
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 25px 0;
-            text-align: left;
-        }
-        
-        .contact-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        .contact-card h3 {
-            margin-bottom: 15px;
-            color: #FFD54F;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin: 12px 0;
-            gap: 12px;
-        }
-        
-        .contact-icon {
-            width: 35px;
-            height: 35px;
-            background: #8D6E63;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-        }
-        
-        .contact-details {
-            flex: 1;
-        }
-        
-        .contact-details a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .contact-details a:hover {
-            color: #FFD54F;
-            text-decoration: underline;
-        }
-        
-        .copyright {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        .milestone-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
         
         .img-fallback {
@@ -425,6 +353,20 @@
             justify-content: center;
             color: white;
             font-weight: bold;
+        }
+        
+        footer {
+            background: #5D4037;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
         
         @media (max-width: 768px) {
@@ -456,23 +398,19 @@
                 padding-right: 25px;
             }
             
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
             .timeline-item::after {
                 left: 21px;
+            }
+            
+            .right {
+                left: 0;
             }
             
             .team-grid {
                 grid-template-columns: 1fr;
             }
             
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-grid {
+            .milestone-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -489,11 +427,11 @@
             
             <div class="logo-container">
                 <div class="logo">
-                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-history"></i>
                 </div>
                 <div>
-                    <h1 data-i18n="title">Finca BIO MASSA</h1>
-                    <p class="subtitle" data-i18n="subtitle">Antecedentes del Proyecto - Cacao Sostenible BIO 2025-2030</p>
+                    <h1 data-i18n="title">Antecedentes Históricos</h1>
+                    <p class="subtitle" data-i18n="subtitle">Project MASSA - Cacao Sostenible BIO 2025-2030</p>
                 </div>
             </div>
             
@@ -507,262 +445,220 @@
         </header>
         
         <div class="content-section">
+            <!-- History Hero Section -->
+            <section class="history-hero">
+                <h1 data-i18n="hero_title">ANTECEDENTES HISTÓRICOS - PROJECT MASSA</h1>
+                <p data-i18n="hero_subtitle">Orígenes, Evolución y Fundamentos del Proyecto de Cacao Sostenible BIO</p>
+            </section>
+            
+            <!-- Historical Context Section -->
             <section class="section">
-                <h2 data-i18n="section_title">2. Antecedentes del Proyecto</h2>
+                <h2 data-i18n="context_title">1. Contexto Histórico y Orígenes</h2>
                 
                 <div class="info-card">
-                    <h4 data-i18n="origins_title">Orígenes del Proyecto</h4>
-                    <p data-i18n="origins_text">El proyecto MASSA nació durante la crisis del COVID-19 como respuesta a la necesidad urgente de transformar el comercio local de cacao en una cadena de valor agroindustrial sostenible y resiliente.</p>
+                    <h4 data-i18n="context_subtitle">Nacimiento durante la Crisis Global</h4>
+                    <p data-i18n="context_text">El proyecto MASSA surge en 2020 como respuesta directa a la crisis COVID-19, que evidenció la vulnerabilidad de las cadenas de suministro tradicionales y la necesidad urgente de desarrollar modelos agroindustriales resilientes y sostenibles en Camerún.</p>
                 </div>
                 
-                <h3 data-i18n="timeline_title">Línea de Tiempo del Desarrollo</h3>
+                <div class="info-card">
+                    <h4 data-i18n="vision_title">Visión Fundacional</h4>
+                    <p data-i18n="vision_text">Pablo Massa (ETS. INASSO) identificó la oportunidad de transformar el comercio local de cacao en una cadena de valor integrada, combinando expertise internacional con conocimiento local bajo el liderazgo de Mme. Meyo Mefo Lydie.</p>
+                </div>
+            </section>
+            
+            <!-- Historical Timeline Section -->
+            <section class="section">
+                <h2 data-i18n="timeline_title">2. Línea de Tiempo Histórica</h2>
                 
                 <div class="timeline">
-                    <div class="timeline-item">
+                    <div class="timeline-item left">
                         <div class="timeline-content">
-                            <div class="timeline-date" data-i18n="timeline1_date">2020 - Nacimiento</div>
-                            <h4 data-i18n="timeline1_title">Inicio durante la Pandemia</h4>
-                            <p data-i18n="timeline1_text">Identificación de la oportunidad durante la crisis COVID-19 para crear una cadena de suministro más resiliente y sostenible para el cacao camerunés.</p>
+                            <div class="timeline-year">2020</div>
+                            <h3 data-i18n="timeline1_title">Orígenes en la Crisis</h3>
+                            <p data-i18n="timeline1_text">Identificación de la oportunidad durante la pandemia COVID-19. Primeros contactos con productores locales en la Región Sur de Camerún.</p>
                         </div>
                     </div>
                     
-                    <div class="timeline-item">
+                    <div class="timeline-item right">
                         <div class="timeline-content">
-                            <div class="timeline-date" data-i18n="timeline2_date">2021-2022 - Consolidación</div>
-                            <h4 data-i18n="timeline2_title">Establecimiento de Alianzas</h4>
-                            <p data-i18n="timeline2_text">Formación de alianzas estratégicas con Telcar Cocoa Ltd y establecimiento de la red inicial de productores en Nwangan y Ebolowa.</p>
+                            <div class="timeline-year">2021</div>
+                            <h3 data-i18n="timeline2_title">Establecimiento de Alianzas</h3>
+                            <p data-i18n="timeline2_text">Formalización de la colaboración con Mme. Meyo Mefo Lydie como Coordinadora Nacional. Establecimiento de la base operativa en Nwangan.</p>
                         </div>
                     </div>
                     
-                    <div class="timeline-item">
+                    <div class="timeline-item left">
                         <div class="timeline-content">
-                            <div class="timeline-date" data-i18n="timeline3_date">2023 - Infraestructura</div>
-                            <h4 data-i18n="timeline3_title">Construcción del Almacén Central</h4>
-                            <p data-i18n="timeline3_text">Desarrollo de la infraestructura principal en Nwangan con sistema de secado solar y espacio de empaque para control de calidad.</p>
+                            <div class="timeline-year">2022</div>
+                            <h3 data-i18n="timeline3_title">Primeras Operaciones</h3>
+                            <p data-i18n="timeline3_text">Inicio de operaciones comerciales con volúmenes iniciales de 2-3 toneladas mensuales. Establecimiento de relaciones con Telcar Cocoa Ltd.</p>
                         </div>
                     </div>
                     
-                    <div class="timeline-item">
+                    <div class="timeline-item right">
                         <div class="timeline-content">
-                            <div class="timeline-date" data-i18n="timeline4_date">2024 - Expansión</div>
-                            <h4 data-i18n="timeline4_title">Ampliación de la Red</h4>
-                            <p data-i18n="timeline4_text">Incorporación de más de 50 productores adicionales y establecimiento de contratos de prefinanciación estables.</p>
+                            <div class="timeline-year">2023</div>
+                            <h3 data-i18n="timeline4_title">Consolidación Operativa</h3>
+                            <p data-i18n="timeline4_text">Expansión a 5-10 toneladas cada dos semanas. Implementación del sistema de secado solar. Formalización de contratos de prefinanciación.</p>
                         </div>
                     </div>
                     
-                    <div class="timeline-item">
+                    <div class="timeline-item left">
                         <div class="timeline-content">
-                            <div class="timeline-date" data-i18n="timeline5_date">2025 - Visión 2030</div>
-                            <h4 data-i18n="timeline5_title">Plan Maestro 2025-2030</h4>
-                            <p data-i18n="timeline5_text">Desarrollo del plan estratégico tri-fásico para la transformación completa hacia la producción BIO certificada y exportación directa.</p>
+                            <div class="timeline-year">2024</div>
+                            <h3 data-i18n="timeline5_title">Crecimiento Estable</h3>
+                            <p data-i18n="timeline5_text">Consolidación de la red de productores (+50 familias). Mejora de infraestructura en Nwangan. Inicio de diálogos para certificación BIO.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <div class="timeline-year">2025</div>
+                            <h3 data-i18n="timeline6_title">Estado Actual - Octubre 2025</h3>
+                            <p data-i18n="timeline6_text">Operaciones estables con producción de 5-10 toneladas cada dos semanas. Contrato activo con Telcar Cocoa Ltd. Infraestructura operativa completamente funcional.</p>
                         </div>
                     </div>
                 </div>
+            </section>
+            
+            <!-- Key Milestones Section -->
+            <section class="section">
+                <h2 data-i18n="milestones_title">3. Hitos Fundamentales</h2>
                 
-                <h3 data-i18n="leadership_title">Liderazgo del Proyecto</h3>
+                <div class="milestone-grid">
+                    <div class="milestone-item">
+                        <div class="milestone-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h4 data-i18n="milestone1_title">Alianza Estratégica</h4>
+                        <p data-i18n="milestone1_text">Colaboración establecida entre Pablo Massa (ETS. INASSO) y Mme. Meyo Mefo Lydie</p>
+                    </div>
+                    
+                    <div class="milestone-item">
+                        <div class="milestone-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h4 data-i18n="milestone2_title">Infraestructura Operativa</h4>
+                        <p data-i18n="milestone2_text">Establecimiento del centro operativo en Nwangan con sistema de secado solar</p>
+                    </div>
+                    
+                    <div class="milestone-item">
+                        <div class="milestone-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h4 data-i18n="milestone3_title">Contrato Telcar</h4>
+                        <p data-i18n="milestone3_text">Formalización del acuerdo de prefinanciación y exportación con Telcar Cocoa Ltd</p>
+                    </div>
+                    
+                    <div class="milestone-item">
+                        <div class="milestone-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4 data-i18n="milestone4_title">Red de Productores</h4>
+                        <p data-i18n="milestone4_text">Consolidación de red de +50 productores en Nwangan y Ebolowa</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Leadership Team Section -->
+            <section class="section">
+                <h2 data-i18n="team_title">4. Liderazgo y Equipo Fundador</h2>
                 
                 <div class="team-grid">
                     <div class="team-card">
                         <div class="team-img-container">
-                            <img src="image/4.jpg" alt="Pablo Massa" class="team-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Pablo Massa</div>'">
+                            <img src="image/pablo-massa.jpg" alt="Pablo Massa - Director General" class="team-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Pablo Massa<br>Director General</div>'">
                         </div>
                         <div class="team-info">
-                            <h4>Pablo Massa</h4>
+                            <div class="team-name">Pablo Massa</div>
                             <div class="team-role" data-i18n="pablo_role">Director General - ETS. INASSO</div>
-                            <p data-i18n="pablo_desc">Lidera la dirección estratégica del proyecto con más de 15 años de experiencia en comercio internacional y desarrollo agrícola. Responsable de las alianzas internacionales y la visión a largo plazo.</p>
+                            <p data-i18n="pablo_bio">Visionario del proyecto con expertise internacional en desarrollo de cadenas de suministro sostenibles. Lidera la estrategia global y las alianzas internacionales.</p>
                         </div>
                     </div>
                     
                     <div class="team-card">
                         <div class="team-img-container">
-                            <img src="image/7.jpg" alt="Mme. Meyo Mefo Lydie" class="team-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Mme. Meyo Mefo Lydie</div>'">
+                            <img src="image/lydie-meyo.jpg" alt="Mme. Meyo Mefo Lydie - Coordinadora Nacional" class="team-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Mme. Meyo Mefo Lydie<br>Coordinadora Nacional</div>'">
                         </div>
                         <div class="team-info">
-                            <h4>Mme. Meyo Mefo Lydie</h4>
-                            <div class="team-role" data-i18n="lydie_role">Coordinadora Nacional - Directora Comercial</div>
-                            <p data-i18n="lydie_desc">Gestión operativa del proyecto, supervisión del almacén central en Nwangan, coordinación de la red de productores y formación de aprendices. Enlace principal con los agricultores locales.</p>
+                            <div class="team-name">Mme. Meyo Mefo Lydie</div>
+                            <div class="team-role" data-i18n="lydie_role">Coordinadora Nacional</div>
+                            <p data-i18n="lydie_bio">Lideresa local con profundo conocimiento del sector cacaotero camerunés. Gestiona las operaciones diarias, relaciones con productores y control de calidad.</p>
                         </div>
                     </div>
                 </div>
-                
-                <h3 data-i18n="transformation_title">Transformación Estratégica</h3>
-                
-                <div class="info-card">
-                    <h4 data-i18n="transformation_card_title">De Comercio Local a Cadena Agroindustrial</h4>
-                    <p data-i18n="transformation_card_text">El proyecto ha evolucionado desde un modelo de comercio local tradicional hacia una cadena agroindustrial integrada verticalmente, incorporando:</p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li data-i18n="transformation_list1">Contratos de prefinanciación con Telcar Cocoa Ltd</li>
-                        <li data-i18n="transformation_list2">Infraestructura de procesamiento y control de calidad</li>
-                        <li data-i18n="transformation_list3">Sistema de trazabilidad desde el productor hasta el exportador</li>
-                        <li data-i18n="transformation_list4">Capacitación técnica en métodos de cultivo sostenible</li>
-                    </ul>
-                </div>
-                
-                <h3 data-i18n="social_title">Enfoque Social y Comunitario</h3>
+            </section>
+            
+            <!-- Historical Challenges Section -->
+            <section class="section">
+                <h2 data-i18n="challenges_title">5. Desafíos Superados</h2>
                 
                 <div class="info-card">
-                    <h4 data-i18n="social_card_title">Cooperación con action medeor e.V.</h4>
-                    <p data-i18n="social_card_text">El proyecto incluye un componente social significativo enfocado en:</p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li data-i18n="social_list1">Mejora de ingresos para familias rurales</li>
-                        <li data-i18n="social_list2">Programas de salud comunitaria en colaboración con action medeor e.V.</li>
-                        <li data-i18n="social_list3">Capacitación en nutrición y prácticas saludables</li>
-                        <li data-i18n="social_list4">Creación de empleo femenino en la cadena de valor</li>
-                    </ul>
+                    <h4 data-i18n="challenge1_title">Contexto Pandémico</h4>
+                    <p data-i18n="challenge1_text">Inicio del proyecto durante restricciones COVID-19, requiriendo adaptación rápida a nuevas realidades logísticas y comerciales.</p>
                 </div>
                 
-                <h3 data-i18n="gallery_title">Documentación Visual de la Evolución</h3>
+                <div class="info-card">
+                    <h4 data-i18n="challenge2_title">Infraestructura Limitada</h4>
+                    <p data-i18n="challenge2_text">Desarrollo de sistemas de procesamiento con recursos limitados, implementando soluciones innovadoras como el secado solar.</p>
+                </div>
                 
-                <div class="gallery">
-                    <div class="gallery-item">
-                        <div class="gallery-img-container">
-                            <img src="image/1.jpg" alt="Cultivo inicial" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Cultivo inicial</div>'">
-                        </div>
-                        <div class="gallery-caption" data-i18n="gallery1_caption">
-                            Cultivos iniciales de cacao en las fincas asociadas - Base del proyecto
-                        </div>
-                    </div>
+                <div class="info-card">
+                    <h4 data-i18n="challenge3_title">Acceso a Financiamiento</h4>
+                    <p data-i18n="challenge3_text">Establecimiento de relaciones de confianza con exportadores para asegurar prefinanciación que permita pagos inmediatos a productores.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4 data-i18n="challenge4_title">Coordinación Remota</h4>
+                    <p data-i18n="challenge4_text">Gestión efectiva del proyecto entre Camerún y Europa, superando barreras de distancia y tiempo mediante comunicación constante.</p>
+                </div>
+            </section>
+            
+            <!-- Learning and Evolution Section -->
+            <section class="section">
+                <h2 data-i18n="learning_title">6. Aprendizajes y Evolución</h2>
+                
+                <div class="info-card">
+                    <h4 data-i18n="learning1_title">Modelo Híbrido Exitoso</h4>
+                    <p data-i18n="learning1_text">La combinación de liderazgo internacional con coordinación local ha demostrado ser efectiva para el desarrollo de cadenas de valor sostenibles.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4 data-i18n="learning2_title">Importancia de la Confianza</h4>
+                    <p data-i18n="learning2_text">Las relaciones basadas en confianza mutua con productores locales son fundamentales para la sostenibilidad del proyecto.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4 data-i18n="learning3_title">Adaptabilidad como Ventaja</h4>
+                    <p data-i18n="learning3_text">La capacidad de adaptarse rápidamente a cambios del mercado y condiciones locales ha sido clave para el crecimiento constante.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4 data-i18n="learning4_title">Valor de la Paciencia Estratégica</h4>
+                    <p data-i18n="learning4_text">El crecimiento orgánico y la consolidación gradual han permitido construir bases sólidas para la expansión futura.</p>
+                </div>
+            </section>
+            
+            <!-- Connection to Present Section -->
+            <section class="section">
+                <h2 data-i18n="connection_title">7. Conexión con el Presente</h2>
+                
+                <div class="info-card" style="background: #E8F5E8; border-left: 4px solid #4a7c59;">
+                    <h4 data-i18n="current_title">Estado Actual - Octubre 2025</h4>
+                    <p data-i18n="current_text">Los cimientos establecidos en estos antecedentes históricos han permitido alcanzar el estado operativo actual: producción estable de 5-10 toneladas cada dos semanas, contrato activo con Telcar Cocoa Ltd, y una infraestructura completamente funcional bajo la gestión de Mme. Meyo Mefo Lydie en Nwangan.</p>
                     
-                    <div class="gallery-item">
-                        <div class="gallery-img-container">
-                            <img src="image/2.jpg" alt="Infraestructura desarrollo" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Infraestructura</div>'">
-                        </div>
-                        <div class="gallery-caption" data-i18n="gallery2_caption">
-                            Desarrollo de la infraestructura de almacenamiento en Nwangan
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item">
-                        <div class="gallery-img-container">
-                            <img src="image/6.jpg" alt="Procesamiento" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Procesamiento</div>'">
-                        </div>
-                        <div class="gallery-caption" data-i18n="gallery3_caption">
-                            Proceso de empaque y control de calidad - Etapa de consolidación
-                        </div>
-                    </div>
+                    <p style="margin-top: 1rem; font-weight: bold;" data-i18n="current_conclusion">El proyecto MASSA representa hoy un modelo consolidado de comercio sostenible de cacao, listo para su expansión hacia la certificación BIO y la integración vertical completa.</p>
                 </div>
                 
-                <div class="info-card">
-                    <h4 data-i18n="achievements_title">Logros Clave 2020-2025</h4>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li data-i18n="achievement1">Establecimiento de red estable de 50+ productores</li>
-                        <li data-i18n="achievement2">Infraestructura operativa en Nwangan con capacidad de 5-10 toneladas cada dos semanas</li>
-                        <li data-i18n="achievement3">Contratos de prefinanciación garantizados con Telcar Cocoa Ltd</li>
-                        <li data-i18n="achievement4">Programa de formación para 15 aprendices en técnicas sostenibles</li>
-                        <li data-i18n="achievement5">Desarrollo del plan maestro 2025-2030 para certificación BIO</li>
-                    </ul>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="dossier.html" class="nav-tab" style="background: var(--primary-color);">
+                        <i class="fas fa-arrow-left"></i> <span data-i18n="back_dossier">Volver al Master-Dossier</span>
+                    </a>
                 </div>
             </section>
         </div>
         
         <footer>
-            <h2 style="color: #FFD54F; border-bottom-color: rgba(255, 255, 255, 0.3); padding-bottom: 0.5rem; margin-bottom: 1.5rem;" data-i18n="contact">Contacto</h2>
-            
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <h3><i class="fas fa-globe-africa"></i> <span data-i18n="cameroon">Contactos en Camerún</span></h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="contact-details">
-                            <strong>Pablo Massa</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <a href="tel:+237655310460">+237 655 310 460</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="contact-details">
-                            <strong>Lydie Meyo</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <a href="tel:+237697121480">+237 697 121 480</a>
-                            <div><small data-i18n="coordinator">Coordinadora Nacional</small></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <h3><i class="fas fa-map-marker-alt"></i> <span data-i18n="coordination">Coordinación (Alemania)</span></h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="contact-details">
-                            <strong>Daniel Massa</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <a href="tel:+491782989360">+49 178 2989360</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <a href="mailto:Daniel.Alfonsin.Massa.IT@protonmail.com">Daniel.Alfonsin.Massa.IT@protonmail.com</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-card">
-                    <h3><i class="fas fa-users"></i> <span data-i18n="family-contact">Contacto Familia Massa</span></h3>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="contact-details">
-                            <strong>Michael Massa</strong>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <a href="tel:+491782180114">+49 178 2180114</a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <a href="mailto:DonMassa-Business@proton.me">DonMassa-Business@proton.me</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <div class="copyright">
                 <p>© 2023-2025 Finca BIO MASSA - Project MASSA Cacao Sostenible BIO. <span data-i18n="rights">Todos los derechos reservados</span>.</p>
             </div>
@@ -773,177 +669,189 @@
         // Multilingual support
         const translations = {
             es: {
-                title: "Finca BIO MASSA",
-                subtitle: "Antecedentes del Proyecto - Cacao Sostenible BIO 2025-2030",
-                section_title: "2. Antecedentes del Proyecto",
-                origins_title: "Orígenes del Proyecto",
-                origins_text: "El proyecto MASSA nació durante la crisis del COVID-19 como respuesta a la necesidad urgente de transformar el comercio local de cacao en una cadena de valor agroindustrial sostenible y resiliente.",
-                timeline_title: "Línea de Tiempo del Desarrollo",
-                timeline1_date: "2020 - Nacimiento",
-                timeline1_title: "Inicio durante la Pandemia",
-                timeline1_text: "Identificación de la oportunidad durante la crisis COVID-19 para crear una cadena de suministro más resiliente y sostenible para el cacao camerunés.",
-                timeline2_date: "2021-2022 - Consolidación",
+                title: "Antecedentes Históricos",
+                subtitle: "Project MASSA - Cacao Sostenible BIO 2025-2030",
+                hero_title: "ANTECEDENTES HISTÓRICOS - PROJECT MASSA",
+                hero_subtitle: "Orígenes, Evolución y Fundamentos del Proyecto de Cacao Sostenible BIO",
+                context_title: "1. Contexto Histórico y Orígenes",
+                context_subtitle: "Nacimiento durante la Crisis Global",
+                context_text: "El proyecto MASSA surge en 2020 como respuesta directa a la crisis COVID-19, que evidenció la vulnerabilidad de las cadenas de suministro tradicionales y la necesidad urgente de desarrollar modelos agroindustriales resilientes y sostenibles en Camerún.",
+                vision_title: "Visión Fundacional",
+                vision_text: "Pablo Massa (ETS. INASSO) identificó la oportunidad de transformar el comercio local de cacao en una cadena de valor integrada, combinando expertise internacional con conocimiento local bajo el liderazgo de Mme. Meyo Mefo Lydie.",
+                timeline_title: "2. Línea de Tiempo Histórica",
+                timeline1_title: "Orígenes en la Crisis",
+                timeline1_text: "Identificación de la oportunidad durante la pandemia COVID-19. Primeros contactos con productores locales en la Región Sur de Camerún.",
                 timeline2_title: "Establecimiento de Alianzas",
-                timeline2_text: "Formación de alianzas estratégicas con Telcar Cocoa Ltd y establecimiento de la red inicial de productores en Nwangan y Ebolowa.",
-                timeline3_date: "2023 - Infraestructura",
-                timeline3_title: "Construcción del Almacén Central",
-                timeline3_text: "Desarrollo de la infraestructura principal en Nwangan con sistema de secado solar y espacio de empaque para control de calidad.",
-                timeline4_date: "2024 - Expansión",
-                timeline4_title: "Ampliación de la Red",
-                timeline4_text: "Incorporación de más de 50 productores adicionales y establecimiento de contratos de prefinanciación estables.",
-                timeline5_date: "2025 - Visión 2030",
-                timeline5_title: "Plan Maestro 2025-2030",
-                timeline5_text: "Desarrollo del plan estratégico tri-fásico para la transformación completa hacia la producción BIO certificada y exportación directa.",
-                leadership_title: "Liderazgo del Proyecto",
+                timeline2_text: "Formalización de la colaboración con Mme. Meyo Mefo Lydie como Coordinadora Nacional. Establecimiento de la base operativa en Nwangan.",
+                timeline3_title: "Primeras Operaciones",
+                timeline3_text: "Inicio de operaciones comerciales con volúmenes iniciales de 2-3 toneladas mensuales. Establecimiento de relaciones con Telcar Cocoa Ltd.",
+                timeline4_title: "Consolidación Operativa",
+                timeline4_text: "Expansión a 5-10 toneladas cada dos semanas. Implementación del sistema de secado solar. Formalización de contratos de prefinanciación.",
+                timeline5_title: "Crecimiento Estable",
+                timeline5_text: "Consolidación de la red de productores (+50 familias). Mejora de infraestructura en Nwangan. Inicio de diálogos para certificación BIO.",
+                timeline6_title: "Estado Actual - Octubre 2025",
+                timeline6_text: "Operaciones estables con producción de 5-10 toneladas cada dos semanas. Contrato activo con Telcar Cocoa Ltd. Infraestructura operativa completamente funcional.",
+                milestones_title: "3. Hitos Fundamentales",
+                milestone1_title: "Alianza Estratégica",
+                milestone1_text: "Colaboración establecida entre Pablo Massa (ETS. INASSO) y Mme. Meyo Mefo Lydie",
+                milestone2_title: "Infraestructura Operativa",
+                milestone2_text: "Establecimiento del centro operativo en Nwangan con sistema de secado solar",
+                milestone3_title: "Contrato Telcar",
+                milestone3_text: "Formalización del acuerdo de prefinanciación y exportación con Telcar Cocoa Ltd",
+                milestone4_title: "Red de Productores",
+                milestone4_text: "Consolidación de red de +50 productores en Nwangan y Ebolowa",
+                team_title: "4. Liderazgo y Equipo Fundador",
                 pablo_role: "Director General - ETS. INASSO",
-                pablo_desc: "Lidera la dirección estratégica del proyecto con más de 15 años de experiencia en comercio internacional y desarrollo agrícola. Responsable de las alianzas internacionales y la visión a largo plazo.",
-                lydie_role: "Coordinadora Nacional - Directora Comercial",
-                lydie_desc: "Gestión operativa del proyecto, supervisión del almacén central en Nwangan, coordinación de la red de productores y formación de aprendices. Enlace principal con los agricultores locales.",
-                transformation_title: "Transformación Estratégica",
-                transformation_card_title: "De Comercio Local a Cadena Agroindustrial",
-                transformation_card_text: "El proyecto ha evolucionado desde un modelo de comercio local tradicional hacia una cadena agroindustrial integrada verticalmente, incorporando:",
-                transformation_list1: "Contratos de prefinanciación con Telcar Cocoa Ltd",
-                transformation_list2: "Infraestructura de procesamiento y control de calidad",
-                transformation_list3: "Sistema de trazabilidad desde el productor hasta el exportador",
-                transformation_list4: "Capacitación técnica en métodos de cultivo sostenible",
-                social_title: "Enfoque Social y Comunitario",
-                social_card_title: "Cooperación con action medeor e.V.",
-                social_card_text: "El proyecto incluye un componente social significativo enfocado en:",
-                social_list1: "Mejora de ingresos para familias rurales",
-                social_list2: "Programas de salud comunitaria en colaboración con action medeor e.V.",
-                social_list3: "Capacitación en nutrición y prácticas saludables",
-                social_list4: "Creación de empleo femenino en la cadena de valor",
-                gallery_title: "Documentación Visual de la Evolución",
-                gallery1_caption: "Cultivos iniciales de cacao en las fincas asociadas - Base del proyecto",
-                gallery2_caption: "Desarrollo de la infraestructura de almacenamiento en Nwangan",
-                gallery3_caption: "Proceso de empaque y control de calidad - Etapa de consolidación",
-                achievements_title: "Logros Clave 2020-2025",
-                achievement1: "Establecimiento de red estable de 50+ productores",
-                achievement2: "Infraestructura operativa en Nwangan con capacidad de 5-10 toneladas cada dos semanas",
-                achievement3: "Contratos de prefinanciación garantizados con Telcar Cocoa Ltd",
-                achievement4: "Programa de formación para 15 aprendices en técnicas sostenibles",
-                achievement5: "Desarrollo del plan maestro 2025-2030 para certificación BIO",
-                contact: "Contacto",
-                cameroon: "Contactos en Camerún",
-                coordination: "Coordinación (Alemania)",
-                "family-contact": "Contacto Familia Massa",
-                coordinator: "Coordinadora Nacional",
+                pablo_bio: "Visionario del proyecto con expertise internacional en desarrollo de cadenas de suministro sostenibles. Lidera la estrategia global y las alianzas internacionales.",
+                lydie_role: "Coordinadora Nacional",
+                lydie_bio: "Lideresa local con profundo conocimiento del sector cacaotero camerunés. Gestiona las operaciones diarias, relaciones con productores y control de calidad.",
+                challenges_title: "5. Desafíos Superados",
+                challenge1_title: "Contexto Pandémico",
+                challenge1_text: "Inicio del proyecto durante restricciones COVID-19, requiriendo adaptación rápida a nuevas realidades logísticas y comerciales.",
+                challenge2_title: "Infraestructura Limitada",
+                challenge2_text: "Desarrollo de sistemas de procesamiento con recursos limitados, implementando soluciones innovadoras como el secado solar.",
+                challenge3_title: "Acceso a Financiamiento",
+                challenge3_text: "Establecimiento de relaciones de confianza con exportadores para asegurar prefinanciación que permita pagos inmediatos a productores.",
+                challenge4_title: "Coordinación Remota",
+                challenge4_text: "Gestión efectiva del proyecto entre Camerún y Europa, superando barreras de distancia y tiempo mediante comunicación constante.",
+                learning_title: "6. Aprendizajes y Evolución",
+                learning1_title: "Modelo Híbrido Exitoso",
+                learning1_text: "La combinación de liderazgo internacional con coordinación local ha demostrado ser efectiva para el desarrollo de cadenas de valor sostenibles.",
+                learning2_title: "Importancia de la Confianza",
+                learning2_text: "Las relaciones basadas en confianza mutua con productores locales son fundamentales para la sostenibilidad del proyecto.",
+                learning3_title: "Adaptabilidad como Ventaja",
+                learning3_text: "La capacidad de adaptarse rápidamente a cambios del mercado y condiciones locales ha sido clave para el crecimiento constante.",
+                learning4_title: "Valor de la Paciencia Estratégica",
+                learning4_text: "El crecimiento orgánico y la consolidación gradual han permitido construir bases sólidas para la expansión futura.",
+                connection_title: "7. Conexión con el Presente",
+                current_title: "Estado Actual - Octubre 2025",
+                current_text: "Los cimientos establecidos en estos antecedentes históricos han permitido alcanzar el estado operativo actual: producción estable de 5-10 toneladas cada dos semanas, contrato activo con Telcar Cocoa Ltd, y una infraestructura completamente funcional bajo la gestión de Mme. Meyo Mefo Lydie en Nwangan.",
+                current_conclusion: "El proyecto MASSA representa hoy un modelo consolidado de comercio sostenible de cacao, listo para su expansión hacia la certificación BIO y la integración vertical completa.",
+                back_dossier: "Volver al Master-Dossier",
                 rights: "Todos los derechos reservados"
             },
             fr: {
-                title: "Finca BIO MASSA",
-                subtitle: "Historique du Projet - Cacao Biologique Durable 2025-2030",
-                section_title: "2. Historique du Projet",
-                origins_title: "Origines du Projet",
-                origins_text: "Le projet MASSA est né pendant la crise du COVID-19 en réponse au besoin urgent de transformer le commerce local du cacao en une chaîne de valeur agroindustrielle durable et résiliente.",
-                timeline_title: "Chronologie du Développement",
-                timeline1_date: "2020 - Naissance",
-                timeline1_title: "Début pendant la Pandémie",
-                timeline1_text: "Identification de l'opportunité pendant la crise COVID-19 pour créer une chaîne d'approvisionnement plus résiliente et durable pour le cacao camerounais.",
-                timeline2_date: "2021-2022 - Consolidation",
-                timeline2_title: "Établissement de Partenariats",
-                timeline2_text: "Formation de partenariats stratégiques avec Telcar Cocoa Ltd et établissement du réseau initial de producteurs à Nwangan et Ebolowa.",
-                timeline3_date: "2023 - Infrastructure",
-                timeline3_title: "Construction de l'Entrepôt Central",
-                timeline3_text: "Développement de l'infrastructure principale à Nwangan avec système de séchage solaire et espace d'emballage pour le contrôle qualité.",
-                timeline4_date: "2024 - Expansion",
-                timeline4_title: "Élargissement du Réseau",
-                timeline4_text: "Incorporation de plus de 50 producteurs supplémentaires et établissement de contrats de préfinancement stables.",
-                timeline5_date: "2025 - Vision 2030",
-                timeline5_title: "Plan Directeur 2025-2030",
-                timeline5_text: "Développement du plan stratégique triphasé pour la transformation complète vers la production BIO certifiée et l'exportation directe.",
-                leadership_title: "Direction du Projet",
+                title: "Contexte Historique",
+                subtitle: "Projet MASSA - Cacao Biologique Durable 2025-2030",
+                hero_title: "CONTEXTE HISTORIQUE - PROJET MASSA",
+                hero_subtitle: "Origines, Évolution et Fondements du Projet de Cacao Biologique Durable",
+                context_title: "1. Contexte Historique et Origines",
+                context_subtitle: "Naissance pendant la Crise Mondiale",
+                context_text: "Le projet MASSA est né en 2020 en réponse directe à la crise COVID-19, qui a mis en évidence la vulnérabilité des chaînes d'approvisionnement traditionnelles et le besoin urgent de développer des modèles agroindustriels résilients et durables au Cameroun.",
+                vision_title: "Vision Fondatrice",
+                vision_text: "Pablo Massa (ETS. INASSO) a identifié l'opportunité de transformer le commerce local du cacao en une chaîne de valeur intégrée, combinant l'expertise internationale avec les connaissances locales sous le leadership de Mme. Meyo Mefo Lydie.",
+                timeline_title: "2. Chronologie Historique",
+                timeline1_title: "Origines dans la Crise",
+                timeline1_text: "Identification de l'opportunité pendant la pandémie COVID-19. Premiers contacts avec les producteurs locaux dans la Région du Sud du Cameroun.",
+                timeline2_title: "Établissement des Partenariats",
+                timeline2_text: "Formalisation de la collaboration avec Mme. Meyo Mefo Lydie comme Coordinatrice Nationale. Établissement de la base opérationnelle à Nwangan.",
+                timeline3_title: "Premières Opérations",
+                timeline3_text: "Début des opérations commerciales avec des volumes initiaux de 2-3 tonnes mensuelles. Établissement des relations avec Telcar Cocoa Ltd.",
+                timeline4_title: "Consolidation Opérationnelle",
+                timeline4_text: "Expansion à 5-10 tonnes toutes les deux semaines. Mise en œuvre du système de séchage solaire. Formalisation des contrats de préfinancement.",
+                timeline5_title: "Croissance Stable",
+                timeline5_text: "Consolidation du réseau de producteurs (+50 familles). Amélioration de l'infrastructure à Nwangan. Début des dialogues pour la certification BIO.",
+                timeline6_title: "État Actuel - Octobre 2025",
+                timeline6_text: "Opérations stables avec production de 5-10 tonnes toutes les deux semaines. Contrat actif avec Telcar Cocoa Ltd. Infrastructure opérationnelle complètement fonctionnelle.",
+                milestones_title: "3. Jalons Fondamentaux",
+                milestone1_title: "Partenariat Stratégique",
+                milestone1_text: "Collaboration établie entre Pablo Massa (ETS. INASSO) et Mme. Meyo Mefo Lydie",
+                milestone2_title: "Infrastructure Opérationnelle",
+                milestone2_text: "Établissement du centre opérationnel à Nwangan avec système de séchage solaire",
+                milestone3_title: "Contrat Telcar",
+                milestone3_text: "Formalisation de l'accord de préfinancement et d'exportation avec Telcar Cocoa Ltd",
+                milestone4_title: "Réseau de Producteurs",
+                milestone4_text: "Consolidation du réseau de +50 producteurs à Nwangan et Ebolowa",
+                team_title: "4. Leadership et Équipe Fondatrice",
                 pablo_role: "Directeur Général - ETS. INASSO",
-                pablo_desc: "Dirige la direction stratégique du projet avec plus de 15 ans d'expérience dans le commerce international et le développement agricole. Responsable des partenariats internationaux et de la vision à long terme.",
-                lydie_role: "Coordinatrice Nationale - Directrice Commerciale",
-                lydie_desc: "Gestion opérationnelle du projet, supervision de l'entrepôt central à Nwangan, coordination du réseau de producteurs et formation des apprentis. Principal lien avec les agriculteurs locaux.",
-                transformation_title: "Transformation Stratégique",
-                transformation_card_title: "Du Commerce Local à la Chaîne Agroindustrielle",
-                transformation_card_text: "Le projet a évolué d'un modèle de commerce local traditionnel vers une chaîne agroindustrielle intégrée verticalement, incorporant :",
-                transformation_list1: "Contrats de préfinancement avec Telcar Cocoa Ltd",
-                transformation_list2: "Infrastructure de traitement et contrôle qualité",
-                transformation_list3: "Système de traçabilité du producteur à l'exportateur",
-                transformation_list4: "Formation technique aux méthodes de culture durable",
-                social_title: "Approche Sociale et Communautaire",
-                social_card_title: "Coopération avec action medeor e.V.",
-                social_card_text: "Le projet comprend un volet social important axé sur :",
-                social_list1: "Amélioration des revenus des familles rurales",
-                social_list2: "Programmes de santé communautaire en collaboration avec action medeor e.V.",
-                social_list3: "Formation en nutrition et pratiques saines",
-                social_list4: "Création d'emplois féminins dans la chaîne de valeur",
-                gallery_title: "Documentation Visuelle de l'Évolution",
-                gallery1_caption: "Cultures initiales de cacao dans les fermes associées - Base du projet",
-                gallery2_caption: "Développement de l'infrastructure de stockage à Nwangan",
-                gallery3_caption: "Processus d'emballage et contrôle qualité - Étape de consolidation",
-                achievements_title: "Réalisations Clés 2020-2025",
-                achievement1: "Établissement d'un réseau stable de 50+ producteurs",
-                achievement2: "Infrastructure opérationnelle à Nwangan avec capacité de 5-10 tonnes toutes les deux semaines",
-                achievement3: "Contrats de préfinancement garantis avec Telcar Cocoa Ltd",
-                achievement4: "Programme de formation pour 15 apprentis en techniques durables",
-                achievement5: "Développement du plan directeur 2025-2030 pour la certification BIO",
-                contact: "Contact",
-                cameroon: "Contacts au Cameroun",
-                coordination: "Coordination (Allemagne)",
-                "family-contact": "Contact Famille Massa",
-                coordinator: "Coordinatrice Nationale",
+                pablo_bio: "Visionnaire du projet avec une expertise internationale dans le développement de chaînes d'approvisionnement durables. Dirige la stratégie globale et les partenariats internationaux.",
+                lydie_role: "Coordinatrice Nationale",
+                lydie_bio: "Leader locale avec une connaissance profonde du secteur cacaoyer camerounais. Gère les opérations quotidiennes, les relations avec les producteurs et le contrôle qualité.",
+                challenges_title: "5. Défis Surmontés",
+                challenge1_title: "Contexte Pandémique",
+                challenge1_text: "Début du projet pendant les restrictions COVID-19, nécessitant une adaptation rapide aux nouvelles réalités logistiques et commerciales.",
+                challenge2_title: "Infrastructure Limitée",
+                challenge2_text: "Développement de systèmes de transformation avec des ressources limitées, mettant en œuvre des solutions innovantes comme le séchage solaire.",
+                challenge3_title: "Accès au Financement",
+                challenge3_text: "Établissement de relations de confiance avec les exportateurs pour assurer le préfinancement permettant des paiements immédiats aux producteurs.",
+                challenge4_title: "Coordination à Distance",
+                challenge4_text: "Gestion efficace du projet entre le Cameroun et l'Europe, surmontant les barrières de distance et de temps grâce à une communication constante.",
+                learning_title: "6. Apprentissages et Évolution",
+                learning1_title: "Modèle Hybride Réussi",
+                learning1_text: "La combinaison du leadership international avec la coordination locale s'est avérée efficace pour le développement de chaînes de valeur durables.",
+                learning2_title: "Importance de la Confiance",
+                learning2_text: "Les relations basées sur la confiance mutuelle avec les producteurs locaux sont fondamentales pour la durabilité du projet.",
+                learning3_title: "Adaptabilité comme Atout",
+                learning3_text: "La capacité de s'adapter rapidement aux changements du marché et aux conditions locales a été clé pour la croissance constante.",
+                learning4_title: "Valeur de la Patience Stratégique",
+                learning4_text: "La croissance organique et la consolidation graduelle ont permis de construire des bases solides pour l'expansion future.",
+                connection_title: "7. Lien avec le Présent",
+                current_title: "État Actuel - Octobre 2025",
+                current_text: "Les fondations établies dans ce contexte historique ont permis d'atteindre l'état opérationnel actuel : production stable de 5-10 tonnes toutes les deux semaines, contrat actif avec Telcar Cocoa Ltd, et une infrastructure complètement fonctionnelle sous la gestion de Mme. Meyo Mefo Lydie à Nwangan.",
+                current_conclusion: "Le projet MASSA représente aujourd'hui un modèle consolidé de commerce durable de cacao, prêt pour son expansion vers la certification BIO et l'intégration verticale complète.",
+                back_dossier: "Retour au Master-Dossier",
                 rights: "Tous droits réservés"
             },
             de: {
-                title: "Finca BIO MASSA",
-                subtitle: "Projekthintergrund - Nachhaltiger BIO-Kakao 2025-2030",
-                section_title: "2. Projekthintergrund",
-                origins_title: "Ursprünge des Projekts",
-                origins_text: "Das Projekt MASSA entstand während der COVID-19-Krise als Reaktion auf die dringende Notwendigkeit, den lokalen Kakaohandel in eine nachhaltige und widerstandsfähige agroindustrielle Wertschöpfungskette zu verwandeln.",
-                timeline_title: "Zeitleiste der Entwicklung",
-                timeline1_date: "2020 - Geburt",
-                timeline1_title: "Beginn während der Pandemie",
-                timeline1_text: "Identifizierung der Chance während der COVID-19-Krise, um eine widerstandsfähigere und nachhaltigere Lieferkette für kamerunischen Kakao zu schaffen.",
-                timeline2_date: "2021-2022 - Konsolidierung",
+                title: "Historischer Hintergrund",
+                subtitle: "Projekt MASSA - Nachhaltiger BIO-Kakao 2025-2030",
+                hero_title: "HISTORISCHER HINTERGRUND - PROJEKT MASSA",
+                hero_subtitle: "Ursprünge, Entwicklung und Grundlagen des Projekts für nachhaltigen BIO-Kakao",
+                context_title: "1. Historischer Kontext und Ursprünge",
+                context_subtitle: "Entstehung während der globalen Krise",
+                context_text: "Das MASSA-Projekt entstand 2020 als direkte Reaktion auf die COVID-19-Krise, die die Verwundbarkeit traditioneller Lieferketten und die dringende Notwendigkeit zur Entwicklung widerstandsfähiger und nachhaltiger agroindustrieller Modelle in Kamerun aufzeigte.",
+                vision_title: "Gründungsvision",
+                vision_text: "Pablo Massa (ETS. INASSO) identifizierte die Chance, den lokalen Kakaohandel in eine integrierte Wertschöpfungskette zu transformieren, die internationale Expertise mit lokalem Wissen unter der Führung von Frau Meyo Mefo Lydie kombiniert.",
+                timeline_title: "2. Historische Zeitleiste",
+                timeline1_title: "Ursprünge in der Krise",
+                timeline1_text: "Identifizierung der Chance während der COVID-19-Pandemie. Erste Kontakte mit lokalen Produzenten in der Südregion Kameruns.",
                 timeline2_title: "Aufbau von Partnerschaften",
-                timeline2_text: "Bildung strategischer Partnerschaften mit Telcar Cocoa Ltd und Aufbau des anfänglichen Produzentennetzwerks in Nwangan und Ebolowa.",
-                timeline3_date: "2023 - Infrastruktur",
-                timeline3_title: "Bau des Zentralen Lagers",
-                timeline3_text: "Entwicklung der Hauptinfrastruktur in Nwangan mit Solartrocknungssystem und Verpackungsbereich für die Qualitätskontrolle.",
-                timeline4_date: "2024 - Erweiterung",
-                timeline4_title: "Erweiterung des Netzwerks",
-                timeline4_text: "Aufnahme von mehr als 50 zusätzlichen Produzenten und Etablierung stabiler Vorfinanzierungsverträge.",
-                timeline5_date: "2025 - Vision 2030",
-                timeline5_title: "Masterplan 2025-2030",
-                timeline5_text: "Entwicklung des dreiphasigen strategischen Plans für die vollständige Transformation hin zur zertifizierten BIO-Produktion und Direktexport.",
-                leadership_title: "Projektleitung",
+                timeline2_text: "Formalisierung der Zusammenarbeit mit Frau Meyo Mefo Lydie als nationale Koordinatorin. Einrichtung der operativen Basis in Nwangan.",
+                timeline3_title: "Erste Operationen",
+                timeline3_text: "Beginn der Handelsoperationen mit anfänglichen Volumen von 2-3 Tonnen monatlich. Aufbau von Beziehungen zu Telcar Cocoa Ltd.",
+                timeline4_title: "Operative Konsolidierung",
+                timeline4_text: "Expansion auf 5-10 Tonnen alle zwei Wochen. Implementierung des Solartrocknungssystems. Formalisierung von Vorfinanzierungsverträgen.",
+                timeline5_title: "Stabiles Wachstum",
+                timeline5_text: "Konsolidierung des Produzentennetzwerks (+50 Familien). Verbesserung der Infrastruktur in Nwangan. Beginn von Dialogen zur BIO-Zertifizierung.",
+                timeline6_title: "Aktueller Status - Oktober 2025",
+                timeline6_text: "Stabile Operationen mit Produktion von 5-10 Tonnen alle zwei Wochen. Aktiver Vertrag mit Telcar Cocoa Ltd. Vollständig funktionale operative Infrastruktur.",
+                milestones_title: "3. Grundlegende Meilensteine",
+                milestone1_title: "Strategische Partnerschaft",
+                milestone1_text: "Zusammenarbeit zwischen Pablo Massa (ETS. INASSO) und Frau Meyo Mefo Lydie etabliert",
+                milestone2_title: "Operative Infrastruktur",
+                milestone2_text: "Einrichtung des Betriebszentrums in Nwangan mit Solartrocknungssystem",
+                milestone3_title: "Telcar-Vertrag",
+                milestone3_text: "Formalisierung der Vorfinanzierungs- und Exportvereinbarung mit Telcar Cocoa Ltd",
+                milestone4_title: "Produzentennetzwerk",
+                milestone4_text: "Konsolidierung des Netzwerks von +50 Produzenten in Nwangan und Ebolowa",
+                team_title: "4. Führung und Gründungsteam",
                 pablo_role: "Generaldirektor - ETS. INASSO",
-                pablo_desc: "Leitet die strategische Ausrichtung des Projekts mit mehr als 15 Jahren Erfahrung im internationalen Handel und landwirtschaftlicher Entwicklung. Verantwortlich für internationale Partnerschaften und die langfristige Vision.",
-                lydie_role: "Nationale Koordinatorin - Handelsleiterin",
-                lydie_desc: "Operatives Projektmanagement, Überwachung des Zentralen Lagers in Nwangan, Koordination des Produzentennetzwerks und Ausbildung von Auszubildenden. Hauptansprechpartnerin für lokale Landwirte.",
-                transformation_title: "Strategische Transformation",
-                transformation_card_title: "Vom Lokalen Handel zur Agroindustriellen Kette",
-                transformation_card_text: "Das Projekt hat sich von einem traditionellen lokalen Handelsmodell zu einer vertikal integrierten agroindustriellen Kette entwickelt, die Folgendes umfasst:",
-                transformation_list1: "Vorfinanzierungsverträge mit Telcar Cocoa Ltd",
-                transformation_list2: "Verarbeitungsinfrastruktur und Qualitätskontrolle",
-                transformation_list3: "Rückverfolgbarkeitssystem vom Produzenten bis zum Exporteur",
-                transformation_list4: "Technische Ausbildung in nachhaltigen Anbaumethoden",
-                social_title: "Sozialer und Gemeinschaftlicher Ansatz",
-                social_card_title: "Zusammenarbeit mit action medeor e.V.",
-                social_card_text: "Das Projekt beinhaltet eine bedeutende soziale Komponente, die sich auf Folgendes konzentriert:",
-                social_list1: "Einkommensverbesserung für ländliche Familien",
-                social_list2: "Gemeindegesundheitsprogramme in Zusammenarbeit mit action medeor e.V.",
-                social_list3: "Schulung in Ernährung und gesunden Praktiken",
-                social_list4: "Schaffung von Frauenarbeitsplätzen in der Wertschöpfungskette",
-                gallery_title: "Visuelle Dokumentation der Entwicklung",
-                gallery1_caption: "Anfänglicher Kakaoanbau in den Partnerfarmen - Grundlage des Projekts",
-                gallery2_caption: "Entwicklung der Lagerinfrastruktur in Nwangan",
-                gallery3_caption: "Verpackungsprozess und Qualitätskontrolle - Konsolidierungsphase",
-                achievements_title: "Wichtige Erfolge 2020-2025",
-                achievement1: "Etablierung eines stabilen Netzwerks von 50+ Produzenten",
-                achievement2: "Operative Infrastruktur in Nwangan mit Kapazität von 5-10 Tonnen alle zwei Wochen",
-                achievement3: "Garantierte Vorfinanzierungsverträge mit Telcar Cocoa Ltd",
-                achievement4: "Ausbildungsprogramm für 15 Auszubildende in nachhaltigen Techniken",
-                achievement5: "Entwicklung des Masterplans 2025-2030 für BIO-Zertifizierung",
-                contact: "Kontakt",
-                cameroon: "Kontakte in Kamerun",
-                coordination: "Koordination (Deutschland)",
-                "family-contact": "Kontakt Familie Massa",
-                coordinator: "Nationale Koordinatorin",
+                pablo_bio: "Visionär des Projekts mit internationaler Expertise in der Entwicklung nachhaltiger Lieferketten. Leitet die globale Strategie und internationale Partnerschaften.",
+                lydie_role: "Nationale Koordinatorin",
+                lydie_bio: "Lokale Führungspersönlichkeit mit tiefem Wissen des kamerunischen Kakaosektors. Verwaltet die täglichen Operationen, Produzentenbeziehungen und Qualitätskontrolle.",
+                challenges_title: "5. Überwundene Herausforderungen",
+                challenge1_title: "Pandemischer Kontext",
+                challenge1_text: "Projektstart während COVID-19-Beschränkungen, die schnelle Anpassung an neue logistische und kommerzielle Realitäten erforderten.",
+                challenge2_title: "Begrenzte Infrastruktur",
+                challenge2_text: "Entwicklung von Verarbeitungssystemen mit begrenzten Ressourcen, Implementierung innovativer Lösungen wie Solartrocknung.",
+                challenge3_title: "Zugang zu Finanzierung",
+                challenge3_text: "Aufbau vertrauensvoller Beziehungen zu Exporteuren zur Sicherstellung von Vorfinanzierung für sofortige Zahlungen an Produzenten.",
+                challenge4_title: "Entfernte Koordination",
+                challenge4_text: "Effektives Projektmanagement zwischen Kamerun und Europa, Überwindung von Entfernungs- und Zeitbarrieren durch konstante Kommunikation.",
+                learning_title: "6. Lernprozesse und Entwicklung",
+                learning1_title: "Erfolgreiches Hybridmodell",
+                learning1_text: "Die Kombination internationaler Führung mit lokaler Koordination hat sich als effektiv für die Entwicklung nachhaltiger Wertschöpfungsketten erwiesen.",
+                learning2_title: "Bedeutung von Vertrauen",
+                learning2_text: "Auf gegenseitigem Vertrauen basierende Beziehungen mit lokalen Produzenten sind grundlegend für die Nachhaltigkeit des Projekts.",
+                learning3_title: "Anpassungsfähigkeit als Vorteil",
+                learning3_text: "Die Fähigkeit, sich schnell an Marktveränderungen und lokale Bedingungen anzupassen, war entscheidend für konstantes Wachstum.",
+                learning4_title: "Wert strategischer Geduld",
+                learning4_text: "Organisches Wachstum und schrittweise Konsolidierung ermöglichten den Aufbau solider Grundlagen für zukünftige Expansion.",
+                connection_title: "7. Verbindung zur Gegenwart",
+                current_title: "Aktueller Status - Oktober 2025",
+                current_text: "Die in diesem historischen Hintergrund gelegten Grundlagen ermöglichten den Erreich des aktuellen Betriebszustands: stabile Produktion von 5-10 Tonnen alle zwei Wochen, aktiver Vertrag mit Telcar Cocoa Ltd und eine vollständig funktionale Infrastruktur unter der Leitung von Frau Meyo Mefo Lydie in Nwangan.",
+                current_conclusion: "Das MASSA-Projekt repräsentiert heute ein konsolidiertes Modell des nachhaltigen Kakaohandels, bereit für die Expansion zur BIO-Zertifizierung und vollständigen vertikalen Integration.",
+                back_dossier: "Zurück zum Master-Dossier",
                 rights: "Alle Rechte vorbehalten"
             }
         };
