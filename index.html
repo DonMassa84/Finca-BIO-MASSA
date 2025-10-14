@@ -258,6 +258,47 @@
             margin-bottom: 15px;
         }
         
+        .current-operations {
+            background: linear-gradient(135deg, #4a7c59, #8D6E63);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .current-operations h3 {
+            color: #FFD54F;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .operations-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #FFD54F;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
         .progress-bar {
             display: flex;
             justify-content: space-between;
@@ -436,10 +477,6 @@
             animation: spin 1s ease-in-out infinite;
         }
         
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
         .img-fallback {
             width: 100%;
             height: 200px;
@@ -449,6 +486,27 @@
             justify-content: center;
             color: white;
             font-weight: bold;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #FFD54F;
+            color: #5D4037;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
         
         @media (max-width: 768px) {
@@ -476,6 +534,10 @@
             
             .nav-tab {
                 margin: 5px 0;
+            }
+            
+            .operations-stats {
+                grid-template-columns: 1fr;
             }
             
             .contact-grid {
@@ -531,6 +593,35 @@
             <i class="fas fa-seedling"></i>
             <i class="fas fa-coffee"></i>
             <i class="fas fa-cookie-bite"></i>
+        </div>
+        
+        <!-- Aktuelle Betriebsdaten Highlight -->
+        <div class="current-operations">
+            <h3 data-i18n="operations_title">Opérations en Cours - Octobre 2025</h3>
+            <p data-i18n="operations_subtitle">Production stable à Nwangan sous la direction de Mme Meyo Mefo Lydie</p>
+            
+            <div class="operations-stats">
+                <div class="stat-box">
+                    <span class="stat-number">5-10 t</span>
+                    <span class="stat-label" data-i18n="stat_volume">par quinzaine</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label" data-i18n="stat_farmers">producteurs</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label" data-i18n="stat_solar">séchage solaire</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-number">Telcar</span>
+                    <span class="stat-label" data-i18n="stat_partner">partenaire</span>
+                </div>
+            </div>
+            
+            <a href="sustainable-cacao.html#operations-2025" class="cta-button" data-i18n="view_report">
+                Voir le Rapport Complet
+            </a>
         </div>
         
         <div class="progress-bar">
@@ -661,6 +752,11 @@
                     <div class="about-content">
                         <p data-i18n="about1">Nous sommes une coopérative d'agriculteurs biologiques spécialisée dans la culture durable du cacao. Depuis 2010, nous aidons les agriculteurs à passer à l'agriculture biologique et à commercialiser leurs produits à des prix équitables.</p>
                         <p data-i18n="about2">Notre réseau comprend plus de 200 fermes certifiées biologiques dans la région, travaillant ensemble pour un avenir plus durable.</p>
+                        
+                        <div style="margin-top: 20px; padding: 15px; background: #E8F5E8; border-radius: 8px; border-left: 4px solid #4a7c59;">
+                            <h4 style="color: #4a7c59; margin-bottom: 10px;" data-i18n="current_focus">Focus Actuel - Octobre 2025</h4>
+                            <p data-i18n="current_focus_text">Notre centre opérationnel à Nwangan, sous la direction de Mme Meyo Mefo Lydie, maintient une production stable de 5-10 tonnes de cacao toutes les deux semaines grâce à notre partenariat avec Telcar Cocoa Ltd.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -706,6 +802,7 @@
                         </div>
                         <div class="contact-details">
                             <a href="tel:+237697121480">+237 697 121 480</a>
+                            <div><small data-i18n="coordinator">Coordinatrice Nationale</small></div>
                         </div>
                     </div>
                 </div>
@@ -794,7 +891,7 @@
             </div>
             
             <div class="copyright">
-                <p>© 2023 Finca BIO MASSA. <span data-i18n="rights">Tous droits réservés</span>.</p>
+                <p>© 2023-2025 Finca BIO MASSA - Project MASSA Cacao Sostenible BIO. <span data-i18n="rights">Tous droits réservés</span>.</p>
             </div>
         </footer>
     </div>
@@ -807,6 +904,13 @@
             fr: {
                 title: "Finca BIO MASSA",
                 subtitle: "Inscrivez-vous à notre programme d'agriculteurs biologiques et rejoignez notre coopérative de cacao durable",
+                operations_title: "Opérations en Cours - Octobre 2025",
+                operations_subtitle: "Production stable à Nwangan sous la direction de Mme Meyo Mefo Lydie",
+                stat_volume: "par quinzaine",
+                stat_farmers: "producteurs",
+                stat_solar: "séchage solaire",
+                stat_partner: "partenaire",
+                view_report: "Voir le Rapport Complet",
                 registration: "Inscription",
                 fullname: "Nom complet",
                 email: "Adresse e-mail",
@@ -833,6 +937,8 @@
                 about: "À propos de Finca BIO MASSA",
                 about1: "Nous sommes une coopérative d'agriculteurs biologiques spécialisée dans la culture durable du cacao. Depuis 2010, nous aidons les agriculteurs à passer à l'agriculture biologique et à commercialiser leurs produits à des prix équitables.",
                 about2: "Notre réseau comprend plus de 200 fermes certifiées biologiques dans la région, travaillant ensemble pour un avenir plus durable.",
+                current_focus: "Focus Actuel - Octobre 2025",
+                current_focus_text: "Notre centre opérationnel à Nwangan, sous la direction de Mme Meyo Mefo Lydie, maintient une production stable de 5-10 tonnes de cacao toutes les deux semaines grâce à notre partenariat avec Telcar Cocoa Ltd.",
                 contact: "Contact",
                 cameroon: "Cameroun Contacts",
                 coordination: "Coordination (Allemagne)",
@@ -847,11 +953,19 @@
                 products_header: "Produits",
                 registration_success: "Inscription réussie!",
                 registration_error: "Erreur lors de l'enregistrement.",
-                loading: "Chargement..."
+                loading: "Chargement...",
+                coordinator: "Coordinatrice Nationale"
             },
             es: {
                 title: "Finca BIO MASSA",
                 subtitle: "Regístrese en nuestro programa de agricultores orgánicos y únase a nuestra cooperativa de cacao sostenible",
+                operations_title: "Operaciones en Curso - Octubre 2025",
+                operations_subtitle: "Producción estable en Nwangan bajo la dirección de la Sra. Meyo Mefo Lydie",
+                stat_volume: "por quincena",
+                stat_farmers: "productores",
+                stat_solar: "secado solar",
+                stat_partner: "socio",
+                view_report: "Ver Reporte Completo",
                 registration: "Registro",
                 fullname: "Nombre completo",
                 email: "Dirección de correo electrónico",
@@ -878,6 +992,8 @@
                 about: "Acerca de Finca BIO MASSA",
                 about1: "Somos una cooperativa de agricultores orgánicos especializada en el cultivo sostenible de cacao. Desde 2010, ayudamos a los agricultores a transitionar a la agricultura orgánica and comercializar sus productos a precios justos.",
                 about2: "Nuestra red incluye más de 200 fincas certificadas orgánicas en la región, trabajando juntas por un futuro más sostenible.",
+                current_focus: "Enfoque Actual - Octubre 2025",
+                current_focus_text: "Nuestro centro operativo en Nwangan, bajo la dirección de la Sra. Meyo Mefo Lydie, mantiene una producción estable de 5-10 toneladas de cacao cada dos semanas gracias a nuestra alianza con Telcar Cocoa Ltd.",
                 contact: "Contacto",
                 cameroon: "Contactos en Camerún",
                 coordination: "Coordinación (Alemania)",
@@ -892,11 +1008,19 @@
                 products_header: "Productos",
                 registration_success: "¡Registro exitoso!",
                 registration_error: "Error en el registro.",
-                loading: "Cargando..."
+                loading: "Cargando...",
+                coordinator: "Coordinadora Nacional"
             },
             de: {
                 title: "Finca BIO MASSA",
                 subtitle: "Registrieren Sie sich für unser Bio-Bauernprogramm und werden Sie Teil unserer nachhaltigen Kakao-Kooperative",
+                operations_title: "Laufende Operationen - Oktober 2025",
+                operations_subtitle: "Stabile Produktion in Nwangan unter der Leitung von Frau Meyo Mefo Lydie",
+                stat_volume: "alle zwei Wochen",
+                stat_farmers: "Produzenten",
+                stat_solar: "Solartrocknung",
+                stat_partner: "Partner",
+                view_report: "Vollständigen Bericht Anzeigen",
                 registration: "Registrierung",
                 fullname: "Vollständiger Name",
                 email: "E-Mail-Adresse",
@@ -923,6 +1047,8 @@
                 about: "Über Finca BIO MASSA",
                 about1: "Wir sind eine Kooperative von Bio-Bauern, die sich auf nachhaltigen Kakaoanbau spezialisiert hat. Seit 2010 unterstützen wir Landwirte bei der Umstellung auf ökologische Landwirtschaft und helfen dabei, ihre Produkte zu fairen Preisen zu vermarkten.",
                 about2: "Unser Netzwerk umfasst über 200 Bio-zertifizierte Farmen in der Region, die gemeinsam für eine nachhaltigere Zukunft arbeiten.",
+                current_focus: "Aktueller Fokus - Oktober 2025",
+                current_focus_text: "Unser Betriebszentrum in Nwangan, unter der Leitung von Frau Meyo Mefo Lydie, hält eine stabile Produktion von 5-10 Tonnen Kakao alle zwei Wochen dank unserer Partnerschaft mit Telcar Cocoa Ltd aufrecht.",
                 contact: "Kontakt",
                 cameroon: "Kamerun Kontakte",
                 coordination: "Koordination (Deutschland)",
@@ -937,7 +1063,8 @@
                 products_header: "Produkte",
                 registration_success: "Registrierung erfolgreich!",
                 registration_error: "Fehler bei der Registrierung.",
-                loading: "Laden..."
+                loading: "Laden...",
+                coordinator: "Nationale Koordinatorin"
             }
         };
 
