@@ -312,7 +312,7 @@
         
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.5rem;
             margin-top: 1.5rem;
         }
@@ -323,6 +323,9 @@
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .gallery-item:hover {
@@ -331,8 +334,9 @@
         
         .gallery-img-container {
             width: 100%;
-            height: 250px;
+            height: 280px;
             overflow: hidden;
+            flex-shrink: 0;
         }
         
         .gallery-img {
@@ -350,6 +354,9 @@
             padding: 1rem;
             font-size: 0.9rem;
             color: var(--dark-color);
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
         }
         
         .contact-grid {
@@ -383,14 +390,22 @@
         }
         
         .contact-icon {
-            width: 35px;
-            height: 35px;
+            width: 45px;
+            height: 45px;
             background: #8D6E63;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-shrink: 0;
+            overflow: hidden;
+        }
+        
+        .contact-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
         
         .contact-details {
@@ -445,13 +460,22 @@
         
         .img-fallback {
             width: 100%;
-            height: 250px;
+            height: 100%;
             background: linear-gradient(135deg, #4a7c59, #8D6E63);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
         
         @media (max-width: 768px) {
@@ -494,12 +518,21 @@
                 grid-template-columns: 1fr;
             }
             
+            .gallery-img-container {
+                height: 250px;
+            }
+            
             .contact-grid {
                 grid-template-columns: 1fr;
             }
             
             .impact-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .contact-icon {
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -678,7 +711,7 @@
                 <div class="gallery">
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/2.jpg" alt="Entrepôt de Mme. Meyo Mefo Lydie" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Entrepôt de Mme. Meyo Mefo Lydie</div>'">
+                            <img src="image/2.jpg" alt="Entrepôt de Mme. Meyo Mefo Lydie" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Entrepôt de Mme. Meyo Mefo Lydie en Nwangan<br>Sacos de 100 kg de cacao</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery1_caption">
                             Entrepôt de Mme. Meyo Mefo Lydie en Nwangan // Sacs de 100 kg de cacao
@@ -687,7 +720,7 @@
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/3.jpg" alt="Instalaciones de secado solar" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Instalaciones de secado solar</div>'">
+                            <img src="image/3.jpg" alt="Instalaciones de secado solar" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Instalaciones para el secado del cacao al sol en Nwangan</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery2_caption">
                             Instalaciones para el secado del cacao al soleil en Nwangan
@@ -696,7 +729,7 @@
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/6.jpg" alt="Proceso de empaque" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Proceso de empaque</div>'">
+                            <img src="image/6.jpg" alt="Proceso de empaque" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Proceso de empaque y costura de sacos</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery3_caption">
                             Mme. Meyo Mefo Lydie // cousant un sac de 100 kg de cacao
@@ -830,7 +863,7 @@
                 <div class="gallery">
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/1.jpg" alt="Fruits de cacao dans une ferme partenaire" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Cacao en ferme partenaire</div>'">
+                            <img src="image/1.jpg" alt="Fruits de cacao dans une ferme partenaire" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Cacao en ferme partenaire<br>Nwangan</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery4_caption">
                             Fruits de cacao dans l'une des fermes de nos associés // Nwangan
@@ -839,7 +872,7 @@
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/7.jpg" alt="Supervision des stagiaires" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Supervisión de aprendices</div>'">
+                            <img src="image/7.jpg" alt="Supervision des stagiaires" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Supervisión de aprendices<br>Nwangan</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery5_caption">
                             Mme Meyo Mefo Lydie supervise le travail des stagiaires // Nwangan
@@ -848,7 +881,7 @@
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/11.jpg" alt="Préparation des sacs" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Preparación de sacos</div>'">
+                            <img src="image/11.jpg" alt="Préparation des sacs" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Preparación de sacos de cacao para transporte</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery6_caption">
                             Préparation des sacs de cacao pour le transport
@@ -878,7 +911,7 @@
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-user"></i>
+                            <img src="image/19.Pablo.jfff" alt="Pablo Massa" class="profile-img" onerror="this.parentElement.innerHTML='<div style=\"width: 45px; height: 45px; background: #8D6E63; border-radius: 50%; display: flex; justify-content: center; align-items: center;\"><i class=\"fas fa-user\"></i></div>'">
                         </div>
                         <div class="contact-details">
                             <strong>Pablo Massa</strong>
@@ -896,7 +929,7 @@
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-user"></i>
+                            <img src="image/20.Lydia.png" alt="Lydie Meyo" class="profile-img" onerror="this.parentElement.innerHTML='<div style=\"width: 45px; height: 45px; background: #8D6E63; border-radius: 50%; display: flex; justify-content: center; align-items: center;\"><i class=\"fas fa-user\"></i></div>'">
                         </div>
                         <div class="contact-details">
                             <strong>Lydie Meyo</strong>
