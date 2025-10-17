@@ -343,6 +343,11 @@
             transition: transform 0.5s;
         }
         
+        /* Spezifisches Styling für Bild 11.jpg - nach unten verschoben */
+        .gallery-img-container img[src*="11.jpg"] {
+            object-position: center 70% !important;
+        }
+        
         .gallery-item:hover .gallery-img {
             transform: scale(1.05);
         }
@@ -857,7 +862,7 @@
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/11.jpg" alt="Préparation des sacs" class="gallery-img" style="object-position: center 20%;" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Preparación de sacos</div>'">
+                            <img src="image/11.jpg" alt="Préparation des sacs" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Preparación de sacos</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery6_caption">
                             Préparation des sacs de cacao pour le transport
