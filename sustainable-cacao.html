@@ -31,6 +31,7 @@
             background-color: #fff;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             padding: 15px 0;
+            position: relative;
         }
         
         .logo {
@@ -59,6 +60,34 @@
         nav a:hover {
             color: #2d5016;
             text-decoration: underline;
+        }
+        
+        .language-switcher {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .lang-btn {
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .lang-btn:hover {
+            background: #2d5016;
+            color: white;
+        }
+        
+        .lang-btn.active {
+            background: #2d5016;
+            color: white;
         }
         
         .hero {
@@ -225,6 +254,12 @@
                 display: block;
                 margin: 5px 0;
             }
+            
+            .language-switcher {
+                position: static;
+                justify-content: center;
+                margin-top: 10px;
+            }
         }
     </style>
 </head>
@@ -241,81 +276,86 @@
                 <a href="productos.html">Productos</a>
                 <a href="contacto.html">Contacto</a>
             </nav>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="de">DE</button>
+                <button class="lang-btn" data-lang="fr">FR</button>
+            </div>
         </div>
     </header>
     
     <section class="hero">
         <div class="container">
-            <h2>Cacao Sostenible</h2>
-            <p>Fincas asociadas - Cultivo sostenible en la Región Sur</p>
+            <h2 data-translate="hero_title">Cacao Sostenible</h2>
+            <p data-translate="hero_subtitle">Fincas asociadas - Cultivo sostenible en la Región Sur</p>
         </div>
     </section>
     
     <div class="container">
         <section class="content-section">
-            <h2 class="section-title">Fincas Asociadas - Cultivo Sostenible</h2>
+            <h2 class="section-title" data-translate="section1_title">Fincas Asociadas - Cultivo Sostenible</h2>
             
             <div class="image-grid">
                 <div class="image-card">
                     <img src="https://donmassa84.github.io/Finca-BIO-MASSA/image/21.Finca.Bio.Massa.png" alt="Finca Bio Massa - Cultivo Sostenible">
-                    <h3>Fincas Asociadas</h3>
-                    <p>Cultivo sostenible en la Región Sur</p>
+                    <h3 data-translate="image1_title">Fincas Asociadas</h3>
+                    <p data-translate="image1_desc">Cultivo sostenible en la Región Sur</p>
                 </div>
                 
                 <div class="image-card">
                     <img src="https://donmassa84.github.io/Finca-BIO-MASSA/image/22.Cacau.png" alt="Cacao Sostenible - Integración Comunitaria">
-                    <h3>Integración Comunitaria</h3>
-                    <p>Desarrollo rural sostenible</p>
+                    <h3 data-translate="image2_title">Integración Comunitaria</h3>
+                    <p data-translate="image2_desc">Desarrollo rural sostenible</p>
                 </div>
             </div>
             
             <div class="text-content">
-                <p>Nuestro programa de fincas asociadas en la Región Sur se centra en el cultivo sostenible de cacao, implementando prácticas agrícolas que respetan el medio ambiente y fortalecen las comunidades locales.</p>
+                <p data-translate="section1_p1">Nuestro programa de fincas asociadas en la Región Sur se centra en el cultivo sostenible de cacao, implementando prácticas agrícolas que respetan el medio ambiente y fortalecen las comunidades locales.</p>
                 
                 <div class="highlight">
-                    <p>Mediante técnicas de agroforestería y agricultura regenerativa, nuestras fincas asociadas producen cacao de alta calidad mientras preservan la biodiversidad y mejoran la fertilidad del suelo.</p>
+                    <p data-translate="section1_highlight">Mediante técnicas de agroforestería y agricultura regenerativa, nuestras fincas asociadas producen cacao de alta calidad mientras preservan la biodiversidad y mejoran la fertilidad del suelo.</p>
                 </div>
                 
-                <p>Trabajamos directamente con agricultores locales, proporcionando capacitación, recursos y un mercado justo para sus productos, asegurando así el desarrollo económico de la región.</p>
+                <p data-translate="section1_p2">Trabajamos directamente con agricultores locales, proporcionando capacitación, recursos y un mercado justo para sus productos, asegurando así el desarrollo económico de la región.</p>
             </div>
         </section>
         
         <section class="content-section">
-            <h2 class="section-title">Integración Comunitaria - Desarrollo Rural Sostenible</h2>
+            <h2 class="section-title" data-translate="section2_title">Integración Comunitaria - Desarrollo Rural Sostenible</h2>
             
             <div class="text-content">
-                <p>La integración comunitaria es fundamental para nuestro modelo de desarrollo rural sostenible. Trabajamos con las comunidades locales para crear cadenas de valor inclusivas que beneficien a todos los participantes.</p>
+                <p data-translate="section2_p1">La integración comunitaria es fundamental para nuestro modelo de desarrollo rural sostenible. Trabajamos con las comunidades locales para crear cadenas de valor inclusivas que beneficien a todos los participantes.</p>
                 
-                <p>Nuestro enfoque incluye:</p>
+                <p data-translate="section2_p2">Nuestro enfoque incluye:</p>
                 <ul style="margin-left: 20px; margin-bottom: 20px;">
-                    <li>Capacitación en prácticas agrícolas sostenibles</li>
-                    <li>Fortalecimiento de organizaciones comunitarias</li>
-                    <li>Promoción de la equidad de género en la producción</li>
-                    <li>Desarrollo de capacidades empresariales locales</li>
+                    <li data-translate="list_item1">Capacitación en prácticas agrícolas sostenibles</li>
+                    <li data-translate="list_item2">Fortalecimiento de organizaciones comunitarias</li>
+                    <li data-translate="list_item3">Promoción de la equidad de género en la producción</li>
+                    <li data-translate="list_item4">Desarrollo de capacidades empresariales locales</li>
                 </ul>
                 
-                <p>Estas iniciativas no solo mejoran los medios de vida, sino que también preservan los conocimientos tradicionales y fortalecen la identidad cultural de las comunidades.</p>
+                <p data-translate="section2_p3">Estas iniciativas no solo mejoran los medios de vida, sino que también preservan los conocimientos tradicionales y fortalecen la identidad cultural de las comunidades.</p>
             </div>
             
             <div class="benefits">
                 <div class="benefit-item">
-                    <h4>Beneficios Ambientales</h4>
-                    <p>Conservación de suelos, agua y biodiversidad mediante prácticas agroecológicas.</p>
+                    <h4 data-translate="benefit1_title">Beneficios Ambientales</h4>
+                    <p data-translate="benefit1_desc">Conservación de suelos, agua y biodiversidad mediante prácticas agroecológicas.</p>
                 </div>
                 
                 <div class="benefit-item">
-                    <h4>Beneficios Sociales</h4>
-                    <p>Fortalecimiento comunitario, equidad y preservación de conocimientos tradicionales.</p>
+                    <h4 data-translate="benefit2_title">Beneficios Sociales</h4>
+                    <p data-translate="benefit2_desc">Fortalecimiento comunitario, equidad y preservación de conocimientos tradicionales.</p>
                 </div>
                 
                 <div class="benefit-item">
-                    <h4>Beneficios Económicos</h4>
-                    <p>Mercados justos, diversificación de ingresos y desarrollo empresarial local.</p>
+                    <h4 data-translate="benefit3_title">Beneficios Económicos</h4>
+                    <p data-translate="benefit3_desc">Mercados justos, diversificación de ingresos y desarrollo empresarial local.</p>
                 </div>
                 
                 <div class="benefit-item">
-                    <h4>Sostenibilidad</h4>
-                    <p>Modelo replicable y adaptable que asegura beneficios a largo plazo.</p>
+                    <h4 data-translate="benefit4_title">Sostenibilidad</h4>
+                    <p data-translate="benefit4_desc">Modelo replicable y adaptable que asegura beneficios a largo plazo.</p>
                 </div>
             </div>
         </section>
@@ -326,17 +366,162 @@
             <div class="footer-content">
                 <div class="footer-logo">FINCA BIO MASSA</div>
                 <div class="footer-links">
-                    <a href="index.html">Inicio</a>
-                    <a href="antecedentes.html">Antecedentes</a>
-                    <a href="sustainable-cacao.html">Cacao Sostenible</a>
-                    <a href="productos.html">Productos</a>
-                    <a href="contacto.html">Contacto</a>
+                    <a href="index.html" data-translate="nav_home">Inicio</a>
+                    <a href="antecedentes.html" data-translate="nav_about">Antecedentes</a>
+                    <a href="sustainable-cacao.html" data-translate="nav_cacao">Cacao Sostenible</a>
+                    <a href="productos.html" data-translate="nav_products">Productos</a>
+                    <a href="contacto.html" data-translate="nav_contact">Contacto</a>
                 </div>
                 <div class="copyright">
-                    &copy; 2023 Finca Bio Massa - Todos los derechos reservados
+                    &copy; 2023 Finca Bio Massa - <span data-translate="footer_rights">Todos los derechos reservados</span>
                 </div>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Übersetzungen
+        const translations = {
+            es: {
+                hero_title: "Cacao Sostenible",
+                hero_subtitle: "Fincas asociadas - Cultivo sostenible en la Región Sur",
+                section1_title: "Fincas Asociadas - Cultivo Sostenible",
+                section1_p1: "Nuestro programa de fincas asociadas en la Región Sur se centra en el cultivo sostenible de cacao, implementando prácticas agrícolas que respetan el medio ambiente y fortalecen las comunidades locales.",
+                section1_highlight: "Mediante técnicas de agroforestería y agricultura regenerativa, nuestras fincas asociadas producen cacao de alta calidad mientras preservan la biodiversidad y mejoran la fertilidad del suelo.",
+                section1_p2: "Trabajamos directamente con agricultores locales, proporcionando capacitación, recursos y un mercado justo para sus productos, asegurando así el desarrollo económico de la región.",
+                image1_title: "Fincas Asociadas",
+                image1_desc: "Cultivo sostenible en la Región Sur",
+                section2_title: "Integración Comunitaria - Desarrollo Rural Sostenible",
+                section2_p1: "La integración comunitaria es fundamental para nuestro modelo de desarrollo rural sostenible. Trabajamos con las comunidades locales para crear cadenas de valor inclusivas que beneficien a todos los participantes.",
+                section2_p2: "Nuestro enfoque incluye:",
+                list_item1: "Capacitación en prácticas agrícolas sostenibles",
+                list_item2: "Fortalecimiento de organizaciones comunitarias",
+                list_item3: "Promoción de la equidad de género en la producción",
+                list_item4: "Desarrollo de capacidades empresariales locales",
+                section2_p3: "Estas iniciativas no solo mejoran los medios de vida, sino que también preservan los conocimientos tradicionales y fortalecen la identidad cultural de las comunidades.",
+                image2_title: "Integración Comunitaria",
+                image2_desc: "Desarrollo rural sostenible",
+                benefit1_title: "Beneficios Ambientales",
+                benefit1_desc: "Conservación de suelos, agua y biodiversidad mediante prácticas agroecológicas.",
+                benefit2_title: "Beneficios Sociales",
+                benefit2_desc: "Fortalecimiento comunitario, equidad y preservación de conocimientos tradicionales.",
+                benefit3_title: "Beneficios Económicos",
+                benefit3_desc: "Mercados justos, diversificación de ingresos y desarrollo empresarial local.",
+                benefit4_title: "Sostenibilidad",
+                benefit4_desc: "Modelo replicable y adaptable que asegura beneficios a largo plazo.",
+                nav_home: "Inicio",
+                nav_about: "Antecedentes",
+                nav_cacao: "Cacao Sostenible",
+                nav_products: "Productos",
+                nav_contact: "Contacto",
+                footer_rights: "Todos los derechos reservados"
+            },
+            de: {
+                hero_title: "Nachhaltiger Kakao",
+                hero_subtitle: "Partnerfarmen - Nachhaltiger Anbau in der Südregion",
+                section1_title: "Partnerfarmen - Nachhaltiger Anbau",
+                section1_p1: "Unser Programm für Partnerfarmen in der Südregion konzentriert sich auf den nachhaltigen Kakaoanbau durch landwirtschaftliche Praktiken, die die Umwelt respektieren und die lokalen Gemeinschaften stärken.",
+                section1_highlight: "Durch Agroforsttechniken und regenerative Landwirtschaft produzieren unsere Partnerfarmen hochwertigen Kakao und bewahren gleichzeitig die Biodiversität und verbessern die Bodenfruchtbarkeit.",
+                section1_p2: "Wir arbeiten direkt mit lokalen Landwirten zusammen, bieten Schulungen, Ressourcen und einen fairen Markt für ihre Produkte und sichern so die wirtschaftliche Entwicklung der Region.",
+                image1_title: "Partnerfarmen",
+                image1_desc: "Nachhaltiger Anbau in der Südregion",
+                section2_title: "Gemeinschaftsintegration - Nachhaltige ländliche Entwicklung",
+                section2_p1: "Die Gemeinschaftsintegration ist grundlegend für unser Modell der nachhaltigen ländlichen Entwicklung. Wir arbeiten mit lokalen Gemeinschaften zusammen, um inklusive Wertschöpfungsketten zu schaffen, die allen Beteiligten zugutekommen.",
+                section2_p2: "Unser Ansatz umfasst:",
+                list_item1: "Schulung in nachhaltigen landwirtschaftlichen Praktiken",
+                list_item2: "Stärkung von Gemeinschaftsorganisationen",
+                list_item3: "Förderung der Geschlechtergleichheit in der Produktion",
+                list_item4: "Entwicklung lokaler unternehmerischer Fähigkeiten",
+                section2_p3: "Diese Initiativen verbessern nicht nur die Lebensgrundlagen, sondern bewahren auch traditionelles Wissen und stärken die kulturelle Identität der Gemeinschaften.",
+                image2_title: "Gemeinschaftsintegration",
+                image2_desc: "Nachhaltige ländliche Entwicklung",
+                benefit1_title: "Ökologische Vorteile",
+                benefit1_desc: "Erhaltung von Böden, Wasser und Biodiversität durch agroökologische Praktiken.",
+                benefit2_title: "Soziale Vorteile",
+                benefit2_desc: "Gemeinschaftsstärkung, Gleichberechtigung und Bewahrung traditionellen Wissens.",
+                benefit3_title: "Wirtschaftliche Vorteile",
+                benefit3_desc: "Faire Märkte, Einkommensdiversifizierung und lokale Unternehmensentwicklung.",
+                benefit4_title: "Nachhaltigkeit",
+                benefit4_desc: "Replizierbares und anpassbares Modell, das langfristige Vorteile sichert.",
+                nav_home: "Startseite",
+                nav_about: "Hintergrund",
+                nav_cacao: "Nachhaltiger Kakao",
+                nav_products: "Produkte",
+                nav_contact: "Kontakt",
+                footer_rights: "Alle Rechte vorbehalten"
+            },
+            fr: {
+                hero_title: "Cacao Durable",
+                hero_subtitle: "Fermes associées - Culture durable dans la Région Sud",
+                section1_title: "Fermes Associées - Culture Durable",
+                section1_p1: "Notre programme de fermes associées dans la Région Sud se concentre sur la culture durable du cacao, mettant en œuvre des pratiques agricoles qui respectent l'environnement et renforcent les communautés locales.",
+                section1_highlight: "Grâce à des techniques d'agroforesterie et d'agriculture régénérative, nos fermes associées produisent du cacao de haute qualité tout en préservant la biodiversité et en améliorant la fertilité des sols.",
+                section1_p2: "Nous travaillons directement avec les agriculteurs locaux, en fournissant formation, ressources et un marché équitable pour leurs produits, assurant ainsi le développement économique de la région.",
+                image1_title: "Fermes Associées",
+                image1_desc: "Culture durable dans la Région Sud",
+                section2_title: "Intégration Communautaire - Développement Rural Durable",
+                section2_p1: "L'intégration communautaire est fondamentale pour notre modèle de développement rural durable. Nous travaillons avec les communautés locales pour créer des chaînes de valeur inclusives qui profitent à tous les participants.",
+                section2_p2: "Notre approche comprend:",
+                list_item1: "Formation aux pratiques agricoles durables",
+                list_item2: "Renforcement des organisations communautaires",
+                list_item3: "Promotion de l'équité entre les genres dans la production",
+                list_item4: "Développement des capacités entrepreneuriales locales",
+                section2_p3: "Ces initiatives améliorent non seulement les moyens de subsistance, mais préservent également les connaissances traditionnelles et renforcent l'identité culturelle des communautés.",
+                image2_title: "Intégration Communautaire",
+                image2_desc: "Développement rural durable",
+                benefit1_title: "Avantages Environnementaux",
+                benefit1_desc: "Conservation des sols, de l'eau et de la biodiversité grâce à des pratiques agroécologiques.",
+                benefit2_title: "Avantages Sociaux",
+                benefit2_desc: "Renforcement communautaire, équité et préservation des connaissances traditionnelles.",
+                benefit3_title: "Avantages Économiques",
+                benefit3_desc: "Marchés équitables, diversification des revenus et développement entrepreneurial local.",
+                benefit4_title: "Durabilité",
+                benefit4_desc: "Modèle reproductible et adaptable assurant des bénéfices à long terme.",
+                nav_home: "Accueil",
+                nav_about: "Contexte",
+                nav_cacao: "Cacao Durable",
+                nav_products: "Produits",
+                nav_contact: "Contact",
+                footer_rights: "Tous droits réservés"
+            }
+        };
+
+        // Sprachumschaltung
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            let currentLang = 'es';
+
+            function switchLanguage(lang) {
+                currentLang = lang;
+                
+                // Aktiven Button markieren
+                langButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.lang === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                // Texte übersetzen
+                const elements = document.querySelectorAll('[data-translate]');
+                elements.forEach(element => {
+                    const key = element.getAttribute('data-translate');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+            }
+
+            // Event Listener für Sprachbuttons
+            langButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    switchLanguage(this.dataset.lang);
+                });
+            });
+
+            // Standardsprache setzen
+            switchLanguage(currentLang);
+        });
+    </script>
 </body>
 </html>
