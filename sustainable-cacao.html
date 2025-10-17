@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proyecto Cacao Sostenible BIO - Finca BIO MASSA">
-    <title>Proyecto Cacao Sostenible - Finca BIO MASSA</title>
+    <meta name="description" content="Proyecto Cacao Sostenible - Project MASSA">
+    <title>Proyecto Cacao Sostenible - Project MASSA</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -151,7 +151,7 @@
             padding: 40px;
         }
         
-        .project-hero {
+        .cacao-hero {
             background: linear-gradient(to right, var(--primary-color), #8D6E63);
             color: white;
             padding: 3rem 2rem;
@@ -160,30 +160,35 @@
             border-radius: 8px;
         }
         
-        .project-hero h1 {
+        .cacao-hero h1 {
             color: #FFD54F;
             margin-bottom: 1rem;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         
-        .current-operations-highlight {
+        .current-status {
             background: linear-gradient(135deg, #FFD54F, #FFB300);
             color: #5D4037;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 8px;
-            margin: 2rem 0;
-            text-align: center;
+            margin: 1.5rem 0;
             border: 3px solid #5D4037;
         }
         
-        .operations-stats {
+        .current-status h3 {
+            color: #5D4037;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .status-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
         
-        .stat-box {
+        .status-item {
             background: rgba(255, 255, 255, 0.9);
             padding: 1rem;
             border-radius: 8px;
@@ -191,14 +196,14 @@
             border: 2px solid #5D4037;
         }
         
-        .stat-number {
-            font-size: 1.8rem;
+        .status-value {
+            font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary-color);
             display: block;
         }
         
-        .stat-label {
+        .status-label {
             font-size: 0.9rem;
             font-weight: 600;
         }
@@ -239,85 +244,52 @@
             margin-bottom: 0.5rem;
         }
         
-        .features-grid {
+        .process-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
         }
         
-        .feature-item {
-            background: #F5F5F5;
-            padding: 1.5rem;
+        .process-card {
+            background: white;
             border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
         }
         
-        .feature-item:hover {
+        .process-card:hover {
             transform: translateY(-5px);
         }
         
-        .feature-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+        .process-img-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
         }
         
-        .process-steps {
-            display: flex;
-            justify-content: space-between;
-            margin: 2rem 0;
-            position: relative;
+        .process-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            transition: transform 0.5s;
+        }
+        
+        .process-card:hover .process-img {
+            transform: scale(1.05);
+        }
+        
+        .process-info {
+            padding: 1.5rem;
         }
         
         .process-step {
-            background: var(--primary-color);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            text-align: center;
-            width: 22%;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .process-step h4 {
-            margin-bottom: 0.5rem;
-        }
-        
-        .process-steps::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--secondary-color);
-            z-index: 1;
-        }
-        
-        .supply-chain-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        
-        .supply-item {
-            background: #F5F5F5;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid var(--primary-color);
-        }
-        
-        .supply-item h4 {
+            font-size: 1.3rem;
+            font-weight: bold;
             color: var(--primary-color);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-bottom: 0.5rem;
         }
         
         .gallery {
@@ -349,6 +321,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center center;
             transition: transform 0.5s;
         }
         
@@ -360,6 +333,54 @@
             padding: 1rem;
             font-size: 0.9rem;
             color: var(--dark-color);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .benefit-item {
+            background: #F5F5F5;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--primary-color);
+        }
+        
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .img-fallback {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #4a7c59, #8D6E63);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .process-img-fallback {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #d4a574, #8b4513);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
         }
         
         .contact-grid {
@@ -403,6 +424,14 @@
             flex-shrink: 0;
         }
         
+        .contact-icon img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+        
         .contact-details {
             flex: 1;
         }
@@ -432,55 +461,6 @@
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
         
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .impact-item {
-            background: #F5F5F5;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        }
-        
-        .impact-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .img-fallback {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #4a7c59, #8D6E63);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(to right, var(--primary-color), #8D6E63);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-            transition: all 0.3s;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.2rem;
@@ -500,20 +480,11 @@
                 margin: 5px 0;
             }
             
-            .process-steps {
-                flex-direction: column;
-                gap: 1rem;
+            .status-grid {
+                grid-template-columns: 1fr;
             }
             
-            .process-step {
-                width: 100%;
-            }
-            
-            .process-steps::before {
-                display: none;
-            }
-            
-            .operations-stats {
+            .process-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -521,19 +492,11 @@
                 grid-template-columns: 1fr;
             }
             
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .impact-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .supply-chain-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -550,11 +513,11 @@
             
             <div class="logo-container">
                 <div class="logo">
-                    <i class="fas fa-leaf"></i>
+                    <i class="fas fa-seedling"></i>
                 </div>
                 <div>
-                    <h1 data-i18n="title">Finca BIO MASSA</h1>
-                    <p class="subtitle" data-i18n="subtitle">Proyecto Cacao Sostenible BIO - Cultivo Responsable y Comercio Justo</p>
+                    <h1 data-i18n="title">Proyecto Cacao Sostenible</h1>
+                    <p class="subtitle" data-i18n="subtitle">Project MASSA - Cacao Sostenible BIO 2025-2030</p>
                 </div>
             </div>
             
@@ -568,243 +531,281 @@
         </header>
         
         <div class="content-section">
-            <section class="project-hero">
+            <!-- Cacao Hero Section -->
+            <section class="cacao-hero">
                 <h1 data-i18n="hero_title">PROYECTO CACAO SOSTENIBLE BIO</h1>
-                <p data-i18n="hero_subtitle">Transformando la cadena de valor del cacao camerunés hacia la sostenibilidad y el comercio justo</p>
-                <p data-i18n="hero_vision">Visión 2025-2030: +500 toneladas de cacao BIO certificado para exportación directa</p>
+                <p data-i18n="hero_subtitle">Cultivo Responsable - Procesamiento Sostenible - Comercio Justo</p>
             </section>
             
-            <!-- NEU: Aktuelle Betriebsdaten Oktober 2025 -->
-            <section class="current-operations-highlight" id="operations-2025">
-                <h2 data-i18n="operations_title">📊 Reporte Operativo - Octubre 2025</h2>
-                <p data-i18n="operations_subtitle"><strong>Centro Operativo Nwangan</strong> bajo dirección de <strong>Mme. Meyo Mefo Lydie</strong></p>
+            <!-- Current Status -->
+            <div class="current-status">
+                <h3 data-i18n="current_status_title">🌱 PRODUCCIÓN ACTUAL - OCTUBRE 2025</h3>
+                <p data-i18n="current_status_text"><strong>Operaciones en Nwangan:</strong> Sistema de secado solar implementado - Calidad certificada</p>
                 
-                <div class="operations-stats">
-                    <div class="stat-box">
-                        <span class="stat-number">5-10 t</span>
-                        <span class="stat-label" data-i18n="stat_volume">Cada 2 semanas</span>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-value">100%</span>
+                        <span class="status-label" data-i18n="status_organic">Natural</span>
                     </div>
-                    <div class="stat-box">
-                        <span class="stat-number">Telcar</span>
-                        <span class="stat-label" data-i18n="stat_partner">Contrato activo</span>
+                    <div class="status-item">
+                        <span class="status-value">Solar</span>
+                        <span class="status-label" data-i18n="status_drying">Secado</span>
                     </div>
-                    <div class="stat-box">
-                        <span class="stat-number">100%</span>
-                        <span class="stat-label" data-i18n="stat_solar">Secado solar</span>
+                    <div class="status-item">
+                        <span class="status-value">A+</span>
+                        <span class="status-label" data-i18n="status_quality">Calidad</span>
                     </div>
-                    <div class="stat-box">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label" data-i18n="stat_trainees">Aprendices</span>
+                    <div class="status-item">
+                        <span class="status-value">BIO</span>
+                        <span class="status-label" data-i18n="status_certification">En proceso</span>
                     </div>
                 </div>
-                
-                <div class="info-card" style="background: rgba(255,255,255,0.9); margin: 1rem 0;">
-                    <h4 data-i18n="operations_detail_title">Operaciones Estables en Nwangan</h4>
-                    <p data-i18n="operations_detail_text">El cacao se recolecta y seca en el almacén de la Sra. Meyo Mefo Lydie en Nwangan, conforme al contrato de prefinanciación con Telcar Cocoa Ltd (5-10 toneladas cada dos semanas). Cada lote pasa por control riguroso de humedad y calidad antes del empaque en sacos de 100 kg.</p>
-                </div>
-            </section>
+            </div>
             
+            <!-- Sustainable Process Section -->
             <section class="section">
-                <h2 data-i18n="section1_title">Nuestro Enfoque Sostenible</h2>
+                <h2 data-i18n="process_title">1. Proceso de Producción Sostenible</h2>
                 
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-seedling"></i>
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="process-img-container">
+                            <img src="image/1.jpg" alt="Cultivo de cacao" class="process-img" onerror="this.parentElement.innerHTML='<div class=\"process-img-fallback\">Cultivo<br>Orgánico</div>'">
                         </div>
-                        <h4 data-i18n="feature1_title">Agricultura Regenerativa</h4>
-                        <p data-i18n="feature1_text">Prácticas de cultivo que mejoran la salud del suelo y la biodiversidad, reduciendo la deforestación.</p>
+                        <div class="process-info">
+                            <div class="process-step" data-i18n="process1_step">Paso 1: Cultivo</div>
+                            <p data-i18n="process1_text">Cultivo orgánico en sombra natural, sin pesticidas químicos. Asociación con +50 productores locales en Nwangan.</p>
+                        </div>
                     </div>
                     
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-hand-holding-usd"></i>
+                    <div class="process-card">
+                        <div class="process-img-container">
+                            <img src="image/9.jpg" alt="Cosecha de cacao" class="process-img" onerror="this.parentElement.innerHTML='<div class=\"process-img-fallback\">Cosecha<br>Selectiva</div>'">
                         </div>
-                        <h4 data-i18n="feature2_title">Comercio Justo</h4>
-                        <p data-i18n="feature2_text">Precios garantizados que permiten a los agricultores vivir dignamente de su trabajo.</p>
+                        <div class="process-info">
+                            <div class="process-step" data-i18n="process2_step">Paso 2: Cosecha</div>
+                            <p data-i18n="process2_text">Cosecha manual selectiva, garantizando solo los frutos en su punto óptimo de maduración.</p>
+                        </div>
                     </div>
                     
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-users"></i>
+                    <div class="process-card">
+                        <div class="process-img-container">
+                            <img src="image/4.jpg" alt="Secado solar" class="process-img" onerror="this.parentElement.innerHTML='<div class=\"process-img-fallback\">Secado<br>Solar</div>'">
                         </div>
-                        <h4 data-i18n="feature3_title">Comunidad</h4>
-                        <p data-i18n="feature3_text">Fortalecimiento de las comunidades rurales mediante programas de salud y educación.</p>
+                        <div class="process-info">
+                            <div class="process-step" data-i18n="process3_step">Paso 3: Secado</div>
+                            <p data-i18n="process3_text">Secado natural con energía solar, preservando las propiedades del cacao y reduciendo la huella de carbono.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="process-grid">
+                    <div class="process-card">
+                        <div class="process-img-container">
+                            <img src="image/6.jpg" alt="Control de calidad" class="process-img" style="object-position: center 30%;" onerror="this.parentElement.innerHTML='<div class=\"process-img-fallback\">Control<br>Calidad</div>'">
+                        </div>
+                        <div class="process-info">
+                            <div class="process-step" data-i18n="process4_step">Paso 4: Calidad</div>
+                            <p data-i18n="process4_text">Riguroso control de calidad en cada etapa, supervisado por Mme. Meyo Mefo Lydie.</p>
+                        </div>
                     </div>
                     
-                    <div class="feature-item">
-                        <div class="feature-icon">
-                            <i class="fas fa-certificate"></i>
+                    <div class="process-card">
+                        <div class="process-img-container">
+                            <img src="image/11.jpg" alt="Empaque y transporte" class="process-img" style="object-position: center 20%;" onerror="this.parentElement.innerHTML='<div class=\"process-img-fallback\">Empaque<br>Transporte</div>'">
                         </div>
-                        <h4 data-i18n="feature4_title">Certificación BIO</h4>
-                        <p data-i18n="feature4_text">Proceso de certificación orgánica según estándares europeos para acceso a mercados premium.</p>
+                        <div class="process-info">
+                            <div class="process-step" data-i18n="process5_step">Paso 5: Empaque</div>
+                            <p data-i18n="process5_text">Empaque en sacos de 100kg con costura manual, listos para exportación a Europa.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-card">
+                        <div class="process-img-container">
+                            <img src="image/12.jpg" alt="Exportación sostenible" class="process-img" onerror="this.parentElement.innerHTML='<div class=\"process-img-fallback\">Exportación<br>Sostenible</div>'">
+                        </div>
+                        <div class="process-info">
+                            <div class="process-step" data-i18n="process6_step">Paso 6: Exportación</div>
+                            <p data-i18n="process6_text">Comercio directo con partners europeos, eliminando intermediarios y garantizando precios justos.</p>
+                        </div>
                     </div>
                 </div>
             </section>
             
+            <!-- Benefits Section -->
             <section class="section">
-                <h2 data-i18n="section2_title">Proceso de Producción Sostenible</h2>
+                <h2 data-i18n="benefits_title">2. Beneficios del Cacao Sostenible</h2>
                 
-                <div class="process-steps">
-                    <div class="process-step">
-                        <h4 data-i18n="step1_title">Cultivo</h4>
-                        <p data-i18n="step1_text">Agricultura BIO sin pesticidas</p>
-                    </div>
-                    <div class="process-step">
-                        <h4 data-i18n="step2_title">Cosecha</h4>
-                        <p data-i18n="step2_text">Selección manual óptima</p>
-                    </div>
-                    <div class="process-step">
-                        <h4 data-i18n="step3_title">Fermentación</h4>
-                        <p data-i18n="step3_text">Proceso natural controlado</p>
-                    </div>
-                    <div class="process-step">
-                        <h4 data-i18n="step4_title">Secado</h4>
-                        <p data-i18n="step4_text">Energía solar sostenible</p>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <h4 data-i18n="quality_title">Control de Calidad Integral</h4>
-                    <p data-i18n="quality_text">Cada lote pasa por rigurosos controles de humedad, fermentación y pureza antes del empaque. Nuestro sistema de trazabilidad garantiza transparencia total desde el agricultor hasta el consumidor final.</p>
-                </div>
-            </section>
-            
-            <!-- NEU: Cadena de Suministro Actualizada -->
-            <section class="section">
-                <h2 data-i18n="supply_chain_title">Cadena de Suministro & Logística - Octubre 2025</h2>
-                
-                <div class="supply-chain-grid">
-                    <div class="supply-item">
-                        <h4><i class="fas fa-warehouse"></i> <span data-i18n="supply1_title">Centro de Acopio Nwangan</span></h4>
-                        <p data-i18n="supply1_text">Almacén principal bajo gestión de Mme. Meyo Mefo Lydie. Capacidad: 5-10 toneladas cada quincena.</p>
-                    </div>
-                    
-                    <div class="supply-item">
-                        <h4><i class="fas fa-handshake"></i> <span data-i18n="supply2_title">Asociación Estratégica</span></h4>
-                        <p data-i18n="supply2_text">Contrato de prefinanciación activo con Telcar Cocoa Ltd garantizando compra y exportación estable.</p>
-                    </div>
-                    
-                    <div class="supply-item">
-                        <h4><i class="fas fa-sun"></i> <span data-i18n="supply3_title">Procesamiento Sostenible</span></h4>
-                        <p data-i18n="supply3_text">Secado 100% solar, control de calidad riguroso, empaque en sacos de 100 kg cosidos manualmente.</p>
-                    </div>
-                    
-                    <div class="supply-item">
-                        <h4><i class="fas fa-graduation-cap"></i> <span data-i18n="supply4_title">Formación Continua</span></h4>
-                        <p data-i18n="supply4_text">Programa de aprendices en técnicas de control calidad y procesamiento sostenible.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <section class="section">
-                <h2 data-i18n="section3_title">Impacto en las Comunidades</h2>
-                
-                <div class="impact-grid">
-                    <div class="impact-item">
-                        <div class="impact-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h4 data-i18n="impact1_title">+200 Familias</h4>
-                        <p data-i18n="impact1_text">Beneficiadas directamente por el proyecto</p>
-                    </div>
-                    
-                    <div class="impact-item">
-                        <div class="impact-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h4 data-i18n="impact2_title">Formación Continua</h4>
-                        <p data-i18n="impact2_text">Capacitación en técnicas agrícolas sostenibles</p>
-                    </div>
-                    
-                    <div class="impact-item">
-                        <div class="impact-icon">
-                            <i class="fas fa-female"></i>
-                        </div>
-                        <h4 data-i18n="impact3_title">Empoderamiento Femenino</h4>
-                        <p data-i18n="impact3_text">40% de mujeres en puestos de liderazgo</p>
-                    </div>
-                    
-                    <div class="impact-item">
-                        <div class="impact-icon">
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
                             <i class="fas fa-tree"></i>
                         </div>
-                        <h4 data-i18n="impact4_title">Reforestación</h4>
-                        <p data-i18n="impact4_text">+5,000 árboles nativos plantados anualmente</p>
+                        <h4 data-i18n="benefit1_title">Agroforestería</h4>
+                        <p data-i18n="benefit1_text">Cultivo en armonía con el bosque, preservando la biodiversidad local.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <h4 data-i18n="benefit2_title">Precios Justos</h4>
+                        <p data-i18n="benefit2_text">Pagos directos a productores, mejorando ingresos familiares.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h4 data-i18n="benefit3_title">Empoderamiento Femenino</h4>
+                        <p data-i18n="benefit3_text">Liderazgo femenino en coordinación y gestión operativa.</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4 data-i18n="benefit4_title">Certificación BIO</h4>
+                        <p data-i18n="benefit4_text">Proceso en marcha para certificación orgánica europea.</p>
                     </div>
                 </div>
             </section>
             
+            <!-- Gallery Section -->
             <section class="section">
-                <h2 data-i18n="section4_title">Galería del Proyecto - Nwangan 2025</h2>
-                <p data-i18n="section4_text">Documentación visual de nuestras operaciones en el centro de Nwangan</p>
+                <h2 data-i18n="gallery_title">3. Galería del Proyecto</h2>
                 
                 <div class="gallery">
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/nwangan-collecte-2025.jpg" alt="Collecte de cacao à Nwangan" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Collecte de cacao</div>'">
+                            <img src="image/2.jpg" alt="Almacén principal" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Almacén Principal<br>Nwangan</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery1_caption">
-                            Recolección de cacao en plantaciones asociadas - Nwangan Octubre 2025
+                            Almacén principal en Nwangan - Centro de operaciones
                         </div>
                     </div>
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/sechage-solaire-2025.jpg" alt="Séchage solaire à Nwangan" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Séchage solaire</div>'">
+                            <img src="image/7.jpg" alt="Supervisión de calidad" class="gallery-img" style="object-position: center 25%;" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Supervisión<br>Calidad</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery2_caption">
-                            Proceso de secado solar en el almacén de Nwangan - Control calidad riguroso
+                            Mme. Meyo Mefo Lydie supervisando el control de calidad
                         </div>
                     </div>
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/formation-stagiaires-2025.jpg" alt="Formation des stagiaires" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Formación aprendices</div>'">
+                            <img src="image/8.jpg" alt="Proceso de secado" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Proceso<br>Secado</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery3_caption">
-                            Mme. Meyo Mefo Lydie formando aprendices en técnicas de control calidad
+                            Instalaciones de secado solar - Energía renovable
                         </div>
                     </div>
-                    
+                </div>
+                
+                <div class="gallery">
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/entrepot-nwangan-2025.jpg" alt="Entrepôt de Nwangan" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Almacén Nwangan</div>'">
+                            <img src="image/10.jpg" alt="Granos de cacao" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Granos de Cacao<br>Calidad Premium</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery4_caption">
-                            Almacén principal de Nwangan - Capacidad: 5-10 toneladas por quincena
+                            Granos de cacao listos para exportación - Calidad premium
                         </div>
                     </div>
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/conditionnement-2025.jpg" alt="Conditionnement des sacs" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Embalaje</div>'">
+                            <img src="image/5.jpg" alt="Fincas asociadas" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Fincas Asociadas<br>Cultivo Sostenible</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery5_caption">
-                            Empaque en sacos de 100 kg - Preparación para exportación vía Telcar Cocoa Ltd
+                            Fincas asociadas - Cultivo sostenible en la Región Sur
                         </div>
                     </div>
                     
                     <div class="gallery-item">
                         <div class="gallery-img-container">
-                            <img src="image/equipe-nwangan-2025.jpg" alt="Équipe de Nwangan" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Equipo Nwangan</div>'">
+                            <img src="image/3.jpg" alt="Comunidad local" class="gallery-img" onerror="this.parentElement.innerHTML='<div class=\"img-fallback\">Comunidad Local<br>Desarrollo Rural</div>'">
                         </div>
                         <div class="gallery-caption" data-i18n="gallery6_caption">
-                            Equipo operativo de Nwangan - Coordinación: Mme. Meyo Mefo Lydie
+                            Integración comunitaria - Desarrollo rural sostenible
                         </div>
                     </div>
                 </div>
             </section>
             
+            <!-- Certification Section -->
             <section class="section">
-                <h2 data-i18n="section5_title">Únase a Nuestro Proyecto</h2>
+                <h2 data-i18n="certification_title">4. Certificación y Estándares</h2>
+                
                 <div class="info-card">
-                    <h4 data-i18n="join_title">Oportunidades de Colaboración</h4>
-                    <p data-i18n="join_text">Buscamos socios estratégicos, inversionistas y compradores comprometidos con la sostenibilidad y el comercio justo. Juntos podemos transformar la industria del cacao en Camerún.</p>
+                    <h4 data-i18n="certification_bio">Certificación BIO (En Proceso)</h4>
+                    <p data-i18n="certification_bio_text">Proceso avanzado para obtención de certificación orgánica europea. Cumplimiento de estándares UE para agricultura ecológica.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4 data-i18n="certification_quality">Estándares de Calidad</h4>
+                    <p data-i18n="certification_quality_text">Control de humedad <8%, granos enteros >90%, libre de impurezas. Cumplimiento de especificaciones de exportadores internacionales.</p>
+                </div>
+                
+                <div class="info-card">
+                    <h4 data-i18n="certification_social">Responsabilidad Social</h4>
+                    <p data-i18n="certification_social_text">Pagos justos a productores, condiciones laborales dignas, apoyo a educación comunitaria y proyectos de salud.</p>
+                </div>
+            </section>
+            
+            <!-- Impact Section -->
+            <section class="section">
+                <h2 data-i18n="impact_title">5. Impacto Medible</h2>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 data-i18n="impact1_title">+50 Familias</h4>
+                        <p data-i18n="impact1_text">Beneficiadas directamente con ingresos estables</p>
+                    </div>
                     
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <a href="index.html" class="cta-button" data-i18n="join_button">
-                            <i class="fas fa-handshake"></i> Colaborar con Nosotros
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h4 data-i18n="impact2_title">0% Químicos</h4>
+                        <p data-i18n="impact2_text">Cultivo completamente natural sin pesticidas</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h4 data-i18n="impact3_title">100% Solar</h4>
+                        <p data-i18n="impact3_text">Secado con energía renovable solar</p>
+                    </div>
+                    
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 data-i18n="impact4_title">5-10 t/2 sem.</h4>
+                        <p data-i18n="impact4_text">Producción estable y en crecimiento</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Call to Action -->
+            <section class="section">
+                <h2 data-i18n="cta_title">6. Únete al Proyecto</h2>
+                
+                <div class="info-card" style="background: #E8F5E8; border-left: 4px solid #4a7c59;">
+                    <h4 data-i18n="cta_subtitle">Oportunidades de Colaboración</h4>
+                    <p data-i18n="cta_text">Buscamos partners comerciales, inversores en agricultura sostenible y organizaciones de cooperación para expandir nuestro impacto. Juntos podemos transformar la industria del cacao en Camerún.</p>
+                    
+                    <div style="text-align: center; margin-top: 1.5rem;">
+                        <a href="dossier.html" class="nav-tab" style="background: var(--primary-color); margin: 5px;">
+                            <i class="fas fa-file-alt"></i> <span data-i18n="cta_dossier">Ver Master-Dossier</span>
+                        </a>
+                        <a href="antecedentes.html" class="nav-tab" style="background: var(--accent-color); margin: 5px;">
+                            <i class="fas fa-history"></i> <span data-i18n="cta_history">Conoce Nuestra Historia</span>
                         </a>
                     </div>
                 </div>
@@ -820,7 +821,7 @@
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-user"></i>
+                            <img src="image/19.Pablo.png" alt="Pablo Massa" onerror="this.parentElement.innerHTML='<i class=\"fas fa-user\"></i>'">
                         </div>
                         <div class="contact-details">
                             <strong>Pablo Massa</strong>
@@ -838,7 +839,7 @@
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-user"></i>
+                            <img src="image/20.Lydia.png" alt="Lydie Meyo" onerror="this.parentElement.innerHTML='<i class=\"fas fa-user\"></i>'">
                         </div>
                         <div class="contact-details">
                             <strong>Lydie Meyo</strong>
@@ -888,32 +889,35 @@
                 </div>
                 
                 <div class="contact-card">
-                    <h3><i class="fas fa-users"></i> <span data-i18n="family-contact">Contacto Familia Massa</span></h3>
+                    <h3><i class="fas fa-info-circle"></i> <span data-i18n="project_info">Información del Proyecto</span></h3>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-user"></i>
+                            <i class="fas fa-map-pin"></i>
                         </div>
                         <div class="contact-details">
-                            <strong>Michael Massa</strong>
+                            <strong>Nwangan, Región Sur</strong>
+                            <div><small data-i18n="location">Camerún</small></div>
                         </div>
                     </div>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                            <i class="fas fa-calendar"></i>
                         </div>
                         <div class="contact-details">
-                            <a href="tel:+491782180114">+49 178 2180114</a>
+                            <strong>2023-2030</strong>
+                            <div><small data-i18n="timeline">Horizonte temporal</small></div>
                         </div>
                     </div>
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                            <i class="fas fa-leaf"></i>
                         </div>
                         <div class="contact-details">
-                            <a href="mailto:DonMassa-Business@proton.me">DonMassa-Business@proton.me</a>
+                            <strong>BIO Sostenible</strong>
+                            <div><small data-i18n="model">Modelo de negocio</small></div>
                         </div>
                     </div>
                 </div>
@@ -929,215 +933,215 @@
         // Multilingual support
         const translations = {
             es: {
-                title: "Finca BIO MASSA",
-                subtitle: "Proyecto Cacao Sostenible BIO - Cultivo Responsable y Comercio Justo",
+                title: "Proyecto Cacao Sostenible",
+                subtitle: "Project MASSA - Cacao Sostenible BIO 2025-2030",
                 hero_title: "PROYECTO CACAO SOSTENIBLE BIO",
-                hero_subtitle: "Transformando la cadena de valor del cacao camerunés hacia la sostenibilidad y el comercio justo",
-                hero_vision: "Visión 2025-2030: +500 toneladas de cacao BIO certificado para exportación directa",
-                operations_title: "📊 Reporte Operativo - Octubre 2025",
-                operations_subtitle: "Centro Operativo Nwangan bajo dirección de Mme. Meyo Mefo Lydie",
-                stat_volume: "Cada 2 semanas",
-                stat_partner: "Contrato activo",
-                stat_solar: "Secado solar",
-                stat_trainees: "Aprendices",
-                operations_detail_title: "Operaciones Estables en Nwangan",
-                operations_detail_text: "El cacao se recolecta y seca en el almacén de la Sra. Meyo Mefo Lydie en Nwangan, conforme al contrato de prefinanciación con Telcar Cocoa Ltd (5-10 toneladas cada dos semanas). Cada lote pasa por control riguroso de humedad y calidad antes del empaque en sacos de 100 kg.",
-                section1_title: "Nuestro Enfoque Sostenible",
-                feature1_title: "Agricultura Regenerativa",
-                feature1_text: "Prácticas de cultivo que mejoran la salud del suelo y la biodiversidad, reduciendo la deforestación.",
-                feature2_title: "Comercio Justo",
-                feature2_text: "Precios garantizados que permiten a los agricultores vivir dignamente de su trabajo.",
-                feature3_title: "Comunidad",
-                feature3_text: "Fortalecimiento de las comunidades rurales mediante programas de salud y educación.",
-                feature4_title: "Certificación BIO",
-                feature4_text: "Proceso de certificación orgánica según estándares europeos para acceso a mercados premium.",
-                section2_title: "Proceso de Producción Sostenible",
-                step1_title: "Cultivo",
-                step1_text: "Agricultura BIO sin pesticidas",
-                step2_title: "Cosecha",
-                step2_text: "Selección manual óptima",
-                step3_title: "Fermentación",
-                step3_text: "Proceso natural controlado",
-                step4_title: "Secado",
-                step4_text: "Energía solar sostenible",
-                quality_title: "Control de Calidad Integral",
-                quality_text: "Cada lote pasa por rigurosos controles de humedad, fermentación y pureza antes del empaque. Nuestro sistema de trazabilidad garantiza transparencia total desde el agricultor hasta el consumidor final.",
-                supply_chain_title: "Cadena de Suministro & Logística - Octubre 2025",
-                supply1_title: "Centro de Acopio Nwangan",
-                supply1_text: "Almacén principal bajo gestión de Mme. Meyo Mefo Lydie. Capacidad: 5-10 toneladas cada quincena.",
-                supply2_title: "Asociación Estratégica",
-                supply2_text: "Contrato de prefinanciación activo con Telcar Cocoa Ltd garantizando compra y exportación estable.",
-                supply3_title: "Procesamiento Sostenible",
-                supply3_text: "Secado 100% solar, control de calidad riguroso, empaque en sacos de 100 kg cosidos manualmente.",
-                supply4_title: "Formación Continua",
-                supply4_text: "Programa de aprendices en técnicas de control calidad y procesamiento sostenible.",
-                section3_title: "Impacto en las Comunidades",
-                impact1_title: "+200 Familias",
-                impact1_text: "Beneficiadas directamente por el proyecto",
-                impact2_title: "Formación Continua",
-                impact2_text: "Capacitación en técnicas agrícolas sostenibles",
-                impact3_title: "Empoderamiento Femenino",
-                impact3_text: "40% de mujeres en puestos de liderazgo",
-                impact4_title: "Reforestación",
-                impact4_text: "+5,000 árboles nativos plantados anualmente",
-                section4_title: "Galería del Proyecto - Nwangan 2025",
-                section4_text: "Documentación visual de nuestras operaciones en el centro de Nwangan",
-                gallery1_caption: "Recolección de cacao en plantaciones asociadas - Nwangan Octubre 2025",
-                gallery2_caption: "Proceso de secado solar en el almacén de Nwangan - Control calidad riguroso",
-                gallery3_caption: "Mme. Meyo Mefo Lydie formando aprendices en técnicas de control calidad",
-                gallery4_caption: "Almacén principal de Nwangan - Capacidad: 5-10 toneladas por quincena",
-                gallery5_caption: "Empaque en sacos de 100 kg - Preparación para exportación vía Telcar Cocoa Ltd",
-                gallery6_caption: "Equipo operativo de Nwangan - Coordinación: Mme. Meyo Mefo Lydie",
-                section5_title: "Únase a Nuestro Proyecto",
-                join_title: "Oportunidades de Colaboración",
-                join_text: "Buscamos socios estratégicos, inversionistas y compradores comprometidos con la sostenibilidad y el comercio justo. Juntos podemos transformar la industria del cacao en Camerún.",
-                join_button: "Colaborar con Nosotros",
+                hero_subtitle: "Cultivo Responsable - Procesamiento Sostenible - Comercio Justo",
+                current_status_title: "🌱 PRODUCCIÓN ACTUAL - OCTUBRE 2025",
+                current_status_text: "Operaciones en Nwangan: Sistema de secado solar implementado - Calidad certificada",
+                status_organic: "Natural",
+                status_drying: "Secado",
+                status_quality: "Calidad",
+                status_certification: "En proceso",
+                process_title: "1. Proceso de Producción Sostenible",
+                process1_step: "Paso 1: Cultivo",
+                process1_text: "Cultivo orgánico en sombra natural, sin pesticidas químicos. Asociación con +50 productores locales en Nwangan.",
+                process2_step: "Paso 2: Cosecha",
+                process2_text: "Cosecha manual selectiva, garantizando solo los frutos en su punto óptimo de maduración.",
+                process3_step: "Paso 3: Secado",
+                process3_text: "Secado natural con energía solar, preservando las propiedades del cacao y reduciendo la huella de carbono.",
+                process4_step: "Paso 4: Calidad",
+                process4_text: "Riguroso control de calidad en cada etapa, supervisado por Mme. Meyo Mefo Lydie.",
+                process5_step: "Paso 5: Empaque",
+                process5_text: "Empaque en sacos de 100kg con costura manual, listos para exportación a Europa.",
+                process6_step: "Paso 6: Exportación",
+                process6_text: "Comercio directo con partners europeos, eliminando intermediarios y garantizando precios justos.",
+                benefits_title: "2. Beneficios del Cacao Sostenible",
+                benefit1_title: "Agroforestería",
+                benefit1_text: "Cultivo en armonía con el bosque, preservando la biodiversidad local.",
+                benefit2_title: "Precios Justos",
+                benefit2_text: "Pagos directos a productores, mejorando ingresos familiares.",
+                benefit3_title: "Empoderamiento Femenino",
+                benefit3_text: "Liderazgo femenino en coordinación y gestión operativa.",
+                benefit4_title: "Certificación BIO",
+                benefit4_text: "Proceso en marcha para certificación orgánica europea.",
+                gallery_title: "3. Galería del Proyecto",
+                gallery1_caption: "Almacén principal en Nwangan - Centro de operaciones",
+                gallery2_caption: "Mme. Meyo Mefo Lydie supervisando el control de calidad",
+                gallery3_caption: "Instalaciones de secado solar - Energía renovable",
+                gallery4_caption: "Granos de cacao listos para exportación - Calidad premium",
+                gallery5_caption: "Fincas asociadas - Cultivo sostenible en la Región Sur",
+                gallery6_caption: "Integración comunitaria - Desarrollo rural sostenible",
+                certification_title: "4. Certificación y Estándares",
+                certification_bio: "Certificación BIO (En Proceso)",
+                certification_bio_text: "Proceso avanzado para obtención de certificación orgánica europea. Cumplimiento de estándares UE para agricultura ecológica.",
+                certification_quality: "Estándares de Calidad",
+                certification_quality_text: "Control de humedad <8%, granos enteros >90%, libre de impurezas. Cumplimiento de especificaciones de exportadores internacionales.",
+                certification_social: "Responsabilidad Social",
+                certification_social_text: "Pagos justos a productores, condiciones laborales dignas, apoyo a educación comunitaria y proyectos de salud.",
+                impact_title: "5. Impacto Medible",
+                impact1_title: "+50 Familias",
+                impact1_text: "Beneficiadas directamente con ingresos estables",
+                impact2_title: "0% Químicos",
+                impact2_text: "Cultivo completamente natural sin pesticidas",
+                impact3_title: "100% Solar",
+                impact3_text: "Secado con energía renovable solar",
+                impact4_title: "5-10 t/2 sem.",
+                impact4_text: "Producción estable y en crecimiento",
+                cta_title: "6. Únete al Proyecto",
+                cta_subtitle: "Oportunidades de Colaboración",
+                cta_text: "Buscamos partners comerciales, inversores en agricultura sostenible y organizaciones de cooperación para expandir nuestro impacto. Juntos podemos transformar la industria del cacao en Camerún.",
+                cta_dossier: "Ver Master-Dossier",
+                cta_history: "Conoce Nuestra Historia",
                 contact: "Contacto",
                 cameroon: "Contactos en Camerún",
                 coordination: "Coordinación (Alemania)",
-                "family-contact": "Contacto Familia Massa",
+                project_info: "Información del Proyecto",
+                location: "Camerún",
+                timeline: "Horizonte temporal",
+                model: "Modelo de negocio",
                 coordinator: "Coordinadora Nacional",
                 rights: "Todos los derechos reservados"
             },
             fr: {
-                title: "Finca BIO MASSA",
-                subtitle: "Projet Cacao Biologique Durable - Culture Responsable et Commerce Équitable",
+                title: "Projet Cacao Durable",
+                subtitle: "Projet MASSA - Cacao Biologique Durable 2025-2030",
                 hero_title: "PROJET CACAO BIOLOGIQUE DURABLE",
-                hero_subtitle: "Transformer la chaîne de valeur du cacao camerounais vers la durabilité et le commerce équitable",
-                hero_vision: "Vision 2025-2030: +500 tonnes de cacao BIO certifié pour l'exportation directe",
-                operations_title: "📊 Rapport Opérationnel - Octobre 2025",
-                operations_subtitle: "Centre Opérationnel Nwangan sous direction de Mme. Meyo Mefo Lydie",
-                stat_volume: "Toutes les 2 semaines",
-                stat_partner: "Contrat actif",
-                stat_solar: "Séchage solaire",
-                stat_trainees: "Apprentis",
-                operations_detail_title: "Opérations Stables à Nwangan",
-                operations_detail_text: "Le cacao est collecté et séché dans l'entrepôt de Mme Meyo Mefo Lydie à Nwangan, conformément au contrat de préfinancement avec Telcar Cocoa Ltd (5-10 tonnes toutes les deux semaines). Chaque lot subit un contrôle rigoureux d'humidité et de qualité avant l'emballage en sacs de 100 kg.",
-                section1_title: "Notre Approche Durable",
-                feature1_title: "Agriculture Régénérative",
-                feature1_text: "Pratiques culturales qui améliorent la santé des sols et la biodiversité, réduisant la déforestation.",
-                feature2_title: "Commerce Équitable",
-                feature2_text: "Prix garantis permettant aux agriculteurs de vivre dignement de leur travail.",
-                feature3_title: "Communauté",
-                feature3_text: "Renforcement des communautés rurales grâce à des programmes de santé et d'éducation.",
-                feature4_title: "Certification BIO",
-                feature4_text: "Processus de certification biologique selon les normes européennes pour l'accès aux marchés premium.",
-                section2_title: "Processus de Production Durable",
-                step1_title: "Culture",
-                step1_text: "Agriculture BIO sans pesticides",
-                step2_title: "Récolte",
-                step2_text: "Sélection manuelle optimale",
-                step3_title: "Fermentation",
-                step3_text: "Processus naturel contrôlé",
-                step4_title: "Séchage",
-                step4_text: "Énergie solaire durable",
-                quality_title: "Contrôle Qualité Intégral",
-                quality_text: "Chaque lot passe par des contrôles rigoureux d'humidité, de fermentation et de pureté avant l'emballage. Notre système de traçabilité garantit une transparence totale de l'agriculteur au consommateur final.",
-                supply_chain_title: "Chaîne d'Approvisionnement & Logistique - Octobre 2025",
-                supply1_title: "Centre de Collecte Nwangan",
-                supply1_text: "Entrepôt principal sous gestion de Mme. Meyo Mefo Lydie. Capacité: 5-10 tonnes toutes les deux semaines.",
-                supply2_title: "Partenariat Stratégique",
-                supply2_text: "Contrat de préfinancement actif avec Telcar Cocoa Ltd garantissant achat et exportation stables.",
-                supply3_title: "Traitement Durable",
-                supply3_text: "Séchage 100% solaire, contrôle qualité rigoureux, emballage en sacs de 100 kg cousus manuellement.",
-                supply4_title: "Formation Continue",
-                supply4_text: "Programme d'apprentis en techniques de contrôle qualité et traitement durable.",
-                section3_title: "Impact sur les Communautés",
-                impact1_title: "+200 Familles",
-                impact1_text: "Bénéficiaires directes du projet",
-                impact2_title: "Formation Continue",
-                impact2_text: "Formation aux techniques agricoles durables",
-                impact3_title: "Autonomisation des Femmes",
-                impact3_text: "40% de femmes dans des postes de direction",
-                impact4_title: "Reforestation",
-                impact4_text: "+5,000 arbres natifs plantés annuellement",
-                section4_title: "Galerie du Projet - Nwangan 2025",
-                section4_text: "Documentation visuelle de nos opérations au centre de Nwangan",
-                gallery1_caption: "Collecte de cacao dans les plantations associées - Nwangan Octobre 2025",
-                gallery2_caption: "Processus de séchage solaire dans l'entrepôt de Nwangan - Contrôle qualité rigoureux",
-                gallery3_caption: "Mme. Meyo Mefo Lydie formant les apprentis aux techniques de contrôle qualité",
-                gallery4_caption: "Entrepôt principal de Nwangan - Capacité: 5-10 tonnes par quinzaine",
-                gallery5_caption: "Emballage en sacs de 100 kg - Préparation pour l'exportation via Telcar Cocoa Ltd",
-                gallery6_caption: "Équipe opérationnelle de Nwangan - Coordination: Mme. Meyo Mefo Lydie",
-                section5_title: "Rejoignez Notre Projet",
-                join_title: "Opportunités de Collaboration",
-                join_text: "Nous recherchons des partenaires stratégiques, des investisseurs et des acheteurs engagés dans la durabilité et le commerce équitable. Ensemble, nous pouvons transformer l'industrie du cacao au Cameroun.",
-                join_button: "Collaborer avec Nous",
+                hero_subtitle: "Culture Responsable - Transformation Durable - Commerce Équitable",
+                current_status_title: "🌱 PRODUCTION ACTUELLE - OCTOBRE 2025",
+                current_status_text: "Opérations à Nwangan: Système de séchage solaire implémenté - Qualité certifiée",
+                status_organic: "Naturel",
+                status_drying: "Séchage",
+                status_quality: "Qualité",
+                status_certification: "En cours",
+                process_title: "1. Processus de Production Durable",
+                process1_step: "Étape 1: Culture",
+                process1_text: "Culture biologique sous ombrage naturel, sans pesticides chimiques. Partenariat avec +50 producteurs locaux à Nwangan.",
+                process2_step: "Étape 2: Récolte",
+                process2_text: "Récolte manuelle sélective, garantissant uniquement les fruits à leur point optimal de maturation.",
+                process3_step: "Étape 3: Séchage",
+                process3_text: "Séchage naturel à l'énergie solaire, préservant les propriétés du cacao et réduisant l'empreinte carbone.",
+                process4_step: "Étape 4: Qualité",
+                process4_text: "Contrôle qualité rigoureux à chaque étape, supervisé par Mme. Meyo Mefo Lydie.",
+                process5_step: "Étape 5: Emballage",
+                process5_text: "Emballage en sacs de 100kg avec couture manuelle, prêts pour l'exportation vers l'Europe.",
+                process6_step: "Étape 6: Exportation",
+                process6_text: "Commerce direct avec des partenaires européens, éliminant les intermédiaires et garantissant des prix justes.",
+                benefits_title: "2. Avantages du Cacao Durable",
+                benefit1_title: "Agroforesterie",
+                benefit1_text: "Culture en harmonie avec la forêt, préservant la biodiversité locale.",
+                benefit2_title: "Prix Justes",
+                benefit2_text: "Paiements directs aux producteurs, améliorant les revenus familiaux.",
+                benefit3_title: "Autonomisation Féminine",
+                benefit3_text: "Leadership féminin dans la coordination et la gestion opérationnelle.",
+                benefit4_title: "Certification BIO",
+                benefit4_text: "Processus en cours pour la certification biologique européenne.",
+                gallery_title: "3. Galerie du Projet",
+                gallery1_caption: "Entrepôt principal à Nwangan - Centre d'opérations",
+                gallery2_caption: "Mme. Meyo Mefo Lydie supervisant le contrôle qualité",
+                gallery3_caption: "Installations de séchage solaire - Énergie renouvelable",
+                gallery4_caption: "Fèves de cacao prêtes pour l'exportation - Qualité premium",
+                gallery5_caption: "Fermes partenaires - Culture durable dans la Région du Sud",
+                gallery6_caption: "Intégration communautaire - Développement rural durable",
+                certification_title: "4. Certification et Normes",
+                certification_bio: "Certification BIO (En Cours)",
+                certification_bio_text: "Processus avancé pour l'obtention de la certification biologique européenne. Conformité aux normes UE pour l'agriculture écologique.",
+                certification_quality: "Normes de Qualité",
+                certification_quality_text: "Contrôle d'humidité <8%, fèves entières >90%, exempt d'impuretés. Conformité aux spécifications des exportateurs internationaux.",
+                certification_social: "Responsabilité Sociale",
+                certification_social_text: "Paiements justes aux producteurs, conditions de travail dignes, soutien à l'éducation communautaire et aux projets de santé.",
+                impact_title: "5. Impact Mesurable",
+                impact1_title: "+50 Familles",
+                impact1_text: "Bénéficiaires directs avec des revenus stables",
+                impact2_title: "0% Chimiques",
+                impact2_text: "Culture complètement naturelle sans pesticides",
+                impact3_title: "100% Solaire",
+                impact3_text: "Séchage avec énergie renouvelable solaire",
+                impact4_title: "5-10 t/2 sem.",
+                impact4_text: "Production stable et en croissance",
+                cta_title: "6. Rejoignez le Projet",
+                cta_subtitle: "Opportunités de Collaboration",
+                cta_text: "Nous recherchons des partenaires commerciaux, des investisseurs en agriculture durable et des organisations de coopération pour étendre notre impact. Ensemble, nous pouvons transformer l'industrie du cacao au Cameroun.",
+                cta_dossier: "Voir Master-Dossier",
+                cta_history: "Découvrez Notre Histoire",
                 contact: "Contact",
                 cameroon: "Contacts au Cameroun",
                 coordination: "Coordination (Allemagne)",
-                "family-contact": "Contact Famille Massa",
+                project_info: "Information du Projet",
+                location: "Cameroun",
+                timeline: "Horizon temporel",
+                model: "Modèle d'affaires",
                 coordinator: "Coordinatrice Nationale",
                 rights: "Tous droits réservés"
             },
             de: {
-                title: "Finca BIO MASSA",
-                subtitle: "Nachhaltiges BIO-Kakao-Projekt - Verantwortungsvoller Anbau und Fairer Handel",
-                hero_title: "NACHHALTIGES BIO-KAKAO-PROJEKT",
-                hero_subtitle: "Transformation der kamerunischen Kakao-Wertschöpfungskette hin zu Nachhaltigkeit und fairem Handel",
-                hero_vision: "Vision 2025-2030: +500 Tonnen BIO-zertifizierter Kakao für den Direktexport",
-                operations_title: "📊 Betriebsbericht - Oktober 2025",
-                operations_subtitle: "Betriebszentrum Nwangan unter Leitung von Frau Meyo Mefo Lydie",
-                stat_volume: "Alle 2 Wochen",
-                stat_partner: "Aktiver Vertrag",
-                stat_solar: "Solartrocknung",
-                stat_trainees: "Auszubildende",
-                operations_detail_title: "Stabile Operationen in Nwangan",
-                operations_detail_text: "Der Kakao wird im Lager von Frau Meyo Mefo Lydie in Nwangan gesammelt und getrocknet, gemäß dem Vorfinanzierungsvertrag mit Telcar Cocoa Ltd (5-10 Tonnen alle zwei Wochen). Jede Charge unterliegt einer rigorosen Feuchtigkeits- und Qualitätskontrolle vor der Verpackung in 100-kg-Säcken.",
-                section1_title: "Unser Nachhaltigkeitsansatz",
-                feature1_title: "Regenerative Landwirtschaft",
-                feature1_text: "Anbaupraktiken, die die Bodengesundheit und Biodiversität verbessern und Entwaldung reduzieren.",
-                feature2_title: "Fairer Handel",
-                feature2_text: "Garantierte Preise, die es Landwirten ermöglichen, würdevoll von ihrer Arbeit zu leben.",
-                feature3_title: "Gemeinschaft",
-                feature3_text: "Stärkung ländlicher Gemeinden durch Gesundheits- und Bildungsprogramme.",
-                feature4_title: "BIO-Zertifizierung",
-                feature4_text: "Ökozertifizierungsprozess nach europäischen Standards für den Zugang zu Premium-Märkten.",
-                section2_title: "Nachhaltiger Produktionsprozess",
-                step1_title: "Anbau",
-                step1_text: "BIO-Landwirtschaft ohne Pestizide",
-                step2_title: "Ernte",
-                step2_text: "Optimale manuelle Auswahl",
-                step3_title: "Fermentation",
-                step3_text: "Kontrollierter natürlicher Prozess",
-                step4_title: "Trocknung",
-                step4_text: "Nachhaltige Solarenergie",
-                quality_title: "Umfassende Qualitätskontrolle",
-                quality_text: "Jede Charge durchläuft strenge Kontrollen von Feuchtigkeit, Fermentation und Reinheit vor der Verpackung. Unser Rückverfolgbarkeitssystem gewährleistet totale Transparenz vom Landwirt bis zum Endverbraucher.",
-                supply_chain_title: "Lieferkette & Logistik - Oktober 2025",
-                supply1_title: "Sammelzentrum Nwangan",
-                supply1_text: "Hauptlager unter Leitung von Frau Meyo Mefo Lydie. Kapazität: 5-10 Tonnen alle zwei Wochen.",
-                supply2_title: "Strategische Partnerschaft",
-                supply2_text: "Aktiver Vorfinanzierungsvertrag mit Telcar Cocoa Ltd garantiert stabile Abnahme und Export.",
-                supply3_title: "Nachhaltige Verarbeitung",
-                supply3_text: "100% Solartrocknung, rigorose Qualitätskontrolle, Verpackung in handgenähten 100-kg-Säcken.",
-                supply4_title: "Kontinuierliche Ausbildung",
-                supply4_text: "Auszubildendenprogramm in Qualitätskontrolltechniken und nachhaltiger Verarbeitung.",
-                section3_title: "Auswirkungen auf die Gemeinden",
-                impact1_title: "+200 Familien",
-                impact1_text: "Direkt vom Projekt begünstigt",
-                impact2_title: "Kontinuierliche Ausbildung",
-                impact2_text: "Schulung in nachhaltigen landwirtschaftlichen Techniken",
-                impact3_title: "Frauenförderung",
-                impact3_text: "40% Frauen in Führungspositionen",
-                impact4_title: "Aufforstung",
-                impact4_text: "+5.000 einheimische Bäume jährlich gepflanzt",
-                section4_title: "Projektgalerie - Nwangan 2025",
-                section4_text: "Visuelle Dokumentation unserer Operationen im Nwangan-Zentrum",
-                gallery1_caption: "Kakaosammlung in Partnerplantagen - Nwangan Oktober 2025",
-                gallery2_caption: "Solartrocknungsprozess im Nwangan-Lager - Rigorose Qualitätskontrolle",
-                gallery3_caption: "Frau Meyo Mefo Lydie schult Auszubildende in Qualitätskontrolltechniken",
-                gallery4_caption: "Hauptlager Nwangan - Kapazität: 5-10 Tonnen alle zwei Wochen",
-                gallery5_caption: "Verpackung in 100-kg-Säcken - Vorbereitung für den Export über Telcar Cocoa Ltd",
-                gallery6_caption: "Betriebsteam Nwangan - Koordination: Frau Meyo Mefo Lydie",
-                section5_title: "Werden Sie Teil Unseres Projekts",
-                join_title: "Kooperationsmöglichkeiten",
-                join_text: "Wir suchen strategische Partner, Investoren und Käufer, die sich für Nachhaltigkeit und fairen Handel engagieren. Gemeinsam können wir die Kakaobranche in Kamerun transformieren.",
-                join_button: "Mit Uns Zusammenarbeiten",
+                title: "Nachhaltiges Kakao-Projekt",
+                subtitle: "Projekt MASSA - Nachhaltiger BIO-Kakao 2025-2030",
+                hero_title: "NACHHALTIGES BIO-KAKAO PROJEKT",
+                hero_subtitle: "Verantwortungsvoller Anbau - Nachhaltige Verarbeitung - Fairem Handel",
+                current_status_title: "🌱 AKTUELLE PRODUKTION - OKTOBER 2025",
+                current_status_text: "Operationen in Nwangan: Solartrocknungssystem implementiert - Zertifizierte Qualität",
+                status_organic: "Natürlich",
+                status_drying: "Trocknung",
+                status_quality: "Qualität",
+                status_certification: "In Arbeit",
+                process_title: "1. Nachhaltiger Produktionsprozess",
+                process1_step: "Schritt 1: Anbau",
+                process1_text: "Organischer Anbau im natürlichen Schatten, ohne chemische Pestizide. Partnerschaft mit +50 lokalen Produzenten in Nwangan.",
+                process2_step: "Schritt 2: Ernte",
+                process2_text: "Manuelle selektive Ernte, die nur Früchte im optimalen Reifezustand garantiert.",
+                process3_step: "Schritt 3: Trocknung",
+                process3_text: "Natürliche Trocknung mit Solarenergie, Erhaltung der Kakao-Eigenschaften und Reduzierung des CO2-Fußabdrucks.",
+                process4_step: "Schritt 4: Qualität",
+                process4_text: "Strenges Qualitätskontrollen in jeder Phase, überwacht von Frau Meyo Mefo Lydie.",
+                process5_step: "Schritt 5: Verpackung",
+                process5_text: "Verpackung in 100kg-Säcken mit Handnähten, bereit für den Export nach Europa.",
+                process6_step: "Schritt 6: Export",
+                process6_text: "Direkthandel mit europäischen Partnern, Eliminierung von Zwischenhändlern und Garantie fairer Preise.",
+                benefits_title: "2. Vorteile von nachhaltigem Kakao",
+                benefit1_title: "Agroforstwirtschaft",
+                benefit1_text: "Anbau in Harmonie mit dem Wald, Erhaltung der lokalen Biodiversität.",
+                benefit2_title: "Faire Preise",
+                benefit2_text: "Direkte Zahlungen an Produzenten, Verbesserung des Familieneinkommens.",
+                benefit3_title: "Frauenförderung",
+                benefit3_text: "Weibliche Führung in Koordination und operativem Management.",
+                benefit4_title: "BIO-Zertifizierung",
+                benefit4_text: "Laufender Prozess für europäische Bio-Zertifizierung.",
+                gallery_title: "3. Projekt-Galerie",
+                gallery1_caption: "Hauptlager in Nwangan - Betriebszentrum",
+                gallery2_caption: "Frau Meyo Mefo Lydie überwacht die Qualitätskontrolle",
+                gallery3_caption: "Solartrocknungsanlagen - Erneuerbare Energie",
+                gallery4_caption: "Kakaobohnen exportbereit - Premium-Qualität",
+                gallery5_caption: "Partnerfarmen - Nachhaltiger Anbau in der Südregion",
+                gallery6_caption: "Gemeinschaftsintegration - Nachhaltige ländliche Entwicklung",
+                certification_title: "4. Zertifizierung und Standards",
+                certification_bio: "BIO-Zertifizierung (In Arbeit)",
+                certification_bio_text: "Fortgeschrittener Prozess für den Erhalt der europäischen Bio-Zertifizierung. Einhaltung der EU-Standards für ökologische Landwirtschaft.",
+                certification_quality: "Qualitätsstandards",
+                certification_quality_text: "Feuchtigkeitskontrolle <8%, ganze Bohnen >90%, frei von Verunreinigungen. Einhaltung der Spezifikationen internationaler Exporteure.",
+                certification_social: "Soziale Verantwortung",
+                certification_social_text: "Faire Zahlungen an Produzenten, würdige Arbeitsbedingungen, Unterstützung von Gemeindebildung und Gesundheitsprojekten.",
+                impact_title: "5. Messbare Auswirkungen",
+                impact1_title: "+50 Familien",
+                impact1_text: "Direkt begünstigt mit stabilen Einkommen",
+                impact2_title: "0% Chemikalien",
+                impact2_text: "Völlig natürlicher Anbau ohne Pestizide",
+                impact3_title: "100% Solar",
+                impact3_text: "Trocknung mit erneuerbarer Solarenergie",
+                impact4_title: "5-10 t/2 Wo.",
+                impact4_text: "Stabile und wachsende Produktion",
+                cta_title: "6. Werden Sie Teil des Projekts",
+                cta_subtitle: "Kooperationsmöglichkeiten",
+                cta_text: "Wir suchen kommerzielle Partner, Investoren in nachhaltige Landwirtschaft und Kooperationsorganisationen, um unsere Wirkung zu erweitern. Gemeinsam können wir die Kakaobranche in Kamerun transformieren.",
+                cta_dossier: "Master-Dossier ansehen",
+                cta_history: "Lernen Sie unsere Geschichte kennen",
                 contact: "Kontakt",
-                cameroon: "Kamerun Kontakte",
+                cameroon: "Kontakte in Kamerun",
                 coordination: "Koordination (Deutschland)",
-                "family-contact": "Ansprechpartner Familie Massa",
+                project_info: "Projektinformation",
+                location: "Kamerun",
+                timeline: "Zeithorizont",
+                model: "Geschäftsmodell",
                 coordinator: "Nationale Koordinatorin",
                 rights: "Alle Rechte vorbehalten"
             }
