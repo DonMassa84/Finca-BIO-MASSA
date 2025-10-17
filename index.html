@@ -1102,56 +1102,91 @@
             });
         });
 
-        // API URL - Replace with your actual Railway API URL
-        const API_URL = 'https://finca-bio-massa-api.railway.app'; // Replace with your actual URL
+        // API URL - Using a free backend service
+        const API_URL = 'https://finca-bio-massa-backend.onrender.com'; // Replace with your actual backend URL
 
-        // Farmers data storage in MongoDB
+        // Save farmer data to database and send email
         async function saveFarmer(farmerData) {
             try {
-                // For demo purposes, we'll use localStorage if API is not available
-                if (!API_URL || API_URL.includes('your-railway-app')) {
-                    // Fallback to localStorage
-                    const farmers = JSON.parse(localStorage.getItem('farmers') || '[]');
-                    farmerData.id = Date.now().toString();
-                    farmers.push(farmerData);
-                    localStorage.setItem('farmers', JSON.stringify(farmers));
-                    return farmerData;
-                }
-                
+                // Send data to backend API
                 const response = await fetch(`${API_URL}/api/farmers`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify(farmerData)
+                    body: JSON.stringify({
+                        ...farmerData,
+                        notificationEmail: 'daniel.asset.network@proton.me'
+                    })
                 });
                 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
                 
-                return await response.json();
+                const result = await response.json();
+                return result;
+                
             } catch (error) {
                 console.error('Error saving farmer:', error);
-                throw error;
+                
+                // Fallback: Store in localStorage and try to send email via EmailJS
+                try {
+                    const farmers = JSON.parse(localStorage.getItem('farmers') || '[]');
+                    farmerData.id = Date.now().toString();
+                    farmers.push(farmerData);
+                    localStorage.setItem('farmers', JSON.stringify(farmers));
+                    
+                    // Try to send email via EmailJS as fallback
+                    await sendEmailFallback(farmerData);
+                    
+                    return farmerData;
+                } catch (fallbackError) {
+                    console.error('Fallback also failed:', fallbackError);
+                    throw fallbackError;
+                }
             }
         }
 
+        // Fallback email sending using EmailJS
+        async function sendEmailFallback(farmerData) {
+            // This would require setting up EmailJS service
+            // For now, we'll just log the data that would be sent
+            console.log('Email would be sent to daniel.asset.network@proton.me with data:', farmerData);
+            
+            // In a real implementation, you would use:
+            /*
+            emailjs.send('your_service_id', 'your_template_id', {
+                to_email: 'daniel.asset.network@proton.me',
+                farmer_name: farmerData.name,
+                farmer_email: farmerData.email,
+                farmer_phone: farmerData.phone,
+                farm_name: farmerData.farmName,
+                location: farmerData.location,
+                products: farmerData.products.join(', '),
+                message: farmerData.message,
+                registration_date: new Date().toLocaleDateString()
+            }, 'your_user_id');
+            */
+        }
+
+        // Load farmers from database
         async function loadFarmers() {
             try {
                 let farmers = [];
                 
-                // For demo purposes, we'll use localStorage if API is not available
-                if (!API_URL || API_URL.includes('your-railway-app')) {
-                    farmers = JSON.parse(localStorage.getItem('farmers') || '[]');
-                } else {
+                // Try to load from backend API first
+                try {
                     const response = await fetch(`${API_URL}/api/farmers`);
-                    
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
+                    if (response.ok) {
+                        farmers = await response.json();
+                    } else {
+                        throw new Error('API not available');
                     }
-                    
-                    farmers = await response.json();
+                } catch (apiError) {
+                    // Fallback to localStorage
+                    console.log('API not available, using localStorage fallback');
+                    farmers = JSON.parse(localStorage.getItem('farmers') || '[]');
                 }
                 
                 const tableBody = document.getElementById('farmers-table-body');
